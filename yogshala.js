@@ -99,7 +99,7 @@ function submitContactForm() {
         "Message: " + messageText;
 
     window.open(
-        "https://wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message),
+        "https.wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message),
         "_blank"
     );
 }
