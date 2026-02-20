@@ -1,7 +1,10 @@
 *{
     margin: 0px;
     padding: 0px;
+<<<<<<< HEAD
     box-sizing: border-box;
+=======
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
 
 
@@ -20,6 +23,7 @@ body{
     width: 100%;
     height: auto;
     border: 1px solid black;
+<<<<<<< HEAD
     padding: 0px;
     overflow-x: hidden;
 }
@@ -49,6 +53,113 @@ body{
 .notification-box{
     width: 100%;
     margin: 0;
+=======
+}
+
+.nav{
+    width: 100%;
+    height: 40px;
+    color: black;
+    background-color: #FFFF00;
+    display: flex;
+   
+    
+ 
+}
+.nav-icon{
+    display: flex;
+    margin-left: 10px;
+}
+.nav h6{
+    width: 42%;
+    height: 40px;
+    border-right: 2px solid white;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+
+
+}
+.nav-icon i{
+    margin: 10px;
+     justify-content: center;
+    margin-top: 10px;
+}
+.nav-icon p{
+    margin: 6px;
+}
+/* nav complite */
+.nav-logo{
+
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+}
+.nav-image{
+    width: 200px;
+    height: 60px;
+}
+.nav-image img{
+    width: 200px;
+    height: 60px;
+}
+.nav-text{
+    width: 800px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+
+}
+.nav-text li{
+    list-style-type: none;
+    margin-left: 50px;
+}
+.nav-text li a{
+    text-decoration: none;
+    color: black;
+}
+.nav-button{
+width: 200px;
+height: 60px;
+align-items: center;
+justify-content: center;
+}
+.nav-button button{
+    width: 100px;
+    height: 40px;
+    margin-left: 50px;
+    background-color:rgb(0,0,225);
+    margin-top: 10px;
+    color: white;
+    border: none;border-radius:30px;
+    
+}
+.croucel{
+    width: 100%;
+    height: auto;
+    display: flex;
+    border: 1px solid black;
+    background-color: #fff;
+}
+.croucel-1{
+    margin-top: 10px;
+    width: 75%;
+    height: 310px;
+}
+.croucel-2{
+    justify-content: center;
+}
+.notification-box{
+    width: 350px;
+    margin: 10px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     height: 350px;
     padding: 15px;
     border-radius: 8px;
@@ -94,6 +205,7 @@ body{
     font-weight: bold;
     color: red;
 }
+<<<<<<< HEAD
 .yogshala-help {
   background: #ffffff;
   padding: 30px 20px;
@@ -231,10 +343,86 @@ body{
     width: 100%;
     height: 200px;
     /* border: 1px solid black; */
+=======
+/* crocel end */
+.box{
+    width: 100%;
+    height: 600px;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+
+}
+.box-A{
+    width: 50%;
+    /* border: 1px solid black; */
+    display: flex;
+
+}
+.box-B{
+    width: 40%;
+}
+.box-A1{
+    width: 250px;
+    height: 600px;
+    padding: 20px;
+}
+.box-A2{
+    width: 250px;
+    height: 500px;
+    padding: 10px;
+ 
+      
+}
+.box-size{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+
+}
+#a1{
+    margin-top:10px;
+    background-color: rgb(223, 208, 208);
+}
+#a2{
+margin-top :40px;
+background-color: #FFFF00;
+}
+#a3{
+    margin-top: 60px;
+    background-color: #FFFF00;
+    margin-left: -15px;
+}
+#a4{
+        margin-top: 40px;
+        margin-left: -15px;
+         background-color: rgb(223, 208, 208);
+
+}
+#a1:hover{
+    background-color:#FFFF00;
+}
+#a2:hover{
+   background-color: rgb(223, 208, 208);
+}
+#a3:hover{
+      background-color: rgb(223, 208, 208);
+}
+#a4:hover{
+    background-color: #FFFF00;
+}
+/* box complite */
+
+.point{
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     background-color: transparent;
 }
 .point-1{
     width: 300px;
+<<<<<<< HEAD
     height: auto;
     margin: 0 auto;
     display: flex;
@@ -280,24 +468,51 @@ body{
     width: 100%;
     height: auto;
     /* min-height: 500px; removed to allow auto height */
+=======
+    height: 200px;
+    margin-left: 450px;
+    border: 1px solid black;
+    background-color: aqua;
+}
+.point-1 img{
+    width: 300px;
+    height: 200px;
+}
+.tutorial{
+    width: 100%;
+    height: 500px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     border:1px solid black;
     background-color: rgb(249, 243, 243);
     display: flex;
 }
 .tute-1{
     width: 30%;
+<<<<<<< HEAD
     height: auto;
+=======
+    height: 500px;
+   
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
 .tute-2{
     margin-left: 30px;
     width: 70%;
+<<<<<<< HEAD
     height: auto;
+=======
+    height: 500px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     
 }
 .tute-a{
     width: 300px;
     height: 200px;
     border: 1px solid black;
+<<<<<<< HEAD
+=======
+    margin: 40px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     border-radius: 10px;
 }
 .tute-a img{
@@ -320,6 +535,7 @@ body{
     height: 80px;
     border-right: 2px solid rgb(217, 217, 110);
 }
+<<<<<<< HEAD
 
 /* Tutorial Mobile Responsive */
 @media screen and (max-width: 768px) {
@@ -366,10 +582,16 @@ body{
     width: 100%;
     height: auto;
     padding-bottom: 50px;
+=======
+.images{
+    width: 100%;
+    height: 950px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     border: 1px solid black ;
     text-align: center;
     background-color: #c7c7c7;
 }
+<<<<<<< HEAD
 .images h1{
     font-size: 30px;
     margin-top: -10px;
@@ -397,6 +619,13 @@ body{
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+=======
+.row{
+    width: auto;
+    height: auto;
+    margin-top: 40px;
+
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
 .choises{
     width: 100%;
@@ -409,6 +638,7 @@ body{
     font-size: 15px;
     margin-left:100px;
 }
+<<<<<<< HEAD
 
 /* Images and Choices Mobile Responsive */
 @media screen and (max-width: 768px) {
@@ -474,15 +704,25 @@ body{
 .form{
     width: 100%;
     height: auto;
+=======
+.form{
+    width: 100%;
+    height: 600px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     border: 1px solid black;
     background-color: white;
     margin-top: 15px;
     display: flex;
 }
 .form-1{
+<<<<<<< HEAD
     width: 100%;
     max-width: 450px;
     height: auto;
+=======
+    width: 450px;
+    height: 300px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 
     margin: 20px;
     text-align: start;
@@ -496,7 +736,11 @@ body{
 .form-B{
     width: auto;
     height: auto;
+<<<<<<< HEAD
     text-align: left;
+=======
+    text-align:left,right;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     margin-left: -80px;
    
 }
@@ -504,6 +748,7 @@ body{
     font-size: 13px;
     
 }
+<<<<<<< HEAD
 
 /* FORM COMPALETE */
 .fees{
@@ -517,6 +762,64 @@ body{
     box-shadow: inset 0 12px 18px -10px rgba(0, 0, 0, 0.35);
     border-radius: 15px;
 }
+=======
+.fees{
+    width: 750px;
+    height: 600px;
+    padding: 20px;
+    margin-left: 200px;
+    border: 1px solid black;
+     background: linear-gradient(180deg, #1e4fa3,#0b2f6b);
+     box-shadow: inset 0 12px 18px -10px rgba(0, 0, 0 ,0, 35);
+    
+}
+.fees label{
+    color: #fff;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+
+}
+.fees input{
+    width: 100%;
+      padding: 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+.fees select{
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+.fees button{
+    margin-top: 20px;
+    width: 120px;
+    padding: 10px;
+    background: transparent;
+     border: 1px solid #fff;
+     border-radius: 6px;
+     cursor: pointer;
+     color: white;
+     margin-left: 180px;
+}
+.fees button:hover{
+    background-color: #f1f1f1;
+    color: black;
+}
+.form-3{
+    position: absolute;
+    width: 600px;
+    height: 240px;
+    margin: 20px;
+    margin-top: 340px;
+}
+
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 @media (max-width: 768px) {
   .croucel {
     flex-direction: column;
@@ -539,6 +842,17 @@ body{
   .form-3 {
     width: 100%;
   }
+<<<<<<< HEAD
+=======
+  .form-3 {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border: none;
+  }
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
 
 .hamburger {
@@ -565,10 +879,35 @@ body{
     justify-content: space-between;
   }
 }
+<<<<<<< HEAD
 .card-img-top{
     width: 100%;
     height: 200px;
     object-fit: cover;
+=======
+.gallery-item{
+    width: 100%;
+    height: 900px;
+    border: 1px solid black;
+    background-color: #c7c7c7;
+}
+.items{
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+    background-color: #c7c7c7;
+    display: flex;
+
+}
+.pics{
+    width: 400px;
+    height: 400px;
+}
+.card-img-top{
+    width: 280px;
+    height: 180px;
+    padding: 10px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
 .card-body p{
     margin-left: -1px;
@@ -585,10 +924,15 @@ body{
     width: 250px;
     height: 200px;
     border: 1px solid white;
+<<<<<<< HEAD
+=======
+    margin: 50px;
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
     color: white;
 }
 .picture-1 p{
 margin-left: 5px;
+<<<<<<< HEAD
 }
 
 /* Mobile Gallery Side Slider */
@@ -806,4 +1150,6 @@ body {
         flex: 0 0 85%; /* मोबाइल पर एक बार में एक कार्ड दिखेगा */
         scroll-snap-align: start;
     }
+=======
+>>>>>>> d4734651c9e9ad29be02b43a272dacf78e7414b8
 }
