@@ -7,29 +7,55 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-  
+<link rel="stylesheet" href="style.css">
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBBgB2laofPzAnexQ4QaM6BwXijr5snMtk",
+    authDomain: "yogshala-jaipur.firebaseapp.com",
+    projectId: "yogshala-jaipur",
+    storageBucket: "yogshala-jaipur.firebasestorage.app",
+    messagingSenderId:  "903452643909",
+    appId: "1:903452643909:web:a56a1cd157ebd570e6092c",
+    measurementId:"G-QYY0NNFVH6"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </head>
 <body>
       <!-- containerstart -->
     <!-- START HEADER -->
 <!-- TOP BAR -->
-<div class="top-bar d-none d-lg-flex justify-content-between align-items-center">
+<div class="top-bar">
     <div class="container">
-        <div class="d-flex justify-content-between w-100">
-            <div>RELIEF PAIN. IMMPROVE FLEXIBILITY</div>
-            <div class="d-flex align-items-center">
-                <div class="me-3">
+        <div class="d-flex justify-content-center justify-content-lg-between flex-wrap align-items-center">
+            <div class="text-center text-lg-start mb-2 mb-lg-0">RELIEF PAIN. IMMPROVE FLEXIBILITY</div>
+            <div class="d-flex align-items-center flex-wrap justify-content-center">
+                <div class="me-3 mb-2 mb-lg-0">
                     <i class="fa-solid fa-mobile"></i> 7689941298
                 </div>
-                <div class="me-3">
+                <div class="me-3 mb-2 mb-lg-0">
                     <i class="fa-solid fa-envelope-open"></i> yogshala-jaipur@gmail.com
                 </div>
                 <div class="social-icons">
-                   <a href="https://wa.me/917689941298"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="https://www.facebook.com/share/18HMVuKacf/"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/yogshala_jaipur?igsh=emx1MG9mMm94Yzh"><i class="fa-brands fa-instagram"></i></a>
-                  <a href="https://youtube.com/@yogshala-jaipur"><i class="fa-brands fa-youtube"></i></a>
+                   <a href="https://wa.me/917689941298" aria-label="whatasapp">
+                    <i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/share/18HMVuKacf/" aria-label="facebook">
+                        <i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/yogshala_jaipur?igsh=emx1MG9mMm94Yzh" aria-label="instagram">
+                        <i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://youtube.com/@yogshala-jaipur" aria-label="youtube">
+                    <i class="fa-brands fa-youtube"></i></a>
                     <i class="fa-solid fa-ellipsis"></i>
                 </div>
             </div>
@@ -40,7 +66,7 @@
 <!-- MAIN NAVIGATION -->
 <nav class="navbar main-nav navbar-expand-lg navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="YOGSHALA.HTML">
+    <a class="navbar-brand" href="index.html">
       <img src="WhatsApp Image 2025-12-09 at 11.02.31_5b46d880.jpg" alt="Yogshala Logo" width="200">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +75,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="YOGSHALA.HTML">Home</a>
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="classes.html">Classes</a>
@@ -61,7 +87,7 @@
           <a class="nav-link" href="INSTRUCTOR.HTML">Instructor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="CONTECT.HTML">Contact us</a>
+          <a class="nav-link" href="CONTACT.HTML">Contact us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="BLOG.HTML">Blog</a>
@@ -238,7 +264,7 @@ Get customized one-on-one yoga training based on your body type and health goals
         <li>Posture Correction</li>
         <li>Stress Management</li>
     </ul>
-<A href="CONTECT.HTML" class="therapy-btn"> Book Therapy Session</A>
+<a href="CONTACT.HTML" class="therapy-btn"> Book Therapy Session</a>
 </section>
   </div>
 </div>
@@ -261,26 +287,26 @@ Get customized one-on-one yoga training based on your body type and health goals
 </div>
   </div>
   <div class="tute-2">
-    <h2 style="color:blue; margin-top: 40px;">Know About Yogshala jaipur</h2>
-    <b><p>We Guide Your Body, Mind & Soul — If You Have Dedication</p></b>
-    <p style="color: rgb(232, 232, 110); font-size: 30px; margin-top: -20px;">______</p>
+    <h2 class="tute-title">Know About Yogshala jaipur</h2>
+    <p class="tute-tagline"><b>We Guide Your Body, Mind & Soul — If You Have Dedication</b></p>
+    <p class="tute-separator">______</p>
     <p>Established with the vision of spreading true yogic wisdom, Yogshala  stands as a serene space where health, harmony, and holistic growth meet.
 Our Yogshala is dedicated to providing a balanced blend of traditional yoga practices and modern wellness techniques to help individuals achieve inner peace, strength, and complete well-being.
 
 At our center, we offer classes for all levels—Beginners, Intermediate, Advanced—as well as special sessions including Meditation, Pranayama, Weight Loss Yoga, Therapy Yoga, Kids Yoga, and Stress Relief Programs.
 Our approach focuses on personalized guidance, disciplined practice, and a nurturing environment.</p>
-<a href="#">Read more</a>
+<!-- <a href="#" >Read more</a> -->
 <div class="tute-2a">
   <div class="tute-3">
-    <img src="icon1.jpg" alt="">
-   <p style="margin-left: 10px;"><b>Quality in Every Session</b><br>
+    <img src="icon1.jpg" alt="Quality session icon">
+   <p><b>Quality in Every Session</b><br>
    Mindful teaching, expert instructors,<br> and a peaceful environment for<br> maximum transformation.
   </p>
     
   </div>
-  <div class="tute-3" style="margin-left: 10px;">
-    <img src="icon2.jpg" alt="">
-    <p style="margin-left: 10px;"><b>Care Beyond the Class</b><br>We stay connected<br>with your wellness journey—guiding<br> lifestyle, diet, and daily practices.</p>
+  <div class="tute-3">
+    <img src="icon2.jpg" alt="Care beyond class icon">
+    <p><b>Care Beyond the Class</b><br>We stay connected<br>with your wellness journey—guiding<br> lifestyle, diet, and daily practices.</p>
   </div>
 </div>
 </div>
@@ -288,7 +314,8 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
 <!-- tutorial complate -->
 
 <!--  -->
-  <div class="d-lg-none container">
+  <!-- <div class="d-lg-none container">
+    <div style="width: 90%; height: 70px; background-color: rgb(6, 6, 6); margin: -50px auto 20px; margin-top: -75px;"></div>
     <div id="mobileImagesCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active"><img src="a2.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Motivation"></div>
@@ -308,7 +335,8 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-  </div>
+  </div> -->
+<!-- <a href="#"><button style="margin-top: 25px;width: 100px; height: 40px; padding: 5px; border-radius: 30px; color: rgb(0, 0, 0);"><b>View More</b></button></a> -->
 </div>
 <!-- imageses complete -->
   
@@ -442,7 +470,7 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
     <label class="form-label text-white"> *Class Mode</label>
 <select id="mode" class="form-select" onchange="updateFees()">
     <option value="">-- Select Mode --</option>
-    <option value="Online">Online</option>
+    <option value="Online" id="onlineOption">Online</option>
     <option value="Offline">Offline</option>
 </select>
 </div>
@@ -622,7 +650,7 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
             <!-- Card 7 -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">
-                    <img src="s4.jpg" class="card-img-top" alt="...">
+                    <img src="s4.jpg" class="card-img-top" alt="..." style="height: 250px; object-fit: cover; object-position: center;">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -633,7 +661,7 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
             <!-- Card 8 -->
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="card h-100">
-                    <img src="s4.jpg" class="card-img-top" alt="...">
+                    <img src="s4.jpg" class="card-img-top" alt="..." style="height: 250px; object-fit: cover; object-position: center;">
                     <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
