@@ -48,7 +48,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="YOGSHALA.HTML">Home</a>
+          <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="classes.html">Classes</a>
@@ -60,7 +60,7 @@
           <a class="nav-link" href="INSTRUCTOR.HTML">Instructor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="CONTECT.HTML">Contact us</a>
+          <a class="nav-link active" aria-current="page" href="CONTACT.HTML">Contact us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="BLOG.HTML">Blog</a>
@@ -73,7 +73,7 @@
 <!-- END HEADER -->
 
 <!-- MAIN CONTENT SECTION -->
-<div class="container-fluid py-5" style="background-color: aliceblue;">
+<div class="container-fluid py-5" style="background-image: url('vintage-textured-background-0410-5699369.webp'); background-size: cover; background-position: center;">
     <div class="container">
     <h1 class="text-center mb-4" style="color: #1b5e20; font-weight: bold;">Contact Us</h1>
     <p class="text-center mb-5">We'd love to hear from you. Get in touch with us for any queries.</p>
@@ -81,11 +81,11 @@
     <div class="row g-4">
         <!-- Left Column: Contact Info & Map -->
         <div class="col-lg-5">
-            <div class="p-4 rounded shadow-sm h-100" style="background-color: #e8f5e9;">
+            <div class="p-4 rounded shadow-lg h-100 contact-info-card" >
                 <h3 class="mb-4" style="color: #1b5e20;">Get in Touch</h3>
                 
                 <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 50px; height: 50px; background: #1b5e20; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <div class="me-3 contact-icon-box">
                         <i class="fa-solid fa-location-dot fa-lg"></i>
                     </div>
                     <div>
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 50px; height: 50px; background: #1b5e20; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <div class="me-3 contact-icon-box">
                         <i class="fa-solid fa-phone fa-lg"></i>
                     </div>
                     <div>
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="d-flex align-items-center mb-4">
-                    <div class="me-3" style="width: 50px; height: 50px; background: #1b5e20; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                    <div class="me-3 contact-icon-box">
                         <i class="fa-solid fa-envelope fa-lg"></i>
                     </div>
                     <div>
@@ -130,7 +130,7 @@
 
         <!-- Right Column: Contact Form -->
         <div class="col-lg-7">
-            <div class="p-4 rounded shadow h-100 border" style="background-color: #fff8e1;">
+            <div class="p-4 rounded shadow-lg h-100 contact-form-card">
                 <h3 class="mb-4" style="color: #1b5e20;">Send a Message</h3>
                 <form onsubmit="event.preventDefault(); submitContactForm();">
                     <div class="row g-3">
@@ -155,13 +155,84 @@
                             <textarea class="form-control" id="contactMessage" rows="5" placeholder="How can we help you?" required></textarea>
                         </div>
                         <div class="col-12">
-                            <button class="btn text-white w-100 py-2" type="submit" style="background-color: #1b5e20; font-size: 18px;">Send Message <i class="fa-solid fa-paper-plane ms-2"></i></button>
+                            <button class="btn btn-primary w-100 py-2 contact-submit-btn" type="submit">Send Message <i class="fa-solid fa-paper-plane ms-2"></i></button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    </div>
+</div>
+
+<!-- CLIENT REVIEW SECTION -->
+<div class="client-review-section container-fluid py-5">
+    <div class="container">
+        <h2 class="text-center mb-2" style="color: #1b5e20; font-weight: bold;">What Our Clients Say</h2>
+        <p class="text-center text-muted mb-5">Testimonials from our valued yoga practitioners</p>
+        
+        <div class="testimonial-slider-container">
+            <div class="testimonial-slider">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"Yogshala has been a transformative experience for me. The instructors are incredibly knowledgeable and caring."</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="client-info">
+                        <img src="s1.jpg" alt="Client 1" class="client-photo">
+                        <div class="client-details">
+                            <div class="client-name">Priya Sharma</div>
+                            <div class="client-location">Jaipur, Rajasthan</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"A truly authentic yoga studio. I have found so much peace and strength since joining. Highly recommended!"</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <div class="client-info">
+                        <img src="s2.jpg" alt="Client 2" class="client-photo">
+                        <div class="client-details">
+                            <div class="client-name">Amit Singh</div>
+                            <div class="client-location">Delhi, India</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">"The best yoga classes in the city. The therapy sessions have helped me with my back pain immensely."</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="client-info">
+                        <img src="s3.jpg" alt="Client 3" class="client-photo">
+                        <div class="client-details">
+                            <div class="client-name">Anjali Verma</div>
+                            <div class="client-location">Jaipur, Rajasthan</div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Testimonial 4 -->
+                 <div class="testimonial-card">
+                    <div class="testimonial-quote">"I love the community feel at Yogshala. It's more than just a yoga studio; it's a family."</div>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="client-info">
+                        <img src="s4.jpg" alt="Client 4" class="client-photo">
+                        <div class="client-details">
+                            <div class="client-name">Rohan Gupta</div>
+                            <div class="client-location">Mumbai, Maharashtra</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 </div>
 
@@ -175,10 +246,10 @@
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="yogshala.html">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Therapy Yoga</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="TRAINING.HTML">Yoga Teacher Training</a></li>
+        <li><a href="INSTRUCTOR.HTML">Therapy Yoga</a></li>
+        <li><a href="CONTACT.HTML">Contact</a></li>
       </ul>
     </div>
     <div class="footer-box">

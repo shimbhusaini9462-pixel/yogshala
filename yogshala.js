@@ -103,3 +103,89 @@ function submitContactForm() {
         "_blank"
     );
 }
+
+
+function register(){
+  let name = document.getElementById("regName").value;
+  let email = document.getElementById("regEmail").value;
+  let pass = document.getElementById("regPass").value;
+
+  if(name=="" || email=="" || pass==""){
+    document.getElementById("regMsg").innerText="All fields required";
+    return;
+  }
+
+  let user = {name,email,pass};
+  localStorage.setItem("yogshala_user", JSON.stringify(user));
+
+  alert("Registration Successful! Please Login");
+  window.location.href="login.html";
+}
+
+function login(){
+  let email = document.getElementById("loginEmail").value;
+  let pass = document.getElementById("loginPass").value;
+
+  let user = JSON.parse(localStorage.getItem("yogshala_user"));
+
+  if(!user){
+    document.getElementById("loginMsg").innerText="No account found. Please register.";
+    return;
+  }
+
+  if(email === user.email && pass === user.pass){
+    localStorage.setItem("yogshala_login","true");
+    window.location.href="index.html";
+  } else {
+    document.getElementById("loginMsg").innerText="Invalid Email or Password";
+  }
+}
+
+function logout(){
+  localStorage.removeItem("yogshala_login");
+  window.location.href="login.html";
+}
+
+// Testimonial Slider
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.testimonial-slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cards = document.querySelectorAll('.testimonial-card');
+    let currentIndex = 0;
+    const totalSlides = cards.length;
+
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth + 30; // card width + margin
+        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+    }
+
+    if(nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop back to start
+            }
+            updateSlider();
+        });
+    }
+
+    if(prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalSlides - 1; // Loop to end
+            }
+            updateSlider();
+        });
+    }
+
+    // Auto-slide functionality (optional)
+    // setInterval(() => {
+    //     if (nextBtn) nextBtn.click();
+    // }, 5000);
+
+    window.addEventListener('resize', updateSlider);
+});

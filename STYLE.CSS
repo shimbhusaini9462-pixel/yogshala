@@ -13,15 +13,12 @@ img {
     height: auto;
 }
 
-
-.wrapper, .container, .main{
-    background-color: transparent;
-}
 body{
     background-color: #f5f5f5;
     background-image: none;
     min-height: 100vh;
 }
+
 .container-fluid{
     width: 100%;
     height: auto;
@@ -30,51 +27,11 @@ body{
     background-color: white;
 }
 
-/* Mobile First Responsive Base */
-@media screen and (max-width: 576px) {
-    body {
-        font-size: 14px;
-    }
-    
-    h1 { font-size: 24px; }
-    h2 { font-size: 20px; }
-    h3 { font-size: 18px; }
-    h5 { font-size: 14px; }
-    
-    .container {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-.nav-button button:hover{
-    background-color: rgb(0,0,180);
-    cursor: pointer;
-}
-
 .top-bar {
     background-color: #FFFF00;
     padding: 8px 0;
     font-size: 0.9rem;
     color: black;
-}
-
-/* Mobile Top Bar */
-@media screen and (max-width: 768px) {
-    .top-bar {
-        font-size: 0.7rem;
-        padding: 5px 0;
-    }
-    
-    .top-bar .me-3 {
-        margin-right: 0.5rem !important;
-        font-size: 0.65rem;
-    }
-    
-    .social-icons i {
-        font-size: 12px;
-        margin: 0 3px;
-    }
 }
 
 .main-nav {
@@ -88,22 +45,6 @@ body{
 .navbar-brand img {
     max-width: 200px;
     height: auto;
-}
-
-/* Mobile Navigation */
-@media screen and (max-width: 992px) {
-    .navbar-brand img {
-        max-width: 150px;
-    }
-    
-    .navbar-nav {
-        text-align: center;
-        padding: 10px 0;
-    }
-    
-    .nav-item {
-        padding: 5px 0;
-    }
 }
 
 .social-icons i {
@@ -123,14 +64,6 @@ body{
     scroll-behavior: smooth;
 }
 
-/* Mobile Notification Box */
-@media screen and (max-width: 992px) {
-    .notification-box {
-        margin-top: 15px;
-        height: auto;
-        max-height: 300px;
-    }
-}
 .notification-box::-webkit-scrollbar{
     width: 6px;
 }
@@ -247,28 +180,6 @@ body{
         cursor: pointer;
       }
       
-      /* Mobile Box Styles */
-      @media screen and (max-width: 768px) {
-          #a1, #a2, #a3, #a4 {
-              min-height: auto;
-              padding: 15px !important;
-              margin-bottom: 10px;
-          }
-          
-          #a1 h2, #a2 h2, #a3 h2, #a4 h2 {
-              font-size: 18px !important;
-              min-height: auto !important;
-          }
-          
-          #a1 h5, #a2 h5, #a3 h5, #a4 h5 {
-              font-size: 13px !important;
-          }
-          
-          #a1 img, #a2 img, #a3 img, #a4 img {
-              width: 60px !important;
-              height: 60px !important;
-          }
-      }
 .therapy{
     padding: 30px;
     background:#fff8e1;
@@ -372,8 +283,8 @@ body{
     width: 100%;
     height: auto;
     min-height: 500px;
-    border:1px solid black;
-    background-color: rgb(249, 243, 243);
+    /* border:1px solid black; */
+    background-color: transparent;
     display: flex;
 }
 .tute-1{
@@ -400,18 +311,35 @@ body{
 }
 .tute-2a{
     width: 100%;
-    height: 100px;
-    /* border: 1px solid black; */
     display: flex;
     margin-top: 20px;
+    gap: 20px;
 }
 .tute-3{
     display: flex;
+    align-items: center;
 }
 .tute-3 img{
     width: 80px;
     height: 80px;
     border-right: 2px solid rgb(217, 217, 110);
+    margin-right: 10px;
+}
+
+.tute-title {
+    color: blue;
+    margin-top: 40px;
+}
+
+.tute-tagline {
+    font-weight: bold;
+}
+
+.tute-separator {
+    color: rgb(232, 232, 110);
+    font-size: 30px;
+    margin-top: -20px;
+    margin-bottom: 20px;
 }
 
 /* Tutorial Mobile Responsive */
@@ -420,6 +348,7 @@ body{
         flex-direction: column;
         height: auto;
         padding: 10px;
+        border: none; /* remove border on mobile */
     }
     .tute-1, .tute-2 {
         width: 100%;
@@ -427,142 +356,31 @@ body{
         height: auto;
     }
     .tute-a {
-        margin: 20px auto;
+        margin: 10px 0;
         width: 100%;
-        max-width: 300px;
-        height: auto;
+        border: none; /* remove border on mobile */
     }
     .tute-a img {
         width: 100%;
         height: auto;
     }
     .tute-2a {
-        height: auto;
         flex-wrap: wrap;
+        gap: 20px;
     }
     .tute-3 {
         flex-wrap: wrap;
     }
-}
-/* images in my yogshala website are not showing. I have used the correct path but still they are not showing. Please help me to solve this problem. */
-
-.images{
-    width: 100%;
-    height: auto;
-    min-height: 500px;
-    text-align: center;
-    background-color: #c7c7c7;
-    padding: 40px 20px;
-}
-.images h2{
-    font-size: 30px;
-    margin-top: 10px;
-    color: rgb(239, 191, 4);
-}
-.row{
-    width: auto;
-    height: auto;
-    margin-top: 25px;
-    font-style: italic;
-   
-
-}
-.choises{
-    width: 100%;
-    height: auto;
-    min-height: 300px;
-    background-color: #f8f9fa;
-    padding: 40px 20px;
-}
-.choises p{
-    font-size: 15px;
-    margin-left: 20px;
-    text-align: left;
-}
-
-/* Images and Choices Mobile Responsive */
-@media screen and (max-width: 768px) {
-    .images {
-        height: auto;
-        padding: 20px 0;
-        overflow: hidden;
+    .tute-title {
+        margin-top: 20px;
+        font-size: 1.5rem;
     }
-    /* Create Slide Bar (Horizontal Scroll) for images */
-    .images .row {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        margin: 20px 0 !important;
-        padding-bottom: 15px; /* Space for scrollbar */
-    }
-    .images .row::-webkit-scrollbar {
-        height: 5px;
-        background: #f1f1f1;
-    }
-    .images .row::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-    }
-    /* Style all items inside the row (images and yellow boxes) */
-    .images .row > * {
-        width: 250px !important;
-        height: 180px !important;
-        margin: 0 15px 0 0 !important;
-        max-width: none;
-        flex-shrink: 0;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-    /* Hide yellow boxes (divs) in image section on mobile */
-    .images .row div {
-        display: none !important;
-    }
-    .choises {
-        height: auto;
-        padding: 20px;
-    }
-    .choises p {
-        margin-left: 0;
-        text-align: center;
+    .tute-separator {
+        font-size: 1.5rem;
+        margin-top: -10px;
+        margin-bottom: 10px;
     }
 }
-
-
-
-/* COISE COMLETE */
-.form{
-    width: 100%;
-    height: 600px;
-    border: 1px solid black;
-    background-color: white;
-    margin-top: 15px;
-    display: flex;
-}
-.form-1{
-    width: 450px;
-    height: 300px;
-
-    margin: 20px;
-    text-align: start;
-    display: flex;
-  
-}
-.form-A{
-    width: 60px;
-  
-}
-.form-B{
-    width: auto;
-    height: auto;
-    text-align:left,right;
-    margin-left: -80px;
-   
-}
-.form-B p{
-    font-size: 13px;
-    
-}
-
 /* FORM COMPALETE */
 .fees{
     width: 100%;
@@ -620,77 +438,6 @@ body{
   }
 }
 
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.hamburger i {
-  font-size: 24px;
-}
-
-@media (max-width: 768px) {
-  .nav-text,
-  .nav-button {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-    margin-right: 20px;
-  }
-
-  .nav-logo {
-    justify-content: space-between;
-  }
-}
-.card-img-top{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-.card-body p{
-    margin-left: -1px;
-}
-.picture{
-    width: 100%;
-    height: auto;
-    min-height: 400px;
-    background-color: #1a1a1a;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 40px 20px;
-    justify-content: center;
-}
-.picture-1{
-    width: 250px;
-    height: auto;
-    min-height: 200px;
-    border: 1px solid white;
-    margin: 20px;
-    color: white;
-    padding: 15px;
-}
-.picture-1 p{
-    margin-left: 5px;
-}
-
-/* Mobile Gallery Side Slider */
-@media (max-width: 768px) {
-    .gallery-slider {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        padding-bottom: 15px; /* Space for scrollbar */
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
-    }
-    
-    .gallery-slider > div {
-        flex: 0 0 auto;    /* Prevents cards from shrinking */
-        width: 85%;        /* Shows one card + a peek of the next */
-    }
-}
 .yogshala-footer {
   background-color: #1b3a2f;
   color: #ffffff;
@@ -852,9 +599,14 @@ body{
 
 /* Carousel Mobile Optimization */
 @media screen and (max-width: 768px) {
+    .carousel-item {
+      height: 600px;
+
+    }
     .carousel-item img {
-        height: 250px;
+        height: 100%;
         object-fit: cover;
+
     }
     
     .carousel-caption {
@@ -1035,16 +787,35 @@ body{
 
 /* Carousel Image Height Fix */
 @media screen and (max-width: 768px) {
+    .carousel-item {
+        height: 200px;
+    }
     .carousel-item img {
-        height: 250px;
+        height: 100%;
         object-fit: cover;
+        object-position: center;
     }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .carousel-item {
+        height: 350px;
+    }
     .carousel-item img {
-        height: 400px;
+        height: 100%;
         object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .carousel-item {
+        height: 450px;
+    }
+    .carousel-item img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 }
 
@@ -1070,4 +841,230 @@ body{
         flex: 0 0 100%;
         max-width: 100%;
     }
+}
+
+/* --- Contact Page Styles --- */
+
+.contact-info-card {
+    background-color: rgba(232, 245, 233, 0.85);
+    border-left: 5px solid #1b5e20;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.contact-icon-box {
+    width: 50px;
+    height: 50px;
+    background: #1b5e20;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover .contact-icon-box {
+    background: #ffc107;
+    color: #1b5e20;
+    transform: rotate(360deg) scale(1.1);
+}
+
+.contact-form-card {
+    background-color: rgba(255, 248, 225, 0.85);
+    border-left: 5px solid #ffc107;
+    backdrop-filter: blur(5px);
+}
+
+.contact-form-card .form-control {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+}
+
+.contact-form-card .form-control:focus {
+    border-color: #1b5e20;
+    box-shadow: 0 0 0 0.25rem rgba(27, 94, 32, 0.25);
+    transform: scale(1.02);
+}
+
+.contact-submit-btn {
+    background-color: #1b5e20;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px !important;
+    padding: 12px 0 !important;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.contact-submit-btn:hover {
+    background-color: #ffc107;
+    color: #1b5e20 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.client-review .review-item {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid #a8e6cf;
+}
+
+.client-review .review-item p {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.client-review .review-item .client-name {
+  font-style: normal;
+  font-weight: bold;
+  text-align: right;
+  color: #a8e6cf;
+}
+
+/* --- Client Review Section --- */
+.client-review-section {
+    background-color: #f9f9f9;
+}
+
+.testimonial-slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 0 50px; /* Space for buttons */
+}
+
+.testimonial-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial-card {
+    flex: 0 0 100%;
+    padding: 30px;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    margin: 0 15px;
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.star-rating {
+    color: #ffc107;
+    margin-bottom: 20px;
+}
+
+.client-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.client-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid #1b5e20;
+}
+
+.client-name {
+    font-weight: bold;
+    color: #1b5e20;
+    font-size: 1.1rem;
+}
+
+.client-location {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1b5e20;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: #ffc107;
+    color: #1b5e20;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+/* Responsive for Client Review Section */
+@media screen and (max-width: 992px) {
+    .testimonial-slider-container {
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .testimonial-slider-container {
+        padding: 0;
+        max-width: 100%;
+        overflow-x: auto; /* Enable swipe */
+        scroll-snap-type: x mandatory;
+    }
+    
+    .testimonial-slider {
+        scroll-snap-align: start;
+    }
+
+    .testimonial-card {
+        flex: 0 0 90%; /* Show one card and a bit of the next */
+        margin: 0 5%;
+        scroll-snap-align: center;
+    }
+
+    .slider-btn {
+        display: none; /* Hide buttons on mobile */
+    }
+}
+.carousel-inner .carousel-item {
+    height: 550px; 
+}
+
+.carousel-inner .carousel-item img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-height-carousel .carousel-inner .carousel-item {
+    height: auto;
 }
