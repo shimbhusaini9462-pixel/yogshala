@@ -1074,3 +1074,39 @@ body{
         object-fit: cover;
     }
 }
+
+
+
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 15px; /* for the scrollbar */
+    margin-bottom: 15px; /* as requested by user */
+}
+
+.scroll-item {
+    flex: 0 0 80%; /* Each item takes 80% of the width */
+    margin-right: 15px;
+}
+
+.scroll-item:last-child {
+    margin-right: 0;
+}
+
+/* To make scrollbar look better */
+.horizontal-scroll-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
