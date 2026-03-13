@@ -597,22 +597,7 @@ body{
     }
 }
 
-/* Carousel Mobile Optimization */
-@media screen and (max-width: 768px) {
-    .carousel-item {
-      height: 600px;
 
-    }
-    .carousel-item img {
-        height: 100%;
-        object-fit: cover;
-
-    }
-    
-    .carousel-caption {
-        display: none !important;
-    }
-}
 
 /* Gallery Card Mobile */
 @media screen and (max-width: 768px) {
@@ -785,17 +770,7 @@ body{
     }
 }
 
-/* Carousel Image Height Fix */
-@media screen and (max-width: 768px) {
-    .carousel-item {
-        height: 200px;
-    }
-    .carousel-item img {
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-}
+
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
     .carousel-item {
@@ -1067,4 +1042,35 @@ body{
 
 .image-height-carousel .carousel-inner .carousel-item {
     height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .top-bar .d-flex {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+    }
+    .top-bar .d-flex > div {
+        font-size: 0.7rem; /* Further reduce font size */
+        margin-right: 10px !important; /* Reduce spacing between items */
+        white-space: nowrap; /* Prevent text from wrapping within items */
+    }
+    .top-bar .social-icons {
+        display: flex;
+        align-items: center;
+    }
+    .top-bar .social-icons a {
+        margin-right: 10px; /* Adjust spacing between icons */
+    }
+    .top-bar .social-icons i {
+        font-size: 0.9rem; /* Slightly smaller icons */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-inner .carousel-item {
+        height: auto;
+    }
+    .carousel-inner .carousel-item img {
+        object-fit: cover;
+    }
 }
