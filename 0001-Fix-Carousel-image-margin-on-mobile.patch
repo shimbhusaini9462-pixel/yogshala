@@ -1,0 +1,21 @@
+From ce155d3fcdc801ce991b09438661b9cecbfc60c2 Mon Sep 17 00:00:00 2001
+From: yogshala-jaipur <shimbhusaini9462@gmail.com>
+Date: Fri, 13 Mar 2026 11:31:17 +0530
+Subject: [PATCH] Fix: Carousel image margin on mobile
+
+---
+ YOGSHALA-MAIN/.gitattributes | 2 --
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 YOGSHALA-MAIN/.gitattributes
+
+diff --git a/YOGSHALA-MAIN/.gitattributes b/YOGSHALA-MAIN/.gitattributes
+deleted file mode 100644
+index dfe0770..0000000
+--- a/YOGSHALA-MAIN/.gitattributes
++++ /dev/null
+@@ -1,2 +0,0 @@
+-# Auto detect text files and perform LF normalization
+-* text=auto
+-- 
+2.52.0.windows.1
+
