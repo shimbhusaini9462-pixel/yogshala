@@ -345,40 +345,44 @@ body{
 /* Tutorial Mobile Responsive */
 @media screen and (max-width: 768px) {
     .tutorial {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-        border: none; /* remove border on mobile */
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 30px 15px !important;
+        border: none !important; 
+        gap: 40px !important; 
     }
     .tute-1, .tute-2 {
-        width: 100%;
-        margin-left: 0;
-        height: auto;
+        width: 100% !important;
+        margin-left: 0 !important;
+        height: auto !important;
     }
     .tute-a {
-        margin: 10px 0;
-        width: 100%;
-        border: none; /* remove border on mobile */
+        margin: 0 0 30px 0 !important; 
+        width: 100% !important;
+        height: auto !important; /* YE LINE OVERLAP FIX KAREGI */
+        border: none !important;
     }
     .tute-a img {
-        width: 100%;
-        height: auto;
+        width: 100% !important;
+        height: auto !important;
+        display: block !important;
     }
     .tute-2a {
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column !important;
+        gap: 30px !important; 
     }
     .tute-3 {
-        flex-wrap: wrap;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
     }
     .tute-title {
-        margin-top: 20px;
-        font-size: 1.5rem;
+        margin-top: 0;
+        font-size: 1.8rem;
     }
     .tute-separator {
-        font-size: 1.5rem;
-        margin-top: -10px;
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-top: -15px;
+        margin-bottom: 20px;
     }
 }
 /* FORM COMPALETE */
@@ -1107,4 +1111,42 @@ body{
 
 .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/* =========================================
+   MOBILE GALLERY 2-ROW SLIDER 
+   ========================================= */
+@media screen and (max-width: 767px) {
+    .mobile-gallery-slider {
+        display: grid !important;
+        grid-auto-flow: column;
+        grid-auto-columns: 80vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-bottom: 15px;
+        gap: 1.5rem;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 15px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .mobile-gallery-slider > div {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-top: 0 !important;
+        width: 100% !important;
+        scroll-snap-align: start;
+    }
+    .mobile-gallery-slider::-webkit-scrollbar {
+        height: 6px;
+    }
+    .mobile-gallery-slider::-webkit-scrollbar-thumb {
+        background-color: #1b5e20;
+        border-radius: 10px;
+    }
+    .mobile-gallery-slider::-webkit-scrollbar-track {
+        background-color: rgba(27, 94, 32, 0.2);
+        border-radius: 10px;
+    }
 }
