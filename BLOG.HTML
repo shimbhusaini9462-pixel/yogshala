@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="STYLE.CSS">
 </head>
 <body>
@@ -66,17 +67,72 @@
           <a class="nav-link active" aria-current="page" href="BLOG.HTML">Blog</a>
         </li>
       </ul>
-      <button class="btn btn-primary rounded-pill">JOIN NOW</button>
+      <a href="index.html#join-form">
+        <button class="btn btn-primary rounded-pill">JOIN NOW</button>
+      </a>
     </div>
   </div>
 </nav>
 <!-- END HEADER -->
 
 <!-- MAIN CONTENT SECTION -->
-<div class="container my-5">
-    <h1 class="text-center mb-4">Our Latest Blog</h1>
-    <p class="text-center">Stay updated with the latest news, tips, and articles on yoga and wellness.</p>
-    <!-- Add your blog content here -->
+<div class="container-fluid py-5" style="background: linear-gradient(180deg, #f5f5f5 0%, #e8f5e9 100%);">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-down">
+            <h1 class="fw-bold" style="color: #1b5e20;">Our Latest Blog & Articles</h1>
+            <p class="text-muted lead">Stay updated with the latest news, tips, and insights on yoga and wellness.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Blog 1 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 shadow-sm border-0 class-card">
+                    <img src="4.jpg" class="card-img-top" alt="Back Pain Yoga" style="height: 220px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-2 small text-muted">
+                            <span><i class="fa-regular fa-calendar-alt me-1"></i> March 15, 2026</span>
+                            <span><i class="fa-regular fa-folder me-1"></i> Therapy</span>
+                        </div>
+                        <h5 class="card-title fw-bold" style="color: #1b5e20;">5 Best Yoga Poses for Back Pain & Sciatica Relief</h5>
+                        <p class="card-text text-muted mb-4">Discover how simple therapeutic yoga asanas can help you get rid of chronic back pain and sciatica naturally...</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: #f39c12;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog 2 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 shadow-sm border-0 class-card">
+                    <img src="yoga.jfif.jpg" class="card-img-top" alt="Yoga vs Gym" style="height: 220px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-2 small text-muted">
+                            <span><i class="fa-regular fa-calendar-alt me-1"></i> March 10, 2026</span>
+                            <span><i class="fa-regular fa-folder me-1"></i> Wellness</span>
+                        </div>
+                        <h5 class="card-title fw-bold" style="color: #1b5e20;">Yoga vs Gym: Which is Better for Weight Loss?</h5>
+                        <p class="card-text text-muted mb-4">Are you confused between hitting the gym or joining a yoga class? Let's break down the benefits of both for weight management...</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: #f39c12;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog 3 -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 shadow-sm border-0 class-card">
+                    <img src="8.jpg" class="card-img-top" alt="Face Yoga" style="height: 220px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-2 small text-muted">
+                            <span><i class="fa-regular fa-calendar-alt me-1"></i> March 5, 2026</span>
+                            <span><i class="fa-regular fa-folder me-1"></i> Beauty</span>
+                        </div>
+                        <h5 class="card-title fw-bold" style="color: #1b5e20;">Get Glowing Skin Naturally with Face Yoga</h5>
+                        <p class="card-text text-muted mb-4">Say goodbye to expensive cosmetics. Learn how daily face yoga exercises can tone your facial muscles and bring a natural glow...</p>
+                        <a href="#" class="text-decoration-none fw-bold" style="color: #f39c12;">Read More <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- FOOTER -->
@@ -127,6 +183,12 @@
   </div>
 </footer>
 
+<!-- Fixed WhatsApp Icon -->
+<a href="https://wa.me/917689941298" class="whatsapp-float" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="yogshala.js"></script>
 </body>
 </html>

@@ -189,3 +189,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', updateSlider);
 });
+
+// Initialize AOS Animation
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800, // Animation duration in ms
+            once: true, // Animation ek hi baar chale jab scroll ho
+            offset: 100, // Thoda screen me aane ke baad hi chalu ho
+        });
+    }
+});
+

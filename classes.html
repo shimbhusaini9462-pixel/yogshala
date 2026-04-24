@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="STYLE.CSS">
 </head>
 <body>
@@ -66,17 +67,248 @@
           <a class="nav-link" href="BLOG.HTML">Blog</a>
         </li>
       </ul>
-      <button class="btn btn-primary rounded-pill">JOIN NOW</button>
+      <a href="index.html#join-form">
+        <button class="btn btn-primary rounded-pill">JOIN NOW</button>
+      </a>
     </div>
   </div>
 </nav>
 <!-- END HEADER -->
 
 <!-- MAIN CONTENT SECTION -->
-<div class="container my-5">
-    <h1 class="text-center mb-4">Our Yoga Classes</h1>
-    <p class="text-center">Explore our wide range of yoga sessions designed for all levels.</p>
-    <!-- Add your classes content here -->
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #e8f5e9 0%, #f5f5f5 100%);">
+<div class="container">
+    <div class="text-center mb-5" data-aos="fade-down">
+        <h1 class="fw-bold" style="color: #1b5e20;">Our Yoga Classes</h1>
+        <p class="text-muted lead">Explore our wide range of yoga sessions designed for all levels and health goals.</p>
+    </div>
+    
+    <div class="row g-4">
+        <!-- Class 1 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="9.jpg" class="card-img-top" alt="General Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">General Yoga</h4>
+                    <p class="card-text text-muted mb-4">Improve flexibility, strength, and mental calmness with simple yoga poses and breathing techniques suitable for all ages.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 2 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="s4.jpg" class="card-img-top" alt="Power Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">Power Yoga</h4>
+                    <p class="card-text text-muted mb-4">A fast-paced, intense yoga workout designed to build stamina, burn calories, and tone your entire body effectively.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 3 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="8.jpg" class="card-img-top" alt="Face Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">Face Yoga</h4>
+                    <p class="card-text text-muted mb-4">Tone facial muscles, improve blood circulation, and enhance your natural glow with simple and relaxing face exercises.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 4 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="6.jpg" class="card-img-top" alt="Slimming Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">Slimming Yoga</h4>
+                    <p class="card-text text-muted mb-4">Reduce excess body fat, boost metabolism, and manage weight naturally with our specialized slimming yoga practices.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 5 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="7.jpg" class="card-img-top" alt="Pregnancy Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">Pregnancy Yoga</h4>
+                    <p class="card-text text-muted mb-4">Safe and gentle yoga for moms-to-be. Relieve pregnancy discomfort, stay fit, and prepare your body for a healthy delivery.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class 6 -->
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="card h-100 shadow-sm border-0 class-card">
+                <img src="4.jpg" class="card-img-top" alt="Therapy Yoga" style="height: 220px; object-fit: cover;">
+                <div class="card-body text-center p-4">
+                    <h4 class="card-title fw-bold" style="color: #1b5e20;">Therapy Yoga</h4>
+                    <p class="card-text text-muted mb-4">Specialized sessions for healing chronic pain, back pain, sciatica, and correcting posture through therapeutic yoga.</p>
+                    <a href="index.html#join-form" class="btn text-white rounded-pill px-4 py-2" style="background-color: #1b5e20;">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- CLASS SCHEDULE SECTION -->
+<div class="container py-5 border-top">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color: #1b5e20;">Class Schedule & Timings</h2>
+        <p class="text-muted">Choose a batch that perfectly fits your daily routine.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-5" data-aos="fade-right">
+            <div class="card shadow-sm border-0 h-100" style="border-radius: 15px; background-color: #fff8e1;">
+                <div class="card-body p-4 text-center">
+                    <i class="fa-regular fa-sun fa-3x mb-3" style="color: #f39c12;"></i>
+                    <h4 class="fw-bold" style="color: #1b5e20;">Morning Batches</h4>
+                    <ul class="list-unstyled mt-3 mb-0" style="font-size: 1.1rem;">
+                        <li class="mb-2"><i class="fa-regular fa-clock me-2 text-success"></i>06:00 AM - 07:00 AM</li>
+                        <li class="mb-2"><i class="fa-regular fa-clock me-2 text-success"></i>07:00 AM - 08:00 AM</li>
+                        <li><i class="fa-regular fa-clock me-2 text-success"></i>08:00 AM - 09:00 AM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5" data-aos="fade-left">
+            <div class="card shadow-sm border-0 h-100" style="border-radius: 15px; background-color: #e8f5e9;">
+                <div class="card-body p-4 text-center">
+                    <i class="fa-solid fa-moon fa-3x mb-3" style="color: #2c3e50;"></i>
+                    <h4 class="fw-bold" style="color: #1b5e20;">Evening Batches</h4>
+                    <ul class="list-unstyled mt-3 mb-0" style="font-size: 1.1rem;">
+                        <li class="mb-2"><i class="fa-regular fa-clock me-2 text-success"></i>05:00 PM - 06:00 PM</li>
+                        <li class="mb-2"><i class="fa-regular fa-clock me-2 text-success"></i>06:00 PM - 07:00 PM</li>
+                        <li><i class="fa-regular fa-clock me-2 text-success"></i>07:00 PM - 08:00 PM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- PRICING TABLE SECTION -->
+<div class="container py-5 mb-5 border-top">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color: #1b5e20;">Fee Structure</h2>
+        <p class="text-muted">Transparent and affordable pricing for your wellness journey.</p>
+    </div>
+    <div class="row justify-content-center" data-aos="zoom-in">
+        <div class="col-lg-8">
+            <div class="table-responsive shadow-sm" style="border-radius: 15px; overflow: hidden;">
+                <table class="table table-hover table-bordered mb-0 text-center align-middle" style="background-color: white;">
+                    <thead style="background-color: #1b5e20; color: white;">
+                        <tr>
+                            <th scope="col" class="py-3">Course Name</th>
+                            <th scope="col" class="py-3">Online Fees (Monthly)</th>
+                            <th scope="col" class="py-3">Offline Fees (Monthly)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold py-3">General Yoga</td>
+                            <td>₹ 799</td>
+                            <td>₹ 1200</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Power Yoga</td>
+                            <td>₹ 899</td>
+                            <td>₹ 1500</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Face Yoga</td>
+                            <td>₹ 1499</td>
+                            <td>₹ 1000</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Slimming Yoga</td>
+                            <td>₹ 999</td>
+                            <td>₹ 1800</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Pregnancy Yoga</td>
+                            <td>₹ 6999</td>
+                            <td>₹ 2200</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Therapy Yoga</td>
+                            <td><span class="badge bg-secondary">Not Available</span></td>
+                            <td>₹ 2000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4">
+                <p class="text-muted small">* Please note that Therapy Yoga is highly specialized and only available in offline mode for better healing results.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- INTERNATIONAL PRICING TABLE SECTION -->
+<div class="container py-5 mb-5 border-top">
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold" style="color: #1b5e20;">Fee Structure (For International Clients)</h2>
+        <p class="text-muted">All prices are in USD. We welcome our global yoga family.</p>
+    </div>
+    <div class="row justify-content-center" data-aos="zoom-in">
+        <div class="col-lg-8">
+            <div class="table-responsive shadow-sm" style="border-radius: 15px; overflow: hidden;">
+                <table class="table table-hover table-bordered mb-0 text-center align-middle" style="background-color: white;">
+                    <thead style="background-color: #1b5e20; color: white;">
+                        <tr>
+                            <th scope="col" class="py-3">Course Name</th>
+                            <th scope="col" class="py-3">Online Fees (Monthly)</th>
+                            <th scope="col" class="py-3">Offline Fees (Monthly)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold py-3">General Yoga</td>
+                            <td>$ 20</td>
+                            <td>$ 30</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Power Yoga</td>
+                            <td>$ 25</td>
+                            <td>$ 35</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Face Yoga</td>
+                            <td>$ 30</td>
+                            <td>$ 25</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Slimming Yoga</td>
+                            <td>$ 28</td>
+                            <td>$ 40</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Pregnancy Yoga</td>
+                            <td>$ 100</td>
+                            <td>$ 50</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold py-3">Therapy Yoga</td>
+                            <td><span class="badge bg-secondary">Not Available</span></td>
+                            <td>$ 45</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center mt-4">
+                <p class="text-muted small">* We accept payments via International Bank Transfer or PayPal. Please contact us for details.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- FOOTER -->
@@ -127,6 +359,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="yogshala.js"></script>
 </body>
 </html>
