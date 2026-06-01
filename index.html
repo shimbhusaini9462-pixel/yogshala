@@ -291,31 +291,7 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
 </div>
 </div>
     </div>
-<!-- tutorial complate -->
 
-<!--  -->
-  <!-- <div class="d-lg-none container">
-    <div style="width: 90%; height: 70px; background-color: rgb(6, 6, 6); margin: -50px auto 20px; margin-top: -75px;"></div>
-    <div id="mobileImagesCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active"><img src="a2.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Motivation"></div>
-        <div class="carousel-item"><img src="A3.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Inspiration"></div>
-        <div class="carousel-item"><img src="A4.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Celebration"></div>
-        <div class="carousel-item"><img src="A5.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Yoga"></div>
-        <div class="carousel-item"><img src="A6.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Event"></div>
-        <div class="carousel-item"><img src="A8.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Group"></div>
-        <div class="carousel-item"><img src="A7.jpeg" class="d-block w-100" style="height: 500px; object-fit: cover;" alt="Celebration"></div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#mobileImagesCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#mobileImagesCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div> -->
 
 <div class="container-fluid py-5" style="background: linear-gradient(180deg, #f9fcf9 0%, #e8f5e9 100%);">
   <div class="container" data-aos="fade-up">
@@ -425,6 +401,14 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label text-white">* Client Type</label>
+                    <select class="form-select" id="clientType" onchange="updateFees(); updatePaymentOptions();">
+                        <option value="Indian">Indian (INR)</option>
+                        <option value="International">International (USD)</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label text-white">* Select Course</label>
                    <select class="form-select" id="course" onchange="updateFees()">
 
@@ -467,16 +451,26 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
 </div>
 
 <div id="bankDetails" class="mb-3 text-white p-3 border rounded" style="display: none; background: rgba(255,255,255,0.1);">
-    <h5 class="border-bottom pb-2">Bank Account Details</h5>
-    <div class="text-center mb-3">
-        <!-- Replace 'payment-qr.jpg' with your actual QR code image file name -->
-        <img src="QR code.jpeg" alt="Payment QR Code" style="width: 150px; border-radius: 10px; border: 2px solid white;">
+    <div id="indianBankDetails">
+        <h5 class="border-bottom pb-2">Bank Account Details</h5>
+        <div class="text-center mb-3">
+            <img src="QR code.jpeg" alt="Payment QR Code" style="width: 150px; border-radius: 10px; border: 2px solid white;">
+        </div>
+        <p class="mb-1"><strong>Bank Name:</strong> SBI</p>
+        <p class="mb-1"><strong>Account Holder:</strong> SANJAY SAINI</p>
+        <p class="mb-1"><strong>Account Number:</strong> 61193285194</p>
+        <p class="mb-1"><strong>IFSC Code:</strong> SBIN0003874</p>
+        <p class="mb-0"><strong>UPI ID:</strong> 7689941299@YBL</p>
     </div>
-    <p class="mb-1"><strong>Bank Name:</strong> [SBI]</p>
-    <p class="mb-1"><strong>Account Holder:</strong> [SANJAY SAINI]</p>
-    <p class="mb-1"><strong>Account Number:</strong> [61193285194]</p>
-    <p class="mb-1"><strong>IFSC Code:</strong> [SBIN0003874]</p>
-    <p class="mb-0"><strong>UPI ID:</strong> [7689941299@YBL]</p>
+    <div id="internationalBankDetails" style="display: none;">
+        <h5 class="border-bottom pb-2">International Payment Details</h5>
+        <p class="mb-1"><strong>PayPal Email:</strong> yogshala-jaipur@gmail.com</p>
+        <p class="mb-1"><strong>Bank Name:</strong> SBI</p>
+        <p class="mb-1"><strong>Account Holder:</strong> SANJAY SAINI</p>
+        <p class="mb-1"><strong>Account Number:</strong> 61193285194</p>
+        <p class="mb-1"><strong>IFSC Code:</strong> SBIN0003874</p>
+        <p class="mb-0"><strong>SWIFT Code:</strong> (Contact for details)</p>
+    </div>
 </div>
 
                 <div class="text-center mt-4">
@@ -770,6 +764,12 @@ Our approach focuses on personalized guidance, disciplined practice, and a nurtu
   </div>
 </footer>
 
+<!-- Loader Overlay -->
+<div id="loader" style="display:none; position:fixed; top:0; left:0; width: 100%; height:100%; background:rgba(255,255,255,0.9); z-index:9999; text-align:center; padding-top:200px;">
+    <div class="spinner"></div>
+    <p style="font-family: sans-serif; color: #1a5276;">कृपया प्रतीक्षा करें, आपकी डिटेल्स सुरक्षित रूप से भेजी जा रही हैं...</p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="yogshala.js"></script>
 </body>
