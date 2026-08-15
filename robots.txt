@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shimbhusaini9462-pixel.github.io/yogshala/sitemap.xml
