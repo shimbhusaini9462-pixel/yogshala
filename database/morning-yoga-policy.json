@@ -1,0 +1,30 @@
+{
+  "batch": "Morning Yoga",
+  "timezone": "Asia/Kolkata",
+  "start": "2026-10-14",
+  "end": "2026-12-31",
+  "time": "07:00",
+  "duration_minutes": 60,
+  "weekly_off": [
+    "Sunday"
+  ],
+  "holidays": {
+    "2026-10-19": "Durga Ashtami",
+    "2026-10-20": "Dussehra / Vijay Dashami",
+    "2026-10-26": "Valmiki Jayanti (optional festival holiday included)",
+    "2026-10-29": "Karwa Chauth (optional festival holiday included)",
+    "2026-11-08": "Diwali",
+    "2026-11-09": "Govardhan Puja",
+    "2026-11-11": "Bhai Dooj",
+    "2026-11-15": "Chhath Puja (optional festival holiday included)",
+    "2026-11-24": "Guru Nanak Jayanti / Guru Tegh Bahadur Martyrdom Day",
+    "2026-12-23": "Hazrat Ali birthday (optional festival holiday included)",
+    "2026-12-24": "Christmas Eve (optional festival holiday included)",
+    "2026-12-25": "Christmas"
+  },
+  "sources": [
+    "https://emitra.rajasthan.gov.in/emitra/holiday-list",
+    "https://www.cgca.gov.in/hi/ccarj/list-of-holiday-hi"
+  ],
+  "note": "Verified festival exclusions through December 2026; not an automatic Google Calendar sync."
+}

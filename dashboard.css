@@ -1,0 +1,48 @@
+body.role-dashboard { background: #141b16; color: #f1f4ee; font-family: system-ui, sans-serif; }
+.waiting-video { margin-top: 20px; }
+.waiting-video video { display: block; width: 100%; max-height: 420px; background: #101610; border-radius: 12px; }
+.embedded-video { padding: 20px; border: 1px solid #779e68; background: #1d2c1e; border-radius: 14px; margin-bottom: 28px; scroll-margin-top: 20px; }
+.video-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.video-actions .btn { min-height: 44px; }
+.video-frame { height: min(70vh, 720px); min-height: 400px; background: #101610; border-radius: 10px; overflow: hidden; }
+.video-frame iframe { width: 100%; height: 100%; border: 0; }
+@media(max-width: 600px) { .embedded-video { padding: 12px; } .video-frame { height: 70vh; min-height: 380px; } }
+.video-launch-card { padding: 24px; border: 2px solid #779e68; border-radius: 16px; background: #243723; margin-bottom: 24px; scroll-margin-top: 20px; }
+.video-launch-card .btn { margin: 8px 12px 12px 0; min-height: 44px; }
+.video-launch-card ol { padding-left: 22px; line-height: 1.9; margin-top: 12px; }
+.video-help { color: #ccd8c5; font-size: .9rem; }
+.recording-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; margin-bottom: 28px; }
+.recording-card { background: #242d25; border: 1px solid #4b5746; border-radius: 12px; padding: 20px; }
+.recording-card span { color: #e6cc7a; font-size: .85rem; }
+.recording-card h4 { font-size: 1.1rem; margin: 12px 0 20px; overflow-wrap: anywhere; }
+.role-dashboard.is-login .dashboard-sidebar { display: none; }
+.role-dashboard.is-login .dashboard-shell { display: block; max-width: 680px; }
+.role-dashboard.is-login .dashboard-shell main { padding: 0 20px; }
+.role-dashboard:not(.is-login) .portal-account-hint { display: none; }
+.dashboard-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 5%; border-bottom: 1px solid #384436; gap: 16px; }
+.dashboard-header a { color: #e6cc7a; text-decoration: none; }
+.dashboard-brand { font-weight: 800; letter-spacing: .08em; }
+.dashboard-brand span { display: block; font-size: .75rem; font-weight: 400; letter-spacing: 0; color: #c0cabd; }
+.dashboard-shell { display: grid; grid-template-columns: 270px minmax(0,1fr); max-width: 1600px; margin: auto; }
+.dashboard-sidebar { padding: 32px 24px; background: #1b251d; }
+.dashboard-sidebar h1 { font-size: 1.65rem; margin-top: 14px; }
+.dashboard-sidebar p { color: #bec9bc; line-height: 1.7; }
+.dashboard-role { color: #e6cc7a; font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+.dashboard-sidebar nav { display: grid; gap: 8px; margin: 28px 0; }
+.dashboard-sidebar a { color: #edf1e8; display: block; padding: 12px; border-radius: 8px; text-decoration: none; }
+.dashboard-sidebar a:hover { background: #34412d; }
+.dashboard-help { border: 1px solid #6b734d; }
+.dashboard-shell main { min-width: 0; padding: 0 32px; }
+#account-panel { max-width: none; scroll-margin-top: 20px; }
+#account-panel > h2 { font-size: 1.8rem; margin-bottom: 18px; }
+#account-login, #account-signup { max-width: 840px; padding: 22px; border: 1px solid #49543f; border-radius: 14px; background: #202a22; margin: 20px 0; }
+#account-panel .form-control, #account-panel .form-select { min-height: 44px; }
+#account-panel :is(h3, section, .row, details)[id] { scroll-margin-top: 20px; }
+@media(max-width: 900px) {
+ .dashboard-shell { grid-template-columns: 1fr; }
+ .dashboard-sidebar { padding: 24px; }
+ .dashboard-sidebar nav { display: flex; overflow-x: auto; margin: 16px 0; }
+ .dashboard-sidebar nav a { flex-shrink: 0; }
+ .dashboard-shell main { padding: 0 16px; }
+ .dashboard-header { flex-wrap: wrap; }
+}

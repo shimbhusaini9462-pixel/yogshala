@@ -1,6 +1,30 @@
+// Close the homepage mobile menu before scrolling to a section.
+document.addEventListener('DOMContentLoaded', () => {
+    if (!document.body.classList.contains('homepage')) return;
+    const menu = document.getElementById('navbarNav');
+    if (!menu) return;
+    menu.addEventListener('click', event => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link || link.getAttribute('href') === '#' || !menu.classList.contains('show')) return;
+        if (window.bootstrap && window.bootstrap.Collapse) {
+            window.bootstrap.Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+        }
+    });
+});
+
+// Open local previews through the PHP server so account APIs can run.
+(() => {
+    const location=window.location;
+    const livePreview=['localhost','127.0.0.1','[::1]'].includes(location.hostname) && /^55\d{2}$/.test(location.port);
+    if(location.protocol==='file:' || livePreview) {
+        window.__yogshalaRedirecting=true;
+        const page=location.pathname.split('/').pop() || 'index.html';
+        location.replace('http://127.0.0.1:8085/'+page+location.search+location.hash);
+    }
+})();
 function updateFees(){
 
-    let course = document.getElementById("course").value;
+    let course = document.getElementById("course").value.trim();
     let modeSelect = document.getElementById("mode");
     let feesInput = document.getElementById("fees");
     let clientType = document.getElementById("clientType") ? document.getElementById("clientType").value : "Indian";
@@ -55,6 +79,7 @@ function updatePaymentOptions() {
             paymentMethod.innerHTML += '<option value="Cash">Cash</option>';
         }
     }
+    if(paymentMethod)paymentMethod.innerHTML += '<option value="Offline">Offline Payment (Pay at Centre)</option>';
     togglePaymentDetails();
 }
 
@@ -64,6 +89,9 @@ function togglePaymentDetails() {
     let bankDetails = document.getElementById("bankDetails");
     let indianBankDetails = document.getElementById("indianBankDetails");
     let internationalBankDetails = document.getElementById("internationalBankDetails");
+    const proofField=document.getElementById('payment-proof-field');
+    const proofInput=document.getElementById('payment-proof');
+    if(proofField && proofInput){const needed=paymentMethod!=='' && !['Cash','Offline'].includes(paymentMethod);proofField.hidden=!needed;proofInput.required=needed;if(!needed)proofInput.value='';}
 
     if (bankDetails) {
         if (paymentMethod === "UPI" || paymentMethod === "Bank Transfer" || paymentMethod === "International Bank Transfer" || paymentMethod === "PayPal") {
@@ -81,92 +109,45 @@ function togglePaymentDetails() {
         }
     }
 }
-function submitForm(){
-
-   let name  = document.getElementById("name").value;
-   let phone = document.getElementById("phone").value;
-   let state = document.getElementById("state").value;
-   let city  = document.getElementById("city").value;
-   let course= document.getElementById("course").value;
-   let email = document.getElementById("email").value;
-   let mode  = document.getElementById("mode").value;
-   let fees  = document.getElementById("fees").value;
-   let paymentMethod = document.getElementById("paymentMethod").value;
-   let clientTypeElem = document.getElementById("clientType");
-   let clientType = clientTypeElem ? clientTypeElem.value : "Indian";
-
-   if(name=="" || phone=="" || state=="" || city=="" || course=="" || email=="" || mode=="" || paymentMethod==""){
-        alert("Please fill all the details");
-        return;
-   }
-
-   // 1. स्क्रीन पर लोडर दिखाएं
-   let loader = document.getElementById('loader');
-   if(loader) loader.style.display = 'block';
-
-   let whatsappnumber = "917689941298"; 
-
-   let message =
-    "🧘 NEW YOGA ENQUIRY\n\n" +
-    "Name: " + name + "\n" +
-    "Phone: " + phone + "\n" +
-    "State: " + state + "\n" +
-    "City: " + city + "\n" +
-    "Email: " + email + "\n" +
-    "Client Type: " + clientType + "\n" +
-    "Course: " + course + "\n" +
-    "Mode: " + mode + "\n" +
-    "Fees: " + fees + "\n" +
-    "Payment Method: " + paymentMethod;
-
-   // 2. Google Script को डेटा भेजें (Background Process)
-   fetch('YOUR_GOOGLE_SCRIPT_URL', {
-       method: 'POST',
-       mode: 'no-cors',
-       body: JSON.stringify({
-           name: name,
-           amount: fees,
-           client_phone: phone,
-           client_message: message,
-           id: "ENQ-" + Date.now()
-       })
-   }).then(() => {
-       // 3. लोडर को छुपाएं
-       if(loader) loader.style.display = 'none';
-
-       // 4. क्लाइंट को मैसेज दिखाएं
-       if (clientType === "International") {
-           Swal.fire({
-               title: 'Enquiry Received',
-               text: 'Hello ' + name + ', your details have been received. Please complete your payment to confirm registration.',
-               icon: 'info',
-               confirmButtonColor: '#1a5276'
-           }).then(() => {
-               // 5. व्हाट्सएप पर रीडायरेक्ट करें
-               window.location.href = "https://wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message);
-           });
-       } else {
-           Swal.fire({
-               title: 'सफलता!',
-               text: 'नमस्ते ' + name + ', आपका फॉर्म सबमिट हो गया है। जल्द ही आपके नंबर (' + phone + ') पर डिटेल्स आ जाएंगी।',
-               icon: 'success',
-               confirmButtonColor: '#1a5276'
-           }).then(() => {
-               // 5. व्हाट्सएप पर रीडायरेक्ट करें
-               window.location.href = "https://wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message);
-           });
-       }
-   }).catch((err) => {
-       if(loader) loader.style.display = 'none';
-       // In case of error, just proceed to WhatsApp
-       window.location.href = "https://wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message);
-   });
+async function submitForm(){
+    if (submitForm.pending) return;
+    const fields = ['name','phone','state','city','course','email','mode','fees','paymentMethod','clientType'];
+    const data = Object.fromEntries(fields.map(key => [key, document.getElementById(key)?.value.trim() || '']));
+    if(document.getElementById('packageType')) {data.packageType=document.getElementById('packageType').value;data.packageAudience=document.getElementById('packageType').value==='shared'?document.getElementById('packageAudience').value:'not applicable';data.packageDetails=document.getElementById('packageDetails').textContent;}
+    if (Object.values(data).some(value => !value)) { alert('Please fill all the details.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || !/^[+\d ()-]{7,25}$/.test(data.phone)) { alert('Please enter a valid email and phone number.'); return; }
+    const proof=document.getElementById('payment-proof')?.files[0];
+    if(!['Cash','Offline'].includes(data.paymentMethod) && !proof){alert('Attach your payment screenshot before submitting.');return;}
+    if(proof && (proof.size>2*1024*1024 || !['image/jpeg','image/png','image/webp'].includes(proof.type))){alert('Use a JPG, PNG or WebP screenshot up to 2 MB.');return;}
+    const loader = document.getElementById('loader');
+    submitForm.pending = true;
+    if (loader) loader.style.display = 'block';
+    try {
+        const body=new FormData();Object.entries(data).forEach(([key,value])=>body.set(key,value));
+        if(!['Cash','Offline'].includes(data.paymentMethod))body.set('paymentProof',proof);
+        const response = await fetch('api/enquiry.php', { method:'POST', body });
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error(result.message || 'Unable to save enquiry.');
+        if (loader) loader.style.display = 'none';
+        data.paymentStatus=['Cash','Offline'].includes(data.paymentMethod)?data.paymentMethod+' selected - payment pending':'Screenshot submitted - verification pending';
+        const text = ['Cash','Offline'].includes(data.paymentMethod)?'Enquiry submitted successfully. Pay at the centre; payment is pending. Continue to WhatsApp and press Send to notify Yogshala.':'Enquiry and screenshot submitted successfully. Payment verification is pending. Continue to WhatsApp and press Send to notify Yogshala.';
+        if (typeof Swal !== 'undefined') await Swal.fire({title:'Enquiry received',text,icon:'success',confirmButtonText:'Continue to WhatsApp',confirmButtonColor:'#1a5276'});
+        else alert(text);
+        const message = 'NEW YOGA ENQUIRY\n\n' + Object.keys(data).map(key => key + ': ' + data[key]).join('\n');
+        window.location.href = 'https://wa.me/917689941298?text=' + encodeURIComponent(message);
+    } catch (error) {
+        alert(error instanceof SyntaxError ? 'Open the website at http://127.0.0.1:8085 to submit your enquiry.' : error.message);
+    } finally {
+        submitForm.pending = false;
+        if (loader) loader.style.display = 'none';
+    }
 }
 function helpWhatsApp(){
   window.open("https://wa.me/917689941298", "_blank");
 }
 
-function submitContactForm() {
+async function submitContactForm() {
+    if (submitContactForm.pending) return;
     let name = document.getElementById("contactName").value;
     let email = document.getElementById("contactEmail").value;
     let phone = document.getElementById("contactPhone").value;
@@ -188,53 +169,27 @@ function submitContactForm() {
         "Subject: " + subject + "\n" +
         "Message: " + messageText;
 
-    window.open(
-        "https://wa.me/" + whatsappnumber + "?text=" + encodeURIComponent(message),
-        "_blank"
-    );
+    const button=document.querySelector('.contact-submit-btn');
+    const room=window.open('about:blank','_blank');
+    submitContactForm.pending=true;
+    if(button) button.disabled=true;
+    try {
+        const response=await fetch('api/enquiry.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind:'contact',name:name.trim(),email:email.trim(),phone:phone.trim(),subject:subject.trim(),message:messageText.trim()})});
+        const result=await response.json();
+        if(!response.ok || !result.success) throw new Error(result.message || 'Unable to save message.');
+        const url='https://wa.me/'+whatsappnumber+'?text='+encodeURIComponent(message);
+        if(room) { room.opener=null; room.location.href=url; }
+        else window.location.href=url;
+    } catch(error) {
+        if(room)room.close();
+        alert(error instanceof SyntaxError ? 'Open the website at http://127.0.0.1:8085 to send your message.' : error.message);
+    } finally {
+        submitContactForm.pending=false;
+        if(button)button.disabled=false;
+    }
 }
 
 
-function register(){
-  let name = document.getElementById("regName").value;
-  let email = document.getElementById("regEmail").value;
-  let pass = document.getElementById("regPass").value;
-
-  if(name=="" || email=="" || pass==""){
-    document.getElementById("regMsg").innerText="All fields required";
-    return;
-  }
-
-  let user = {name,email,pass};
-  localStorage.setItem("yogshala_user", JSON.stringify(user));
-
-  alert("Registration Successful! Please Login");
-  window.location.href="login.html";
-}
-
-function login(){
-  let email = document.getElementById("loginEmail").value;
-  let pass = document.getElementById("loginPass").value;
-
-  let user = JSON.parse(localStorage.getItem("yogshala_user"));
-
-  if(!user){
-    document.getElementById("loginMsg").innerText="No account found. Please register.";
-    return;
-  }
-
-  if(email === user.email && pass === user.pass){
-    localStorage.setItem("yogshala_login","true");
-    window.location.href="index.html";
-  } else {
-    document.getElementById("loginMsg").innerText="Invalid Email or Password";
-  }
-}
-
-function logout(){
-  localStorage.removeItem("yogshala_login");
-  window.location.href="login.html";
-}
 
 // Testimonial Slider
 document.addEventListener('DOMContentLoaded', function () {
@@ -242,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
     const cards = document.querySelectorAll('.testimonial-card');
+    if (!slider || cards.length === 0) return;
     let currentIndex = 0;
     const totalSlides = cards.length;
 
@@ -289,4 +245,31 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 100, // Thoda screen me aane ke baad hi chalu ho
         });
     }
+});
+
+// Restore the existing home-page account menu from the PHP session.
+document.addEventListener('DOMContentLoaded', async () => {
+    const menu = document.getElementById('user-menu-dropdown');
+    if (!menu) return;
+    try {
+        const response = await fetch('api/portal.php?action=session');
+        const session = await response.json();
+        if (!response.ok || !session.success) return;
+        document.getElementById('login-btn').style.display = 'none';
+        document.getElementById('signup-btn').style.display = 'none';
+        menu.style.display = 'block';
+        document.getElementById('user-menu-button').textContent = session.user.name;
+        for (const [role, id] of [['student','client-dashboard-link'],['teacher','teacher-dashboard-link'],['admin','admin-dashboard-link']]) {
+            document.getElementById(id).parentElement.hidden = session.user.role !== role;
+        }
+        document.getElementById('logout-menu-btn').addEventListener('click', async event => {
+            event.preventDefault();
+            try {
+                const response = await fetch('api/logout.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:session.token})});
+                const result = await response.json();
+                if (!response.ok || !result.success) throw new Error(result.message || 'Logout failed.');
+                window.location.reload();
+            } catch (error) { alert(error.message); }
+        });
+    } catch { /* Public pages remain available while the account service is offline. */ }
 });

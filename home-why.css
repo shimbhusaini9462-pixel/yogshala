@@ -1,0 +1,20 @@
+.why-yogshala { padding: 60px 0; background: #f4f7f0; border-top: 1px solid #e1e9da; }
+.why-intro { max-width: 680px; margin: 0 auto 32px; text-align: center; }
+.why-intro .why-eyebrow { color: #71845d; font-size: .73rem; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; margin-bottom: 12px; }
+.why-intro h2 { color: #24492e; font-size: clamp(26px,3vw,36px); font-weight: 700; line-height: 1.25; letter-spacing: -.025em; margin-bottom: 16px; }
+.why-intro > p:last-child { color: #606f57; font-size: 15px; line-height: 1.8; margin: 0; }
+.why-benefits { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.why-benefit { padding: 24px; background: #fff; border: 1px solid #dde7d5; border-radius: 16px; }
+.why-icon { width: 44px; height: 44px; display: grid; place-items: center; background: #edf3e5; color: #4f7040; border-radius: 11px; font-size: 19px; margin-bottom: 16px; }
+.homepage .why-benefit h3 { color: #2b472e; font-size: 18px !important; font-weight: 650; line-height: 1.4; margin-bottom: 10px; }
+.why-benefit p { color: #63715b; font-size: 14px; line-height: 1.75; margin: 0; }
+.why-next-step { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-top: 26px; padding: 20px 24px; background: #e9f0df; border-radius: 14px; }
+.why-next-step p { margin: 0; font-size: 15px; color: #3c5535; font-weight: 500; }
+.why-next-step > div { display: flex; flex-wrap: wrap; gap: 10px; }
+.why-next-step a { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 44px; padding: 11px 18px; border: 1px solid #b3c5a2; border-radius: 9px; font-size: 13px; font-weight: 600; text-decoration: none; }
+.why-next-step .why-primary { color: #fff; background: #285331; border-color: #285331; }
+.why-next-step .why-primary:hover { background: #1d4025; }
+.why-next-step .why-secondary { color: #2e5432; background: #fff; }
+.why-next-step .why-secondary:hover { background: #f5f8ef; }
+@media(max-width: 991px) { .why-benefits { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width: 575px) { .why-yogshala { padding: 40px 0; } .why-benefits { grid-template-columns: 1fr; gap: 12px; } .why-benefit { padding: 20px; } .why-next-step { padding: 20px; } .why-next-step > div { width: 100%; } .why-next-step a { flex: 1 1 100%; } }

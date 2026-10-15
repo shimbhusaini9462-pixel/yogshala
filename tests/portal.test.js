@@ -1,0 +1,153 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const {execFileSync}=require('node:child_process');
+const base=process.env.TEST_URL || 'http://127.0.0.1:8085/';
+const tag='test-'+Date.now();
+const ids={students:[],teachers:[],batches:[],enquiries:[]};
+const noteFiles=[];
+const paymentProofFiles=[];
+function client(){let cookie='',token='';return async(path,data,ok=true)=>{const response=await fetch(base+'api/'+path,{headers:{...(cookie?{Cookie:cookie}:{}),...(data && !(data instanceof FormData)?{'Content-Type':'application/json'}:{})},...(data?{method:'POST',body:data instanceof FormData ? data : JSON.stringify({...data,token})}:{})});const set=response.headers.get('set-cookie');if(set)cookie=set.split(';')[0];if(path.startsWith('paymentProof.php'))return {status:response.status,type:response.headers.get('content-type')};const result=await response.json();if(path==='portal.php?action=session' && result.token)token=result.token;if(ok)assert.equal(result.success,true,JSON.stringify(result));else assert.equal(result.success,false);return result;};}
+const php=process.env.PHP_BINARY || 'C:/xampp/php/php.exe';
+function sql(code){return execFileSync(php,['-r',"require 'config.php'; "+code],{cwd:require('node:path').join(__dirname,'..'),encoding:'utf8'});}
+(async()=>{
+    const admin=client(),student=client(),teacher=client(),guest=client();
+    const password=fs.readFileSync(require('node:path').join(__dirname,'../database/local-admin.txt'),'utf8').match(/Password: (.+)/)[1].trim();
+    await guest('portal.php?action=dashboard',null,false);
+    for (const [endpoint, payload] of [
+        ['login.php',{email:[],password:'invalid',role:'student'}],
+        ['login.php',{email:'test@example.com',password:'invalid',role:[]}],
+        ['signup.php',{name:[],email:'test@example.com',password:'Test-password-123',role:'student'}],
+        ['signup.php',{name:'Test',email:[],password:'Test-password-123',role:'student'}]
+    ]) {
+        const response=await fetch(base+'api/'+endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        assert.equal(response.status,400);
+        assert.equal((await response.json()).success,false);
+    }
+    const invalidSignup=await fetch(base+'api/signup.php');
+    assert.equal(invalidSignup.status,400);
+    assert.equal((await invalidSignup.json()).success,false);
+    await admin('login.php',{email:'admin',password,role:'admin'});
+    await admin('portal.php?action=session');
+    const studentEmail=tag+'@example.com',teacherEmail=tag+'-teacher@example.com';
+    await student('signup.php',{name:tag,email:' '+studentEmail+' ',password:'Test-password-123',role:'student'});
+    await guest('signup.php',{name:tag,email:studentEmail,password:'Test-password-123',role:'student'},false);
+    await guest('signup.php',{name:tag,email:tag+'-bad@example.com',password:'Test-password-123',role:'admin'},false);
+    await student('login.php',{email:studentEmail,password:'incorrect',role:'student'},false);
+    await student('login.php',{email:studentEmail,password:'Test-password-123',role:'student'});
+    await student('portal.php?action=session');
+    await student('portal.php?action=dashboard&view=teacher',null,false);
+    await student('portal.php?action=dashboard&view=admin',null,false);
+    const ownDashboard=await student('portal.php?action=dashboard&view=student');
+    assert.equal(ownDashboard.profile.email,studentEmail);
+    assert.equal(ownDashboard.students,undefined);
+    assert.equal(ownDashboard.teachers,undefined);
+    assert.equal(ownDashboard.enquiries,undefined);
+    await admin('portal.php?action=teacher',{name:tag,email:teacherEmail,password:'Test-password-123'});
+    let data=await admin('portal.php?action=dashboard');
+    const sid=data.students.find(x=>x.email===studentEmail).id,tid=data.teachers.find(x=>x.email===teacherEmail).id;
+    ids.students.push(sid);ids.teachers.push(tid);
+    await admin('portal.php?action=teacher',{name:tag+' collision',email:studentEmail.toUpperCase(),password:'Test-password-123'},false);
+    await guest('signup.php',{name:tag+' collision',email:teacherEmail,password:'Test-password-123',role:'student'},false);
+    await admin('portal.php?action=update_teacher',{id:tid,name:tag,email:studentEmail},false);
+    await student('portal.php?action=profile',{name:tag,email:teacherEmail},false);
+    const studentOwn=await student('portal.php?action=dashboard&view=student&id='+tid+'&student_id='+tid+'&role=teacher');
+    assert.equal(studentOwn.profile.email,studentEmail);
+    assert.equal(studentOwn.teachers,undefined);
+    await admin('portal.php?action=student',{name:tag+' direct',email:tag+'-direct@example.com',password:'Test-password-123'});
+    data=await admin('portal.php?action=dashboard');ids.students.push(data.students.find(x=>x.email===tag+'-direct@example.com').id);
+    await admin('portal.php?action=update_teacher',{id:tid,name:tag+' edited',email:teacherEmail});
+    await admin('portal.php?action=update_student',{id:sid,name:tag+' edited',email:studentEmail});
+    await student('portal.php?action=update_student',{id:sid,name:'Unauthorized',email:studentEmail},false);
+    data=await admin('portal.php?action=dashboard');assert.equal(data.teachers.find(x=>x.id===tid).name,tag+' edited');assert.equal(data.students.find(x=>x.id===sid).name,tag+' edited');
+    await admin('portal.php?action=batch',{name:tag,teacher_id:tid});
+    await admin('portal.php?action=batch',{name:tag+'-other',teacher_id:tid});
+    data=await admin('portal.php?action=dashboard');const batch=data.batches.find(x=>x.name===tag),other=data.batches.find(x=>x.name===tag+'-other');ids.batches.push(batch.id,other.id);
+    await admin('portal.php?action=update_batch',{id:batch.id,name:tag+' edited',teacher_id:tid});
+    data=await admin('portal.php?action=dashboard');assert.equal(data.batches.find(x=>x.id===batch.id).name,tag+' edited');
+    await admin('portal.php?action=update_batch',{id:batch.id,name:tag,teacher_id:tid});
+    await admin('portal.php?action=membership',{student_id:sid,status:'active'},false);
+    await admin('portal.php?action=enroll',{student_id:sid,batch_id:batch.id});
+    await admin('portal.php?action=enroll',{student_id:sid,batch_id:batch.id});
+    // Teachers may start their assigned upcoming classes even days before the scheduled time.
+    const now=new Date(Date.now()+3*86400000+330*60000),date=now.toISOString().slice(0,10),time=now.toISOString().slice(11,16);
+    for(const b of [batch,other])await admin('portal.php?action=schedule',{batch_id:b.id,date,time,duration:60});
+    await teacher('login.php',{email:teacherEmail,password:'Test-password-123',role:'teacher'});await teacher('portal.php?action=session');
+    data=await teacher('portal.php?action=dashboard');const assigned=data.classes.find(x=>x.batch_name===tag),unassigned=data.classes.find(x=>x.batch_name===tag+'-other');
+    await teacher('portal.php?action=dashboard&view=admin',null,false);
+    await teacher('portal.php?action=dashboard&view=student',null,false);
+    assert.equal(data.payments,undefined);
+    assert.equal(data.teachers,undefined);
+    assert.equal(data.enquiries,undefined);
+    await student('portal.php?action=reschedule',{live_class_id:assigned.live_class_id,date,time,duration:70},false);
+    await teacher('portal.php?action=reschedule',{live_class_id:assigned.live_class_id,date,time,duration:70});
+    data=await teacher('portal.php?action=dashboard');assert.equal(data.classes.find(x=>x.live_class_id===assigned.live_class_id).duration,70);
+    await teacher('startClass.php',{live_class_id:assigned.live_class_id});await teacher('startClass.php',{live_class_id:unassigned.live_class_id});
+    await student('joinClass.php',{live_class_id:assigned.live_class_id},false);
+    await student('videoAccess.php',{class_id:assigned.live_class_id},false);
+    await student('portal.php?action=payment',{student_id:sid,amount:100,expiry:date},false);
+    await admin('portal.php?action=payment',{student_id:sid,amount:100,expiry:date});
+    data=await admin('portal.php?action=dashboard');assert.ok(data.payments.some(x=>x.email===studentEmail));assert.ok(data.enrollments.some(x=>x.student_id===sid));
+    await admin('portal.php?action=membership',{student_id:sid,status:'expired'});
+    await student('joinClass.php',{live_class_id:assigned.live_class_id},false);
+    await admin('portal.php?action=membership',{student_id:sid,status:'active'});
+    await admin('portal.php?action=unassign',{student_id:sid,batch_id:batch.id});
+    await student('joinClass.php',{live_class_id:assigned.live_class_id},false);
+    await admin('portal.php?action=enroll',{student_id:sid,batch_id:batch.id});
+    await student('joinClass.php',{live_class_id:unassigned.live_class_id},false);
+    await student('videoAccess.php',{class_id:unassigned.live_class_id},false);
+    await student('joinClass.php',{live_class_id:assigned.live_class_id});
+    const videoAccess=await student('videoAccess.php',{class_id:assigned.live_class_id});
+    assert.equal(new URL(videoAccess.room_url).hostname,videoAccess.server);
+    assert.equal(new URL(videoAccess.room_url).protocol,'https:');
+    if(videoAccess.private_server) assert.ok(videoAccess.jwt);
+    await teacher('videoAccess.php',{class_id:assigned.live_class_id});
+    await student('portal.php?action=profile',{name:tag+' profile',email:studentEmail,id:tid});
+    data=await student('portal.php?action=session');assert.equal(data.user.name,tag+' profile');
+    await teacher('portal.php?action=profile',{name:tag+' teacher profile',email:teacherEmail});
+    await teacher('portal.php?action=recording',{batch_id:batch.id,title:'Test recording',url:'javascript:alert(1)'},false);
+    await teacher('portal.php?action=recording',{batch_id:batch.id,title:'Test recording',url:'https://example.com/video'});
+    data=await student('portal.php?action=dashboard');assert.equal(data.membership,'active');assert.equal(data.recordings.length,1);assert.equal(data.classes.length,1);assert.equal(data.classes[0].room_name,undefined);
+    data=await teacher('attendance.php?live_class_id='+assigned.live_class_id);assert.equal(data.student_count,1);
+    const note=await teacher('teacherNotes.php');assert.ok(note.token);
+    const upload=new FormData();upload.set('token',note.token);upload.set('note',new Blob(['Local integration test note'],{type:'text/plain'}),'test.txt');
+    await teacher('teacherNotes.php',upload);
+    const notes=await teacher('teacherNotes.php');assert.equal(notes.files.length,1);
+    noteFiles.push(require('node:path').join(__dirname,'../uploads/teacher-notes',String(tid),notes.files[0].file));
+    await teacher('endClass.php',{live_class_id:assigned.live_class_id});
+    await student('joinClass.php',{live_class_id:assigned.live_class_id},false);
+    await admin('portal.php?action=reschedule',{live_class_id:assigned.live_class_id,date,time,duration:60},false);
+    await admin('portal.php?action=schedule',{batch_id:batch.id,date,time,duration:60});
+    data=await admin('portal.php?action=dashboard');const cancellable=data.classes.find(x=>x.batch_name===tag && x.status==='upcoming');
+    await student('portal.php?action=cancel_class',{live_class_id:cancellable.live_class_id},false);
+    await teacher('portal.php?action=cancel_class',{live_class_id:cancellable.live_class_id});
+    await teacher('startClass.php',{live_class_id:cancellable.live_class_id},false);
+    await student('joinClass.php',{live_class_id:cancellable.live_class_id},false);
+    data=await admin('portal.php?action=dashboard');assert.equal(data.classes.find(x=>x.live_class_id===cancellable.live_class_id).status,'cancelled');
+    data=await guest('publicSchedule.php');assert.ok(!data.classes.some(x=>x.class_name===tag));
+    const enquiryData={name:tag,phone:'9999999999',email:studentEmail,state:'Test',city:'Test',course:'General Yoga',mode:'Online',fees:'899',paymentMethod:'UPI',clientType:'Indian'};
+    await guest('enquiry.php',enquiryData,false);
+    const cash=await guest('enquiry.php',{...enquiryData,paymentMethod:'Cash'});ids.enquiries.push(cash.id);
+    const offline=await guest('enquiry.php',{...enquiryData,paymentMethod:'Offline'});ids.enquiries.push(offline.id);
+    const receipt=new FormData();for(const [key,value] of Object.entries(enquiryData))receipt.set(key,value);
+    const image=await require('sharp')({create:{width:2,height:2,channels:3,background:'#ffffff'}}).png().toBuffer();
+    receipt.set('paymentProof',new Blob([image],{type:'image/png'}),'receipt.png');
+    const enquiry=await guest('enquiry.php',receipt);ids.enquiries.push(enquiry.id);
+    const proofDashboard=await admin('portal.php?action=dashboard');
+    const proof=JSON.parse(proofDashboard.enquiries.find(row=>row.id===enquiry.id).details).paymentProof;
+    paymentProofFiles.push(require('node:path').join(__dirname,'../uploads/payment-proofs',proof));
+    assert.equal((await guest('paymentProof.php?file='+proof)).status,403);
+    assert.equal((await student('paymentProof.php?file='+proof)).status,403);
+    const proofView=await admin('paymentProof.php?file='+proof);assert.equal(proofView.status,200);assert.equal(proofView.type,'image/png');
+    const contact=await guest('enquiry.php',{kind:'contact',name:tag,phone:'9999999999',email:studentEmail,subject:'Test contact',message:'Local integration test'});ids.enquiries.push(contact.id);
+    data=await admin('portal.php?action=dashboard');assert.ok(data.enquiries.some(x=>x.id===contact.id));
+    await guest('enquiry.php',{name:tag},false);
+    await student('logout.php',{});await student('portal.php?action=dashboard',null,false);
+    for(const file of ['database/local-admin.txt','config.php','hash.php','database/database.sql','tests/portal.test.js']) {const response=await fetch(base+file);assert.equal(response.status,404,file);}
+    console.log('PASS: login, signup, admin controls, membership, batch permissions, recordings, attendance, notes, enquiry and protected files.');
+})().catch(error=>{console.error(error);process.exitCode=1;}).finally(()=>{
+    for(const file of paymentProofFiles)if(fs.existsSync(file))fs.unlinkSync(file);
+    for(const file of noteFiles) {fs.unlinkSync(file);fs.rmdirSync(require('node:path').dirname(file));}
+    const code=Object.entries(ids).map(([table,values])=>values.length?"$pdo->exec('DELETE FROM "+table+" WHERE id IN ("+values.map(Number).join(',')+")');":'').join('');
+    if(code)sql(code);
+});

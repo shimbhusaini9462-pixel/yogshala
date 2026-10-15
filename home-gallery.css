@@ -1,0 +1,28 @@
+.yoga-gallery { padding: 56px 0; background: #f3f6ef; border-top: 1px solid #e0e7d9; }
+.gallery-heading { text-align: center; margin-bottom: 30px; }
+.gallery-heading > p { margin-bottom: 10px; color: #6d805d; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
+.gallery-heading h2 { color: #25482e; font-size: 30px; font-weight: 700; margin-bottom: 12px; }
+.gallery-heading > span { color: #63715a; font-size: 14px; line-height: 1.7; }
+.yoga-gallery-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 20px; align-items: start; }
+.yoga-gallery-card { min-width: 0; border: 1px solid #dce5d5; border-radius: 15px; overflow: hidden; background: #fff; box-shadow: 0 5px 20px #2942290a; }
+.gallery-image { display: block; width: 100%; height: 240px; object-fit: contain; background: #e9eee3; }
+.gallery-caption { padding: 18px; }
+.gallery-number { color: #819173; font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+.homepage .gallery-caption h3 { font-size: 17px !important; font-weight: 650; line-height: 1.4; color: #29472e; margin: 8px 0 6px; }
+.gallery-subtitle { color: #748069; font-size: 12px; line-height: 1.5; margin-bottom: 14px; min-height: 36px; }
+.gallery-details { border-top: 1px solid #e9ede3; padding-top: 12px; }
+.gallery-details summary { min-height: 32px; color: #3f663a; font-size: 13px; font-weight: 600; cursor: pointer; }
+.gallery-details ul { padding-left: 18px; margin: 12px 0 0; font-size: 13px; line-height: 1.7; color: #617158; }
+.gallery-details li { margin-bottom: 5px; }
+.gallery-swipe-hint { display: none; }
+.yoga-gallery :is(summary,.yoga-gallery-grid):focus-visible { outline: 3px solid #9a813d; outline-offset: 3px; }
+@media(min-width:768px) and (max-width:1199px) { .yoga-gallery-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:767px) {
+ .yoga-gallery { padding: 36px 0; }
+ .yoga-gallery-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 85%; overflow-x: auto; gap: 14px; padding-bottom: 14px; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; }
+ .yoga-gallery-card { scroll-snap-align: start; }
+ .gallery-image { height: 260px; }
+ .gallery-swipe-hint { display: block; font-size: 12px; color: #718264; margin: 0 0 12px; }
+ .yoga-gallery-grid::-webkit-scrollbar { height: 5px; }
+ .yoga-gallery-grid::-webkit-scrollbar-thumb { background: #a5b98f; border-radius: 8px; }
+}

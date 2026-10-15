@@ -1,0 +1,19 @@
+{
+  "name": "yogshala-backend",
+  "version": "1.0.0",
+  "description": "Local PHP/MySQL launcher for Yogshala",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/portal.test.js"
+  },
+  "author": "Gemini Code Assist",
+  "license": "ISC",
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "dependencies": {
+    "nodemailer": "^10.1.1"
+  }
+}

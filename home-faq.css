@@ -1,0 +1,21 @@
+.home-faq { padding: 64px 0; background: #f3f6ee; border-top: 1px solid #e0e8d9; }
+.home-faq-header { max-width: 650px; margin: 0 auto 30px; text-align: center; }
+.home-faq-header > span { color: #6b7d5b; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.home-faq-header h2 { font-size: 30px; color: #21432b; font-weight: 700; margin: 12px 0; }
+.home-faq-header h1 { font-size: clamp(26px,4vw,38px); color: #21432b; font-weight: 700; margin: 12px 0; }
+.faq-page-link { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 12px 24px; border: 1px solid #adc49a; border-radius: 9px; font-weight: 600; text-decoration: none; background: #fff; }
+.homepage .main-nav .home-nav-links .nav-link { padding-left: 8px; padding-right: 8px; }
+.home-faq-header p { color: #61705a; line-height: 1.7; }
+.home-faq-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; align-items: start; }
+.home-faq details { background: #fff; border: 1px solid #dbe5d3; border-radius: 12px; overflow: hidden; }
+.home-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 20px; min-height: 60px; cursor: pointer; list-style: none; color: #29452d; font-weight: 600; font-size: 15px; line-height: 1.5; }
+.home-faq summary::-webkit-details-marker { display: none; }
+.home-faq summary::after { content: '+'; flex: 0 0 24px; font-size: 23px; font-weight: 400; text-align: center; color: #557246; }
+.home-faq details[open] { border-color: #adc49a; }
+.home-faq details[open] summary::after { content: '\2212'; }
+.home-faq .faq-answer { padding: 0 20px 20px; color: #5c6856; font-size: 14px; line-height: 1.75; }
+.home-faq .faq-answer p { font-size: inherit; margin: 0; }
+.home-faq a { color: #245b2f; text-underline-offset: 3px; }
+.home-faq summary:focus-visible, .home-faq a:focus-visible { outline: 3px solid #9d8038; outline-offset: -3px; }
+.home-faq-help { margin: 24px 0 0; text-align: center; color: #61705a; font-size: 14px; }
+@media(max-width: 767px) { .home-faq { padding: 40px 0; } .home-faq-grid { grid-template-columns: 1fr; } .home-faq summary { padding: 16px; } .home-faq .faq-answer { padding: 0 16px 16px; } }

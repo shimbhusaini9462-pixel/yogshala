@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /database/
+Disallow: /tests/
+Disallow: /scripts/
+Disallow: /config.php
+Disallow: /hash.php

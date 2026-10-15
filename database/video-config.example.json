@@ -1,0 +1,6 @@
+{
+  "server": "video.your-domain.com",
+  "app_id": "yogshala",
+  "app_secret": "",
+  "token_subject": "meet.jitsi"
+}

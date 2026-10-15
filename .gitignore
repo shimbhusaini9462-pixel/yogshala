@@ -1,3 +1,10 @@
+/database/local-admin.txt
+/uploads/
+*.log
+.env
+database/recovery-config.json
+database/video-config.json
+node_modules/
 desktop.ini
 .vscode/
 *.HEIC
