@@ -16,10 +16,10 @@ const pages = [
   ['index.html', 'Yoga Classes in Jaipur & Online | Yogshala Jaipur', 'Explore yoga classes in Jaipur and live online sessions at Yogshala. Discover yoga therapy, meditation and teacher training. Call +91 7689941298.'],
   ['classes.html', 'Offline Yoga Classes in Jaipur | Yogshala Jaipur', 'Explore offline yoga classes at Yogshala Jaipur. View class schedules, timings and fees, and contact our team to find a session that suits you.'],
   ['online-classes.html', 'Live Online Yoga Classes | Yogshala Jaipur', 'Practice yoga from home with Yogshala live online classes. Explore membership plans, upcoming sessions and guided yoga for different experience levels.'],
-  ['INSTRUCTOR.HTML', 'Yoga Instructors in Jaipur | Yogshala Jaipur', 'Meet Yogachariya Sanjay Saini and the Yogshala Jaipur team. Learn about our instructors and their approach to yoga, alignment and personalized guidance.'],
-  ['CONTACT.HTML', 'Contact Yogshala Jaipur | Yoga Class Enquiries', 'Contact Yogshala Jaipur for yoga classes, online sessions and teacher training enquiries. Call +91 7689941298 or use our enquiry form.'],
-  ['TRAINING.HTML', 'Yoga Teacher Training in Jaipur | Yogshala Jaipur', 'Explore 200-hour, 300-hour and specialized yoga teacher training at Yogshala Jaipur. Learn about course options, yoga alignment and teaching methodology.'],
-  ['BLOG.HTML', 'Yoga Articles & Practice Tips | Yogshala Jaipur', 'Explore yoga articles from Yogshala Jaipur with practice tips and information about yoga poses, breathing and meditation.'],
+  ['instructor.html', 'Yoga Instructors in Jaipur | Yogshala Jaipur', 'Meet Yogachariya Sanjay Saini and the Yogshala Jaipur team. Learn about our instructors and their approach to yoga, alignment and personalized guidance.'],
+  ['contact.html', 'Contact Yogshala Jaipur | Yoga Class Enquiries', 'Contact Yogshala Jaipur for yoga classes, online sessions and teacher training enquiries. Call +91 7689941298 or use our enquiry form.'],
+  ['training.html', 'Yoga Teacher Training in Jaipur | Yogshala Jaipur', 'Explore 200-hour, 300-hour and specialized yoga teacher training at Yogshala Jaipur. Learn about course options, yoga alignment and teaching methodology.'],
+  ['blog.html', 'Yoga Articles & Practice Tips | Yogshala Jaipur', 'Explore yoga articles from Yogshala Jaipur with practice tips and information about yoga poses, breathing and meditation.'],
 ];
 const escape = value => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 for (const [file, title, description] of pages) {
@@ -49,7 +49,7 @@ for (const [file, title, description] of pages) {
     const image = origin + '/' + encodeURIComponent('WhatsApp Image 2025-12-09 at 11.02.31_5b46d880.jpg');
     tags.push(`<meta property="og:image" content="${image}">`, '<meta property="og:image:alt" content="Yogshala Jaipur logo">', `<meta name="twitter:image" content="${image}">`);
   }
-  if (file === 'index.html' || file === 'CONTACT.HTML') {
+  if (file === 'index.html' || file === 'contact.html') {
     const business = {
       '@context': 'https://schema.org', '@type': 'ExerciseGym', name: 'Yogshala Jaipur',
       description: 'Yoga classes in Jaipur, live online yoga sessions and yoga teacher training.',

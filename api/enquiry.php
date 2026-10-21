@@ -18,6 +18,13 @@ foreach (['name','phone','state','city','email','course','mode','paymentMethod',
     $data[$key]=trim($data[$key]);
 }
 if (!filter_var($data['email'],FILTER_VALIDATE_EMAIL) || !preg_match('/^[+\d ()-]{7,25}$/D',$data['phone'])) { http_response_code(400); echo json_encode(['success'=>false,'message'=>'Enter a valid email and phone number.']); exit; }
+require_once __DIR__.'/fee-calculator.php';
+try {
+    $quote=calculateEnquiryFee($data);
+    $allowed=$data['clientType']==='Indian'?['Cash','Offline','UPI','Bank Transfer']:['Offline','International Bank Transfer','PayPal'];
+    if (!in_array($data['paymentMethod'],$allowed,true)) throw new InvalidArgumentException('Choose a payment method available for your client type.');
+    $data=array_merge($data,$quote);
+} catch (InvalidArgumentException $e) { http_response_code(400); echo json_encode(['success'=>false,'message'=>$e->getMessage()]); exit; }
 try {
     if (!in_array($data['paymentMethod'],['Cash','Offline','UPI','Bank Transfer','International Bank Transfer','PayPal'],true)) throw new RuntimeException('Invalid payment method.');
     unset($data['paymentProof'],$data['paymentStatus']);

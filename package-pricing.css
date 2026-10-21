@@ -40,3 +40,10 @@
  .package-pricing .hotel-rate { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
  .package-pricing .hotel-rate strong { grid-column: 1 / -1; }
 }
+
+.package-card .package-select { margin-top: 10px; background: #285331; color: #fff; }
+.hotel-enrol-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+#packageConditions { padding-left: 20px; line-height: 1.7; }
+#packageConditions li { margin-bottom: 6px; }
+
+.package-pricing .group-rate dd { grid-template-columns: minmax(0,1fr); }

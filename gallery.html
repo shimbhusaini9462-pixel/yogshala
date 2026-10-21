@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Photo Gallery &amp; Studio Album | Yogshala Jaipur</title><meta name="description" content="Explore 96 photographs of yoga practice, guided studio sessions and community moments at Yogshala Jaipur."><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="STYLE.CSS"><link rel="stylesheet" href="gallery-album.css"><script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script><script defer src="gallery-data.js"></script><script defer src="gallery-album.js"></script></head>
+<body class="homepage album-page"><nav class="navbar main-nav navbar-expand-xl navbar-light" aria-label="Main navigation">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="assets/images/whatsapp-image-2025-12-09-at-11-02-31-5b46d880-a01e7f90.webp" alt="Yogshala Logo" width="200" height="66" decoding="async" loading="eager">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav home-nav-links"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="index.html#about-yogshala">About</a></li><li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li><li class="nav-item"><a class="nav-link" href="gallery.html" aria-current="page">Gallery</a></li><li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li></ul>
+      <div class="home-nav-actions" aria-label="Account and enrolment">
+      <a href="student-dashboard.html" id="login-btn" class="btn nav-action nav-login">Log In</a>
+      <a href="student-dashboard.html?signup=1" id="signup-btn" class="btn nav-action nav-signup">Sign Up</a>
+      <div class="dropdown" style="display: none;" id="user-menu-dropdown">
+        <button class="btn nav-account dropdown-toggle" type="button" id="user-menu-button" data-bs-toggle="dropdown" aria-expanded="false">
+          My Account
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-menu-button">
+          <li><a class="dropdown-item" href="student-dashboard.html" id="client-dashboard-link">Client Dashboard</a></li>
+          <li><a class="dropdown-item" href="teacher-dashboard.html" id="teacher-dashboard-link">Teacher Dashboard</a></li>
+          <li><a class="dropdown-item" href="admin-dashboard.html" id="admin-dashboard-link">Admin Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#" id="logout-menu-btn">Logout</a></li>
+        </ul>
+      </div>
+      <a href="#join-form" class="btn nav-action nav-join">Join Now <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</nav><main><section class="album-intro"><p class="album-eyebrow">THE YOGSHALA ALBUM</p><h1>A Practice. A Place. Our People.</h1><p>From quiet moments on the mat to celebrations together.<br>Step inside our world, one photograph at a time.</p><span class="album-total">96 photographs &middot; Jaipur, India</span></section><section class="album-section" aria-label="Photo album"><div class="album-toolbar"><div class="album-filters" role="group" aria-label="Filter photographs"><button type="button" data-category="All photos" aria-pressed="true">All photos</button><button type="button" data-category="Yoga practice" aria-pressed="false">Yoga practice</button><button type="button" data-category="Guided sessions" aria-pressed="false">Guided sessions</button><button type="button" data-category="Community &amp; events" aria-pressed="false">Community &amp; events</button><button type="button" data-category="Studio moments" aria-pressed="false">Studio moments</button></div><p id="album-count" role="status" aria-live="polite"></p></div><div id="album-grid" class="album-grid"></div><div class="album-more"><button id="album-load-more" type="button">Show more photographs <span aria-hidden="true">&darr;</span></button></div><noscript><p>Please enable JavaScript to browse the photo album. <a href="index.html#gallery-section">View our homepage gallery</a>.</p></noscript></section><section class="album-end"><p>There is a place for you here, too.</p><a href="contact.html">Visit Yogshala &rarr;</a></section></main><footer class="album-footer">&copy; 2026 Yogshala Jaipur <a href="index.html">Back to home &rarr;</a></footer><dialog id="album-viewer" aria-label="Photo viewer"><div class="viewer-top"><p id="viewer-count" aria-live="polite"></p><button id="viewer-close" type="button" aria-label="Close photo viewer">&times;</button></div><div class="viewer-stage"><button id="viewer-prev" type="button" aria-label="Previous photograph">&#8249;</button><img id="viewer-image" alt=""><button id="viewer-next" type="button" aria-label="Next photograph">&#8250;</button></div><p id="viewer-caption"></p></dialog></body></html>

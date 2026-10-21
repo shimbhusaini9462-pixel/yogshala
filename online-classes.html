@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="STYLE.CSS">
     <link rel="stylesheet" href="online-classes.css">
+
 </head>
 <body>
 
@@ -32,33 +33,10 @@
         <a class="navbar-brand" href="index.html">
           <img src="assets/images/whatsapp-image-2025-12-09-at-11-02-31-5b46d880-a01e7f90.webp" alt="Yogshala Logo" width="200" height="66" decoding="async" loading="eager">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="INSTRUCTOR.HTML">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="classes.html">Offline Classes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="online-classes.html">Online Classes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="INSTRUCTOR.HTML">Teachers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.html#gallery-section">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="CONTACT.HTML">Contact</a>
-            </li>
-          </ul>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav home-nav-links"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="index.html#about-yogshala">About</a></li><li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li><li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li><li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li></ul>
           <a href="#membership-plans" class="btn btn-primary rounded-pill">Explore Plans</a>
         </div>
       </div>
@@ -150,48 +128,50 @@
     </section>
 
     <!-- MEMBERSHIP PLANS -->
+    <div class="container text-center py-3"><a class="btn btn-join" href="index.html?package=membership&amp;client=International&amp;mode=Online#join-form">International Online Yoga - View Daily Fees</a></div>
     <section id="membership-plans" class="membership-section">
         <div class="container">
-            <h2 class="section-title text-center">Membership Plans</h2>
+            <h2 class="section-title text-center">Membership Plans</h2><p class="text-center">Indian plans are shown in INR. International online plans are twice the Indian total, converted at INR 95 per USD. Duration discounts are included.</p>
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="plan-card">
                         <h3>Monthly</h3>
-                        <p class="price">₹899<span>/month</span></p>
+                        <p class="price">&#8377;1,499<span>/month</span></p><p class="plan-usd-rate">International: approx. $31.56 / month</p>
                         <ul>
                             <li><i class="fas fa-check"></i> Access to your assigned batch</li>
                             <li><i class="fas fa-check"></i> 20 Live Classes</li>
                             <li><i class="fas fa-check"></i> Live classes inside your dashboard</li>
                             <li><i class="fas fa-times"></i> Personal Consultation</li>
                         </ul>
-                        <a href="index.html#join-form" class="btn btn-join">Choose Plan</a>
+                        <a href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=monthly#join-form" class="btn btn-join">Choose Indian Plan</a><a href="index.html?package=onlinePlan&amp;client=International&amp;plan=monthly#join-form" class="btn btn-join mt-2">Choose International Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="plan-card popular">
                         <span class="popular-badge">Most Popular</span>
-                        <h3>Quarterly</h3>
-                        <p class="price">₹2,499<span>/3 months</span></p>
+                        <h3>Quarterly</h3><p class="text-success">15% off &middot; &#8377;1,499 &times; 3</p>
+                        <p class="price">&#8377;3,822.45<span>/3 months</span></p><p class="plan-usd-rate">International: approx. $80.47 / 3 months</p>
                         <ul>
                             <li><i class="fas fa-check"></i> Access to your assigned batch</li>
                             <li><i class="fas fa-check"></i> 60 Live Classes</li>
                             <li><i class="fas fa-check"></i> Live classes inside your dashboard</li>
                             <li><i class="fas fa-check"></i> 1 Personal Consultation</li>
                         </ul>
-                        <a href="index.html#join-form" class="btn btn-join">Choose Plan</a>
+                        <a href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=quarterly#join-form" class="btn btn-join">Choose Indian Plan</a><a href="index.html?package=onlinePlan&amp;client=International&amp;plan=quarterly#join-form" class="btn btn-join mt-2">Choose International Plan</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                <div class="col-lg-4 col-md-6 mb-4"><div class="plan-card"><h3>Half-Yearly</h3><p class="text-success">30% off &middot; &#8377;1,499 &times; 6</p><p class="price">&#8377;6,295.80<span>/6 months</span></p><p class="plan-usd-rate">International: approx. $132.54 / 6 months</p><ul><li>Access to your assigned batch</li><li>6-month online membership</li><li>Live classes inside your dashboard</li></ul><a href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=halfyearly#join-form" class="btn btn-join">Choose Indian Plan</a><a href="index.html?package=onlinePlan&amp;client=International&amp;plan=halfyearly#join-form" class="btn btn-join mt-2">Choose International Plan</a></div></div>
+<div class="col-lg-4 col-md-6 mb-4">
                     <div class="plan-card">
-                        <h3>Annual</h3>
-                        <p class="price">₹8,999<span>/year</span></p>
+                        <h3>Annual</h3><p class="text-success">50% off &middot; &#8377;1,499 &times; 12</p>
+                        <p class="price">&#8377;8,994<span>/year</span></p><p class="plan-usd-rate">International: approx. $189.35 / year</p>
                         <ul>
                             <li><i class="fas fa-check"></i> Access to your assigned batch</li>
                             <li><i class="fas fa-check"></i> Unlimited Live Classes</li>
                             <li><i class="fas fa-check"></i> Live classes inside your dashboard</li>
                             <li><i class="fas fa-check"></i> 4 Personal Consultations</li>
                         </ul>
-                        <a href="index.html#join-form" class="btn btn-join">Choose Plan</a>
+                        <a href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=annual#join-form" class="btn btn-join">Choose Indian Plan</a><a href="index.html?package=onlinePlan&amp;client=International&amp;plan=annual#join-form" class="btn btn-join mt-2">Choose International Plan</a>
                     </div>
                 </div>
             </div>
@@ -317,7 +297,7 @@
             <p class="lead text-white mb-4">
                 Our team is here to assist you with any questions about our online classes, memberships, or technical support.
             </p>
-            <a href="CONTACT.HTML" class="btn btn-gold btn-lg">
+            <a href="contact.html" class="btn btn-gold btn-lg">
                 <i class="fas fa-headset me-2"></i> Contact Support
             </a>
         </div>
@@ -338,8 +318,8 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="classes.html">Offline Classes</a></li>
-            <li><a href="TRAINING.HTML">Yoga Teacher Training</a></li>
-            <li><a href="CONTACT.HTML">Contact</a></li>
+            <li><a href="training.html">Yoga Teacher Training</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-box">

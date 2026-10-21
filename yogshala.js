@@ -30,7 +30,7 @@ function updateFees(){
     let clientType = document.getElementById("clientType") ? document.getElementById("clientType").value : "Indian";
 
     let feesChartIndian = {
-        "General Yoga": { Online: "₹ 899", Offline: "₹ 3500" },
+        "General Yoga": { Online: "₹ 1499", Offline: "₹ 3500" },
         "Power Yoga": { Online: "₹ 1169", Offline: "₹ 5400" },
         "Face Yoga": { Online: "₹ 1169", Offline: "₹ 5400" },
         "Slimming Yoga": { Online: "₹ 899", Offline: "₹ 5400" },
@@ -39,12 +39,12 @@ function updateFees(){
     };
 
     let feesChartInternational = {
-        "General Yoga": { Online: "$ 7 / day", Offline: "$ 10 / day" },
-        "Power Yoga": { Online: "$ 12.63 / day", Offline: "$ 15.79 / day" },
-        "Face Yoga": { Online: "$ 10.53 / day", Offline: "$ 8.42 / day" },
-        "Slimming Yoga": { Online: "$ 10.53 / day", Offline: "$ 8.42 / day" },
-        "Pregnancy Yoga": { Online: "$ 7.37 / day", Offline: "$ 9.47 / day" },
-        "Therapy Yoga": { Offline: "$ 21.05 / day" }
+        "General Yoga": { Online: "$7 / day", Offline: "$10 / day" },
+        "Power Yoga": { Online: "$12.63 / day", Offline: "$15.79 / day" },
+        "Face Yoga": { Online: "$10.53 / day", Offline: "$8.42 / day" },
+        "Slimming Yoga": { Online: "$10.53 / day", Offline: "$8.42 / day" },
+        "Pregnancy Yoga": { Online: "$7.37 / day", Offline: "$9.47 / day" },
+        "Therapy Yoga": { Offline: "$21.05 / day" }
     };
 
     let feesChart = clientType === "International" ? feesChartInternational : feesChartIndian;
@@ -111,9 +111,12 @@ function togglePaymentDetails() {
 }
 async function submitForm(){
     if (submitForm.pending) return;
+    const enquiryForm=document.getElementById('join-enquiry-form');
+    if(enquiryForm && !enquiryForm.reportValidity())return;
     const fields = ['name','phone','state','city','course','email','mode','fees','paymentMethod','clientType'];
     const data = Object.fromEntries(fields.map(key => [key, document.getElementById(key)?.value.trim() || '']));
-    if(document.getElementById('packageType')) {data.packageType=document.getElementById('packageType').value;data.packageAudience=document.getElementById('packageType').value==='shared'?document.getElementById('packageAudience').value:'not applicable';data.packageDetails=document.getElementById('packageDetails').textContent;}
+    if(document.getElementById('packageType')) {data.packageType=document.getElementById('packageType').value;data.packageAudience=document.getElementById('packageType').value==='shared'?'group':'not applicable';data.packageDetails=document.getElementById('packageDetails').textContent;}
+    data.participants=document.getElementById('participants-field')?.hidden?'1':document.getElementById('participants').value;
     if (Object.values(data).some(value => !value)) { alert('Please fill all the details.'); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || !/^[+\d ()-]{7,25}$/.test(data.phone)) { alert('Please enter a valid email and phone number.'); return; }
     const proof=document.getElementById('payment-proof')?.files[0];
@@ -130,11 +133,16 @@ async function submitForm(){
         if (!response.ok || !result.success) throw new Error(result.message || 'Unable to save enquiry.');
         if (loader) loader.style.display = 'none';
         data.paymentStatus=['Cash','Offline'].includes(data.paymentMethod)?data.paymentMethod+' selected - payment pending':'Screenshot submitted - verification pending';
-        const text = ['Cash','Offline'].includes(data.paymentMethod)?'Enquiry submitted successfully. Pay at the centre; payment is pending. Continue to WhatsApp and press Send to notify Yogshala.':'Enquiry and screenshot submitted successfully. Payment verification is pending. Continue to WhatsApp and press Send to notify Yogshala.';
-        if (typeof Swal !== 'undefined') await Swal.fire({title:'Enquiry received',text,icon:'success',confirmButtonText:'Continue to WhatsApp',confirmButtonColor:'#1a5276'});
-        else alert(text);
-        const message = 'NEW YOGA ENQUIRY\n\n' + Object.keys(data).map(key => key + ': ' + data[key]).join('\n');
-        window.location.href = 'https://wa.me/917689941298?text=' + encodeURIComponent(message);
+        const labels={name:'Name',phone:'WhatsApp',email:'Email',state:'State / Region',city:'City',clientType:'Client type',course:'Course / Plan',mode:'Class mode',participants:'Members',fees:'Total fee',paymentMethod:'Payment method',paymentStatus:'Payment status'};
+        const message='NEW YOGA ENQUIRY #'+result.id+'\n\n'+Object.entries(labels).map(([key,label])=>label+': '+data[key]).join('\n');
+        const whatsappUrl='https://wa.me/917689941298?text='+encodeURIComponent(message);
+        const handoff=document.getElementById('enquiry-whatsapp-handoff');
+        if(handoff){
+            handoff.hidden=false;
+            const link=document.getElementById('enquiry-whatsapp-link');link.href=whatsappUrl;
+            handoff.scrollIntoView({block:'center'});
+        }
+        window.location.assign(whatsappUrl);
     } catch (error) {
         alert(error instanceof SyntaxError ? 'Open the website at http://127.0.0.1:8085 to submit your enquiry.' : error.message);
     } finally {

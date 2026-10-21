@@ -1,0 +1,103 @@
+/* Public page links stay visible at every screen size. */
+.visible-page-nav > .container { flex-wrap: wrap; gap: 12px 24px; }
+.visible-page-nav .navbar-collapse { display: flex !important; flex: 1 1 100%; flex-wrap: wrap; align-items: center; gap: 16px; width: 100%; max-height: none !important; overflow: visible !important; padding: 0 !important; }
+.visible-page-nav .navbar-nav { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 4px; width: 100%; margin: 0 !important; }
+.visible-page-nav .nav-link { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 12px !important; white-space: normal !important; text-align: center; }
+.homepage .visible-page-nav .home-nav-actions { display: flex; flex-wrap: wrap; justify-content: center; width: 100%; margin: 0; padding: 12px 0 0; border-left: 0; border-top: 1px solid #e1e8de; gap: 10px; }
+.homepage .visible-page-nav .home-nav-actions .nav-action { width: auto; flex: 0 1 auto; }
+.visible-page-nav .navbar-collapse > a { margin: 0 !important; }
+@media (min-width: 1400px) {
+ .visible-page-nav > .container { max-width: 1600px; padding-inline: 24px; }
+ .visible-page-nav .navbar-collapse { flex-basis: 0; width: auto; }
+ .visible-page-nav .navbar-nav { width: auto; flex: 1 1 700px; }
+ .homepage .visible-page-nav .home-nav-actions { width: auto; padding: 0 0 0 16px; border-top: 0; border-left: 1px solid #e1e8de; }
+}
+@media (max-width: 767px) {
+ .visible-page-nav { position: relative; }
+ .visible-page-nav > .container { justify-content: center; }
+ .visible-page-nav .navbar-brand { margin: 0 !important; }
+ .visible-page-nav .navbar-collapse { gap: 8px; }
+ .visible-page-nav .navbar-nav { gap: 4px; }
+ .visible-page-nav .navbar-nav .nav-item { flex: 1 1 calc(33.333% - 8px); }
+ .visible-page-nav .navbar-nav .nav-link { font-size: 12px; padding: 8px 6px !important; border: 1px solid #e6ece2; border-radius: 8px; height: 100%; }
+ .homepage .visible-page-nav .home-nav-actions { padding-top: 10px; }
+ .homepage .visible-page-nav .home-nav-actions .nav-action { flex: 1 1 auto; padding: 10px 12px; }
+}
+
+/* Keep the primary page links on one horizontal line. */
+.visible-page-nav .navbar-nav {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    min-width: 0;
+    max-width: 100%;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+}
+.visible-page-nav .navbar-nav .nav-item { flex: 0 0 auto; }
+.visible-page-nav .navbar-nav .nav-link { white-space: nowrap !important; }
+@media (min-width: 768px) {
+    .visible-page-nav .navbar-nav { justify-content: center; }
+}
+@media (min-width: 1200px) {
+    .visible-page-nav > .container { max-width: 1600px; padding-inline: 24px; flex-wrap: nowrap; }
+    .visible-page-nav .navbar-collapse { flex: 1 1 auto; width: auto; flex-wrap: nowrap; min-width: 0; }
+    .visible-page-nav .navbar-nav { flex: 1 1 auto; width: auto; }
+    .homepage .visible-page-nav .home-nav-actions { width: auto; flex: 0 0 auto; flex-wrap: nowrap; margin: 0; padding: 0 0 0 16px; border-top: 0; border-left: 1px solid #e1e8de; }
+}
+
+/* Match the desktop header arrangement on phones and tablets. */
+@media (max-width: 1199.98px) {
+    .visible-page-nav > .container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 16px;
+        overflow-x: auto;
+        max-width: 100%;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        padding-block: 4px;
+    }
+    .visible-page-nav .navbar-brand {
+        flex: 0 0 auto;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+    .visible-page-nav .navbar-brand img { width: 110px !important; }
+    .visible-page-nav .navbar-collapse {
+        display: flex !important;
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        width: auto;
+        gap: 16px;
+    }
+    .visible-page-nav .navbar-nav {
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        width: auto;
+        max-width: none;
+        overflow: visible;
+        justify-content: flex-start;
+    }
+    .visible-page-nav .navbar-nav .nav-item { flex: 0 0 auto; }
+    .visible-page-nav .navbar-nav .nav-link {
+        padding: 10px 8px !important;
+        font-size: 13px;
+        border: 0;
+    }
+    .homepage .visible-page-nav .home-nav-actions {
+        display: flex;
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        width: auto;
+        margin: 0;
+        padding: 0 0 0 12px;
+        border-top: 0;
+        border-left: 1px solid #e1e8de;
+        gap: 8px;
+    }
+    .homepage .visible-page-nav .home-nav-actions .nav-action { flex: 0 0 auto; width: auto; font-size: 13px; }
+    .visible-page-nav .navbar-collapse > a { flex-shrink: 0; width: auto !important; }
+}

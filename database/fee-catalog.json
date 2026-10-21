@@ -1,0 +1,165 @@
+{
+  "online": {
+    "monthly": 1499,
+    "foreignMultiplier": 2,
+    "inrPerUsd": 95,
+    "plans": [
+      {
+        "course": "Monthly - 20 Live Classes",
+        "months": 1,
+        "discount": 0
+      },
+      {
+        "course": "Quarterly - 60 Live Classes",
+        "months": 3,
+        "discount": 15
+      },
+      {
+        "course": "Half-Yearly - 6 Months",
+        "months": 6,
+        "discount": 30
+      },
+      {
+        "course": "Annual - Unlimited Live Classes",
+        "months": 12,
+        "discount": 50
+      }
+    ]
+  },
+  "membership": {
+    "Indian": {
+      "General Yoga": {
+        "Online": 1499,
+        "Offline": 3500
+      },
+      "Power Yoga": {
+        "Online": 1169,
+        "Offline": 5400
+      },
+      "Face Yoga": {
+        "Online": 1169,
+        "Offline": 5400
+      },
+      "Slimming Yoga": {
+        "Online": 899,
+        "Offline": 5400
+      },
+      "Pregnancy Yoga": {
+        "Online": 1259,
+        "Offline": 7199
+      },
+      "Therapy Yoga": {
+        "Offline": 13000
+      }
+    },
+    "International": {
+      "General Yoga": {
+        "Online": 7,
+        "Offline": 10
+      },
+      "Power Yoga": {
+        "Online": 12.63,
+        "Offline": 15.79
+      },
+      "Face Yoga": {
+        "Online": 10.53,
+        "Offline": 8.42
+      },
+      "Slimming Yoga": {
+        "Online": 10.53,
+        "Offline": 8.42
+      },
+      "Pregnancy Yoga": {
+        "Online": 7.37,
+        "Offline": 9.47
+      },
+      "Therapy Yoga": {
+        "Offline": 21.05
+      }
+    }
+  },
+  "packages": {
+    "onlinePlan": {
+      "Indian": {
+        "Monthly - 20 Live Classes": 1499,
+        "Quarterly - 60 Live Classes": 3822.45,
+        "Half-Yearly - 6 Months": 6295.8,
+        "Annual - Unlimited Live Classes": 8994
+      },
+      "International": {
+        "Monthly - 20 Live Classes": 31.56,
+        "Quarterly - 60 Live Classes": 80.47,
+        "Half-Yearly - 6 Months": 132.54,
+        "Annual - Unlimited Live Classes": 189.35
+      }
+    },
+    "weekly": {
+      "Indian": {
+        "General / Hatha Yoga": 1200,
+        "Power / Slimming Yoga": 1600,
+        "Therapy Yoga": 3500,
+        "Pregnancy Yoga": 2500
+      },
+      "International": {
+        "General / Hatha Yoga": 58,
+        "Therapy Yoga": 90
+      }
+    },
+    "ten": {
+      "Indian": {
+        "General / Hatha Yoga": 3200,
+        "Power / Slimming Yoga": 4200,
+        "Therapy Yoga": 10500,
+        "Pregnancy Yoga": 7500
+      },
+      "International": {
+        "General / Hatha Yoga": 95,
+        "Therapy Yoga": 142
+      }
+    },
+    "private": {
+      "Indian": {
+        "General / Hatha Yoga": 1200,
+        "Therapy Yoga": 2000
+      },
+      "International": {
+        "General / Hatha Yoga": 16,
+        "Therapy Yoga": 21
+      }
+    },
+    "shared": {
+      "Indian": {
+        "General / Hatha Yoga": 3000,
+        "Power / Slimming Yoga": 3850,
+        "Therapy Yoga": 11050
+      },
+      "International": {
+        "General / Hatha Yoga": 147,
+        "Therapy Yoga": 295
+      }
+    },
+    "home": {
+      "Indian": {
+        "Monthly Home Yoga": 15000,
+        "General / Hatha Yoga - Single": 1500,
+        "Therapy Yoga - Single": 2200,
+        "Group of 3 or More": 1275
+      },
+      "International": {
+        "General / Hatha Yoga - Single": 26,
+        "Therapy Yoga - Single": 37,
+        "Group of 3 or More": 22.1
+      }
+    },
+    "hotel": {
+      "Indian": {
+        "Group Yoga - Per Person": 750,
+        "Single / Private Yoga": 2500
+      },
+      "International": {
+        "Group Yoga - Per Person": 8,
+        "Single / Private Yoga": 26
+      }
+    }
+  }
+}

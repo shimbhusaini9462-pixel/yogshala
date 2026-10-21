@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node tests/portal.test.js"
+    "test": "node tests/fees.test.js && node tests/portal.test.js"
   },
   "author": "Gemini Code Assist",
   "license": "ISC",

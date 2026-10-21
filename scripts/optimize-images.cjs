@@ -4,7 +4,7 @@ const crypto = require('node:crypto');
 const sharp = require('sharp');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'assets', 'images');
-const pages = ['index.html', 'classes.html', 'online-classes.html', 'INSTRUCTOR.HTML', 'CONTACT.HTML', 'TRAINING.HTML', 'BLOG.HTML'];
+const pages = ['index.html', 'classes.html', 'online-classes.html', 'instructor.html', 'contact.html', 'training.html', 'blog.html'];
 fs.mkdirSync(output, { recursive: true });
 const cache = new Map();
 const report = [];

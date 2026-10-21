@@ -1437,3 +1437,85 @@ body{
  .navbar:not(.main-nav) .nav-join { width: 100%; margin: 12px 0 4px; }
 }
 :is(.navbar, .homepage .main-nav) .nav-join:focus-visible { outline: 3px solid #1b5e20; outline-offset: 3px; }
+
+/* Homepage responsive layout: allow content to determine section heights. */
+.homepage .tutorial {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 32px;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+    min-height: 0;
+}
+.homepage :is(.tute-1, .tute-2) { width: 100%; height: auto; min-width: 0; margin: 0; }
+.homepage .tute-a { width: 100%; height: auto; margin: 0 0 24px; }
+.homepage .tute-a.tute-video { width: 100%; height: auto; aspect-ratio: 734 / 431; }
+.homepage .tute-2a { flex-wrap: wrap; }
+.homepage .tute-3 { flex: 1 1 240px; min-width: 0; }
+.homepage .tute-3 img { flex-shrink: 0; }
+.homepage .tute-title { margin-top: 0; }
+
+@media (max-width: 991.98px) {
+    .homepage .tutorial { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .homepage .tute-1 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .homepage .tute-a { margin: 0 !important; }
+}
+
+@media (max-width: 767.98px) {
+    .homepage .top-bar { overflow: visible; padding: 8px 0; }
+    .homepage .top-bar .d-flex {
+        flex-wrap: wrap !important;
+        overflow: visible;
+        gap: 6px 12px;
+    }
+    .homepage .top-bar .d-flex > div {
+        margin: 0 !important;
+        white-space: normal;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+        min-width: 0;
+    }
+    .homepage .top-bar > .container > .d-flex > div { width: 100%; }
+    .homepage .top-bar .social-icons { justify-content: center; }
+    .homepage .main-nav { padding: 8px 0; }
+    .homepage .main-nav .navbar-brand { margin-right: 0; }
+    .homepage .main-nav .navbar-collapse { max-height: 65vh; max-height: 65dvh; }
+    .homepage #carouselExampleInterval .carousel-item { height: auto; aspect-ratio: 16 / 9; }
+    .homepage #carouselExampleInterval .custom-slider-img { width: 100%; height: 100%; object-fit: contain; }
+    .homepage .tutorial { padding: 24px 16px !important; gap: 24px !important; }
+    .homepage .tute-1 { grid-template-columns: minmax(0, 1fr); }
+    .homepage .tute-2a { gap: 16px !important; }
+    .homepage .tute-3 { flex: 0 1 auto; width: 100%; }
+    .homepage .tute-3 p { font-size: 14px; line-height: 1.65; }
+    .homepage .yoga-overview .yoga-services .service-grid { grid-template-columns: none; grid-auto-columns: 100%; }
+    .homepage .yoga-overview .therapy { padding: 20px; }
+    .homepage .yoga-overview .therapy-img { float: none; display: block; width: 100%; height: 220px; margin: 0 0 16px; }
+    .homepage .footer-container { grid-template-columns: minmax(0, 1fr); }
+    .homepage .footer-map iframe { width: 100%; }
+}
+
+#join-rate-guide { grid-column: 1 / -1; color: #fff; border: 1px solid #ffffff50; border-radius: 10px; padding: 14px; background: #ffffff0c; }
+#join-rate-guide summary { cursor: pointer; font-size: 15px; font-weight: 600; min-height: 32px; }
+.join-rate-row { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 12px; padding: 12px 0; border-top: 1px solid #ffffff30; font-size: 13px; line-height: 1.65; }
+.join-rate-row strong { font-weight: 500; text-align: right; }
+@media(max-width:575px) { .join-rate-row { grid-template-columns: minmax(0,1fr); gap: 4px; } .join-rate-row strong { text-align: left; } }
+
+#packageConditions { padding-left: 20px; line-height: 1.7; }
+#packageConditions li { margin-bottom: 6px; }
+
+/* Keep form actions legible and full width below the package information. */
+#join-enquiry-form .join-submit-actions { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,1fr); gap: 12px; width: 100%; }
+#join-enquiry-form .join-submit-button { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; white-space: normal; color: #183b24; background: #fff; border: 2px solid #fff; border-radius: 10px; padding: 12px 18px; font-size: 15px; font-weight: 700; line-height: 1.5; }
+#join-enquiry-form .join-submit-button:hover { color: #183b24; background: #e6f2df; border-color: #e6f2df; }
+#join-enquiry-form .join-help-button { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; color: #fff; border: 1px solid #ffffff70; border-radius: 10px; font-size: 14px; text-decoration: none; }
+#packageConditions { grid-column: 1 / -1; }
+
+#join-conditions-guide { grid-column: 1 / -1; border: 1px solid #ffffff50; border-radius: 10px; padding: 14px; color: #fff; background: #ffffff0c; }
+#join-conditions-guide summary { cursor: pointer; font-size: 15px; font-weight: 600; min-height: 32px; }
+#join-enquiry-form #fees { min-height: 50px; font-size: 18px; font-weight: 700; background: #f4f9ee; color: #183b24; }
+
+.selected-fee-summary { margin-top: 12px; color: #fff; font-size: 13px; line-height: 1.7; }
+.selected-fee-summary > strong { display: block; font-size: 16px; margin-bottom: 8px; }
+.selected-fee-summary ul { padding-left: 18px; margin: 0; }
