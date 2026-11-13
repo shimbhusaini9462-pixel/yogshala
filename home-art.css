@@ -41,12 +41,13 @@
  .homepage .why-yogshala::before {width:150px;height:120px;opacity:.18;}
  .homepage .home-faq::after {width:130px;height:100px;opacity:.16;}
 }
-/* Fill the photograph's side panel with pink pencil-line Jaipur art. */
+/* Keep photo panels free of architectural overlays; retain floral details. */
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame::before {
+ content:none;
+}
 .homepage .home-portrait-panel {isolation:isolate;}
 .homepage .home-portrait-panel::before {
- content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
- background:url('assets/images/jaipur-palace-sketch.svg') center bottom/auto 60% repeat-y;
- opacity:.48;
+ content:none;
 }
 .homepage .home-portrait-panel::after {
  content:"";position:absolute;inset:0;width:auto;height:auto;border:0;border-radius:0;box-shadow:none;pointer-events:none;
