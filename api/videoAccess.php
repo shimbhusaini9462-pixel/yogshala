@@ -13,7 +13,7 @@ $q=$pdo->prepare('SELECT lc.room_name,lc.status,b.teacher_id,b.id AS batch_id FR
 if (!$class || $class['status']!=='live')videoReply('This class is not live. Refresh your dashboard.',403);
 if ($role==='teacher' && (int)$class['teacher_id']!==$id)videoReply('This class is not assigned to you.',403);
 if ($role==='student'){
-    $q=$pdo->prepare("SELECT s.id FROM students s JOIN students_batches sb ON sb.student_id=s.id WHERE s.id=? AND sb.batch_id=? AND s.subscription_status='active' AND (SELECT MAX(expiry_date) FROM payments WHERE student_id=s.id)>=CURDATE()");$q->execute([$id,$class['batch_id']]);
+    $q=$pdo->prepare("SELECT s.id FROM students s JOIN students_batches sb ON sb.student_id=s.id WHERE s.id=? AND sb.batch_id=? AND s.subscription_status='active' AND (SELECT MAX(expiry_date) FROM payments WHERE student_id=s.id)>=CURRENT_DATE");$q->execute([$id,$class['batch_id']]);
     if (!$q->fetch())videoReply('An active membership and assigned batch are required.',403);
 }
 $jwt=null;

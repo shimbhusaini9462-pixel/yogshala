@@ -86,7 +86,7 @@ function renderJoinConditions(type,market){
 document.addEventListener('DOMContentLoaded',()=>{
  const type=document.getElementById('packageType');if(!type)return;
  const params=new URLSearchParams(location.search),requestedType=params.get('package'),market=params.get('client');
- if(['Indian','International'].includes(market)){document.getElementById('clientType').value=market;updatePaymentOptions();}
+ if(['Indian','International'].includes(market)){document.getElementById('clientType').value=market;}
  if([...type.options].some(o=>o.value===requestedType))type.value=requestedType;
  updateFees();
  if(type.value==='membership'&&market==='International'&&(requestedType==='onlinePlan'||params.get('mode')==='Online')){document.getElementById('course').value='General Yoga';document.getElementById('mode').value='Online';updateFees();}

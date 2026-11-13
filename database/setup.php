@@ -1,7 +1,28 @@
 <?php
 if (PHP_SAPI !== 'cli') { http_response_code(404); exit; }
+require_once __DIR__.'/connection.php';
+if (databaseDriver()==='pgsql') {
+    $pdo=connectDatabase();
+    $pdo->beginTransaction();
+    try {
+        $pdo->exec(file_get_contents(__DIR__.'/supabase-schema.sql'));
+        $pdo->commit();
+    } catch (Throwable $error) {
+        $pdo->rollBack();throw $error;
+    }
+    if (!in_array('--no-admin',$argv,true) && !$pdo->query('SELECT COUNT(*) FROM admins')->fetchColumn()) {
+        $password=bin2hex(random_bytes(16));
+        $pdo->prepare('INSERT INTO admins(username,password) VALUES(?,?)')->execute(['admin',password_hash($password,PASSWORD_DEFAULT)]);
+        file_put_contents(__DIR__.'/local-admin.txt',"Supabase admin username: admin\nPassword: $password\n");
+        echo "Admin login saved in database/local-admin.txt\n";
+    }
+    echo "Supabase database ready.\n";
+    exit;
+}
 $pdo=new PDO('mysql:host=127.0.0.1;port=3306;charset=utf8mb4','root','',[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
 $pdo->exec(file_get_contents(__DIR__.'/database.sql'));
+$pdo->exec(file_get_contents(__DIR__.'/razorpay-schema.sql'));
+$pdo->exec(file_get_contents(__DIR__.'/manual-payments-mysql.sql'));
 $pdo->exec("CREATE TABLE IF NOT EXISTS portal_settings (setting_key VARCHAR(60) PRIMARY KEY, setting_value TEXT NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 $column=$pdo->query("SHOW COLUMNS FROM admins LIKE 'recovery_email'")->fetch();
 if (!$column) $pdo->exec('ALTER TABLE admins ADD COLUMN recovery_email VARCHAR(100) DEFAULT NULL');

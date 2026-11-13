@@ -7,11 +7,12 @@
     <meta name="robots" content="noindex, follow">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="STYLE.CSS">
-</head>
-<body>
+<link rel="stylesheet" href="mobile-nav.css?v=20261022-4">
+<link href="site-theme.css?v=20261104-fixed-contact-1" rel="stylesheet"></head>
+<body class="site-brand brand-public page-online-class">
 
 <!-- START HEADER -->
 <!-- TOP BAR -->
@@ -21,10 +22,10 @@
             <div>RELIEF PAIN. IMMPROVE FLEXIBILITY</div>
             <div class="d-flex align-items-center">
                 <div class="me-3">
-                    <i class="fa-solid fa-mobile"></i> 7689941298
+                    <i class="fa-solid fa-mobile"></i> 7689941299
                 </div>
                 <div class="me-3">
-                    <i class="fa-solid fa-envelope-open"></i> yogshala-jaipur@gmail.com
+                    <i class="fa-solid fa-envelope-open"></i> <a href="mailto:yogshala.jaipur@gmail.com">yogshala.jaipur@gmail.com</a>
                 </div>
                 <div class="social-icons">
                    <a href="https://wa.me/917689941298"><i class="fa-brands fa-whatsapp"></i></a>
@@ -39,56 +40,18 @@
 </div>
 
 <!-- MAIN NAVIGATION -->
-<nav class="navbar main-nav navbar-expand-lg navbar-light">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="WhatsApp Image 2025-12-09 at 11.02.31_5b46d880.jpg" alt="Yogshala Logo" width="200">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="instructor.html">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="classes.html">Offline Classes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="online-classes.html">Online Classes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="instructor.html">Teachers</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="gallery.html">Gallery</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contact us</a>
-        </li>
-      </ul>
-      <a href="index.html#join-form" class="btn nav-action nav-join">Join Now <span aria-hidden="true">&rarr;</span></a>
-    </div>
-  </div>
-</nav>
+<nav class="public-site-header" aria-label="Main navigation"><div class="public-nav-inner"><a class="public-nav-brand" href="index.html"><img src="assets/images/whatsapp-image-2025-12-09-at-11-02-31-5b46d880-a01e7f90.webp" alt="Yogshala Jaipur" width="160" height="53"></a><div class="public-nav-content"><div class="public-nav-links"><a href="index.html">Home</a><a href="index.html#about-yogshala">About</a><a href="classes.html" class="class-nav-link">Offline Yoga</a><a href="online-classes.html" class="class-nav-link">Online Yoga</a><a href="gallery.html">Gallery</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div><div class="public-nav-actions" aria-label="Classes and account"><a class="nav-button nav-class-button" href="online-classes.html">Online</a><a class="nav-button nav-class-button" href="classes.html">Offline</a><a class="nav-button nav-auth-login" href="student-dashboard.html">Log In</a><a class="nav-button nav-auth-signup" href="student-dashboard.html?signup=1">Sign Up</a><a class="nav-button nav-auth-dashboard" href="student-dashboard.html" hidden>Dashboard</a><button type="button" class="nav-button nav-auth-logout" hidden>Log Out</button><a class="nav-button nav-main-join" href="index.html#join-form">Join Now <span aria-hidden="true">→</span></a></div></div></div></nav>
 <!-- END HEADER -->
 
 <!-- MAIN CONTENT SECTION -->
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, #e8f5e9 0%, #f5f5f5 100%);">
-<div class="container">
-    <div class="text-center mb-5" data-aos="fade-down">
-        <h1 class="fw-bold" style="color: #1b5e20;">Our Online Yoga Classes</h1>
-        <p class="text-muted lead">Join our live, interactive yoga sessions from the comfort of your home.</p>
-    </div>
-    
+<div class="container-fluid py-5 site-content-section" style="background: linear-gradient(135deg, #e8f5e9 0%, #f5f5f5 100%);">
+<div class="container"><h1 id="page-title" class="site-content-title">Our Online Yoga Classes</h1>
+
+
     <div class="row g-4">
         <!-- Class 1 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card h-100 shadow-sm border-0 class-card">
+            <div class="card h-100 shadow-sm border-0 class-card site-content-card">
                 <img src="9.jpg" class="card-img-top" alt="General Yoga" style="height: 220px; object-fit: cover;">
                 <div class="card-body text-center p-4">
                     <h4 class="card-title fw-bold" style="color: #1b5e20;">General Yoga</h4>
@@ -100,7 +63,7 @@
 
         <!-- Class 2 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card h-100 shadow-sm border-0 class-card">
+            <div class="card h-100 shadow-sm border-0 class-card site-content-card">
                 <img src="s4.jpg" class="card-img-top" alt="Power Yoga" style="height: 220px; object-fit: cover;">
                 <div class="card-body text-center p-4">
                     <h4 class="card-title fw-bold" style="color: #1b5e20;">Power Yoga</h4>
@@ -112,7 +75,7 @@
 
         <!-- Class 3 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card h-100 shadow-sm border-0 class-card">
+            <div class="card h-100 shadow-sm border-0 class-card site-content-card">
                 <img src="8.jpg" class="card-img-top" alt="Face Yoga" style="height: 220px; object-fit: cover;">
                 <div class="card-body text-center p-4">
                     <h4 class="card-title fw-bold" style="color: #1b5e20;">Face Yoga</h4>
@@ -124,7 +87,7 @@
 
         <!-- Class 4 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="card h-100 shadow-sm border-0 class-card">
+            <div class="card h-100 shadow-sm border-0 class-card site-content-card">
                 <img src="6.jpg" class="card-img-top" alt="Slimming Yoga" style="height: 220px; object-fit: cover;">
                 <div class="card-body text-center p-4">
                     <h4 class="card-title fw-bold" style="color: #1b5e20;">Slimming Yoga</h4>
@@ -136,7 +99,7 @@
 
         <!-- Class 5 -->
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="card h-100 shadow-sm border-0 class-card">
+            <div class="card h-100 shadow-sm border-0 class-card site-content-card">
                 <img src="7.jpg" class="card-img-top" alt="Pregnancy Yoga" style="height: 220px; object-fit: cover;">
                 <div class="card-body text-center p-4">
                     <h4 class="card-title fw-bold" style="color: #1b5e20;">Pregnancy Yoga</h4>
@@ -153,12 +116,12 @@
 <!-- CLASS SCHEDULE SECTION -->
 <div class="container py-5 border-top">
     <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="fw-bold" style="color: #1b5e20;">Online Class Schedule & Timings</h2>
+        <h2 class="fw-bold" style="color: #1b5e20;">Online Class Schedule &amp; Timings</h2>
         <p class="text-muted">Choose a batch that perfectly fits your daily routine.</p>
     </div>
     <div class="row g-4 justify-content-center">
         <div class="col-md-5" data-aos="fade-right">
-            <div class="card shadow-sm border-0 h-100" style="border-radius: 15px; background-color: #fff8e1;">
+            <div class="card shadow-sm border-0 h-100 site-content-card" style="border-radius: 15px; background-color: #fff8e1;">
                 <div class="card-body p-4 text-center">
                     <i class="fa-regular fa-sun fa-3x mb-3" style="color: #f39c12;"></i>
                     <h4 class="fw-bold" style="color: #1b5e20;">Morning Batches</h4>
@@ -171,7 +134,7 @@
             </div>
         </div>
         <div class="col-md-5" data-aos="fade-left">
-            <div class="card shadow-sm border-0 h-100" style="border-radius: 15px; background-color: #e8f5e9;">
+            <div class="card shadow-sm border-0 h-100 site-content-card" style="border-radius: 15px; background-color: #e8f5e9;">
                 <div class="card-body p-4 text-center">
                     <i class="fa-solid fa-moon fa-3x mb-3" style="color: #2c3e50;"></i>
                     <h4 class="fw-bold" style="color: #1b5e20;">Evening Batches</h4>
@@ -187,7 +150,7 @@
 </div>
 
 <!-- ONLINE PLAN SUMMARY START -->
-<section id="online-plan-fees" class="container py-5"><div class="text-center mb-4"><h2>Online Membership Plans</h2><p>Monthly base: &#8377;1,499. Duration discounts are included below.<br>Foreign online fees = Indian plan total &times; 2 &divide; 95, rounded to two decimals.</p></div><div class="table-responsive"><table class="table table-bordered text-center align-middle bg-white"><caption>Online membership totals for Indian and international clients.</caption><thead><tr><th scope="col">Plan</th><th scope="col">Discount</th><th scope="col">Indian (INR)</th><th scope="col">International (USD, approx.)</th><th scope="col">Enrol</th></tr></thead><tbody><tr><th scope="row">1 month</th><td>Base rate</td><td>₹1,499.00</td><td>$31.56</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=monthly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&amp;client=International&amp;plan=monthly#join-form">International Plan</a></td></tr><tr><th scope="row">3 months</th><td>15%</td><td>₹3,822.45</td><td>$80.47</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=quarterly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&amp;client=International&amp;plan=quarterly#join-form">International Plan</a></td></tr><tr><th scope="row">6 months</th><td>30%</td><td>₹6,295.80</td><td>$132.54</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=halfyearly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&amp;client=International&amp;plan=halfyearly#join-form">International Plan</a></td></tr><tr><th scope="row">12 months</th><td>50%</td><td>₹8,994.00</td><td>$189.35</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&amp;client=Indian&amp;plan=annual#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&amp;client=International&amp;plan=annual#join-form">International Plan</a></td></tr></tbody></table></div></section>
+<section id="online-plan-fees" class="container py-5"><div class="text-center mb-4"><h2>Online Membership Plans</h2><p>Monthly base: ₹1,499. Duration discounts are included below.<br>Foreign online fees = Indian plan total × 2 ÷ 95, rounded to two decimals.</p></div><div class="table-responsive"><table class="table table-bordered text-center align-middle bg-white"><caption>Online membership totals for Indian and international clients.</caption><thead><tr><th scope="col">Plan</th><th scope="col">Discount</th><th scope="col">Indian (INR)</th><th scope="col">International (USD, approx.)</th><th scope="col">Enrol</th></tr></thead><tbody><tr><th scope="row">1 month</th><td>Base rate</td><td>₹1,499.00</td><td>$31.56</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&client=Indian&plan=monthly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&client=International&plan=monthly#join-form">International Plan</a></td></tr><tr><th scope="row">3 months</th><td>15%</td><td>₹3,822.45</td><td>$80.47</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&client=Indian&plan=quarterly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&client=International&plan=quarterly#join-form">International Plan</a></td></tr><tr><th scope="row">6 months</th><td>30%</td><td>₹6,295.80</td><td>$132.54</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&client=Indian&plan=halfyearly#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&client=International&plan=halfyearly#join-form">International Plan</a></td></tr><tr><th scope="row">12 months</th><td>50%</td><td>₹8,994.00</td><td>$189.35</td><td><a class="btn btn-outline-success m-1" href="index.html?package=onlinePlan&client=Indian&plan=annual#join-form">Indian Plan</a><a class="btn btn-success m-1" href="index.html?package=onlinePlan&client=International&plan=annual#join-form">International Plan</a></td></tr></tbody></table></div></section>
 <!-- ONLINE PLAN SUMMARY END -->
 <!-- PRICING TABLE SECTION -->
 <div class="container py-5 mb-5 border-top">
@@ -209,7 +172,7 @@
                     <tbody>
                         <tr>
                             <td class="fw-bold py-3">General Yoga</td>
-                            <td><span class="fw-bold text-success fs-5">&#8377;1,499</span></td>
+                            <td><span class="fw-bold text-success fs-5">₹1,499</span></td>
                             <td>$ 7</td>
                         </tr>
                         <tr>
@@ -246,52 +209,67 @@
 <!-- FOOTER -->
 <footer class="yogshala-footer">
   <div class="footer-container">
+
+    <!-- About Section -->
     <div class="footer-box">
       <h3>YOGSHALA</h3>
-      <p>Yogshala is a peaceful space for therapy yoga, wellness, healing, and balanced living through traditional yogic practices.</p>
+      <p>
+        Yogshala is a peaceful space for therapy yoga, wellness,
+        healing, and balanced living through traditional yogic practices.
+      </p>
     </div>
+
+    <!-- Quick Links -->
     <div class="footer-box">
       <h3>Quick Links</h3>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
         <li><a href="training.html">Yoga Teacher Training</a></li>
         <li><a href="instructor.html">Therapy Yoga</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQs</a></li>
       </ul>
     </div>
+
+    <!-- Contact Info -->
     <div class="footer-box">
       <h3>Contact</h3>
-      <p><i class="fa-solid fa-location-dot"></i> Rajasthan, India</p>
-      <p><i class="fa-solid fa-phone"></i> +91 7689941299</p>
-      <p><i class="fa-solid fa-envelope"></i> yogshala.jaipur@gmail.com</p>
+      <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C-Scheme, Jaipur<br><span>Vaishali Nagar, Jaipur — opening soon</span></p>
+      <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+917689941299">+91 7689941299</a></p>
+      <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:yogshala.jaipur@gmail.com">yogshala.jaipur@gmail.com</a></p>
     </div>
+
+    <!-- Social Media -->
     <div class="footer-box">
       <h3>Follow Us</h3>
       <div class="social-icons">
-        <a href="https://www.facebook.com/share/18HMVuKacf/"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/yogshala_jaipur?igsh=emx1MG9mMm94Yzh"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://youtube.com/@yogshala-jaipur"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://wa.me/917689941298"><i class="fa-brands fa-whatsapp"></i></a>
+        <a aria-label="Facebook" href="https://www.facebook.com/share/18HMVuKacf/"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="Instagram" href="https://www.instagram.com/yogshala_jaipur?igsh=emx1MG9mMm94Yzh"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="YouTube" href="https://youtube.com/@yogshala-jaipur"><i class="fa-brands fa-youtube"></i></a>
+        <a aria-label="WhatsApp" href="https://wa.me/917689941298"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
-    
-    <!-- Client Review -->
-    <div class="footer-box client-review">
-      <h3>Client Review</h3>
-      <div class="review-item">
-        <p>"Yogshala has transformed my life. The instructors are amazing and the atmosphere is so peaceful. I highly recommend it!"</p>
-        <p class="client-name">- Happy Client</p>
-      </div>
-    </div>
+    <div class="footer-box footer-map">
+      <h3>Find Us</h3>
 
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Yogshala+Jaipur" target="_blank" class="map-link">
+        <iframe src="https://www.google.com/maps?q=Yogshala+Jaipur&output=embed" width="100%" height="250" style="border:0; border-radius:10px;" loading="lazy">
+
+        </iframe>
+
+        <div class="map-overlay">
+        </div>
+      </a>
+    </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Yogshala. All Rights Reserved.</p>
-    <p class="developer"><i class="fa-solid fa-code"></i> Developed by <span>Shimbhu Saini</span></p>
+    <p class="developer"><i class="fa-solid fa-code"></i> Developed by <a href="https://www.linkedin.com/in/shimbhu-saini-262469431/" target="_blank" rel="noopener noreferrer">Shimbhu Saini</a></p>
   </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="yogshala.js"></script>
-</body>
+<script defer src="public-nav.js?v=20261022-1"></script>
+<nav class="site-fixed-contact" aria-label="Quick contact"><a class="site-fixed-call" href="tel:+917689941299" aria-label="Call Yogshala on 7689941299" title="Call Yogshala"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Call</span></a><a class="site-fixed-whatsapp" href="https://wa.me/917689941298" target="_blank" rel="noopener noreferrer" aria-label="Chat with Yogshala on WhatsApp" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a></nav></body>
 </html>

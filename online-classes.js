@@ -43,6 +43,42 @@
         return result;
     }
     function notify(text) { message.textContent = text; message.hidden=!text; }
+    let pendingPayment=null, checkoutScript=null;
+    async function verifyPayment(button) {
+        await run(button,async()=>{
+            if(!pendingPayment) return;
+            const result=await api('razorpay.php?action=verify',pendingPayment);
+            pendingPayment=null;
+            await load();notify(result.message);
+        });
+    }
+    function loadCheckout() {
+        if(window.Razorpay) return Promise.resolve();
+        if(!checkoutScript) checkoutScript=new Promise((resolve,reject)=>{
+            const script=document.createElement('script');script.src='https://checkout.razorpay.com/v1/checkout.js';
+            script.onload=resolve;script.onerror=()=>{checkoutScript=null;script.remove();reject(new Error('Unable to load Razorpay. Please try again.'));};document.head.append(script);
+        });
+        return checkoutScript;
+    }
+    document.addEventListener('click',event=>{
+        const retry=event.target.closest('#razorpay-retry');
+        if(retry){verifyPayment(retry);return;}
+        const button=event.target.closest('#razorpay-pay');
+        if(!button)return;
+        run(button,async()=>{
+            if(pendingPayment) {
+                notify('A payment is awaiting confirmation. Use Check payment again before starting another payment.');
+                return;
+            }
+            await loadCheckout();
+            const order=await api('razorpay.php?action=create',{plan:Number(document.getElementById('razorpay-plan').value)});
+            const checkout=new window.Razorpay({key:order.key,order_id:order.order_id,amount:order.amount,currency:order.currency,name:'Yogshala',description:order.description,prefill:order.prefill,
+                handler:async response=>{pendingPayment=response;const retryButton=document.getElementById('razorpay-retry');if(retryButton)retryButton.hidden=false;await verifyPayment(retryButton);},
+                modal:{ondismiss:()=>notify('Checkout closed. You can try again when ready.')}});
+            checkout.on('payment.failed',()=>notify('Payment failed. Please check the payment details and try again.'));
+            checkout.open();
+        });
+    });
     function meetingUrl(value) {
         const url=new URL(value);
         if(url.protocol!=='https:') throw new Error('Video link unavailable. Refresh your dashboard and try again.');
@@ -115,6 +151,7 @@
         const data=await api('portal.php?action=dashboard&view='+encodeURIComponent(pageRole));
         document.body.classList.remove('is-login');
         dashboardData=data;
+
         panel.hidden=false;login.hidden=true;signup.hidden=true;dashboard.hidden=false;
         document.getElementById('panel-title').textContent=session.user.name+' — '+role+' panel';
         let html='';
@@ -148,6 +185,7 @@
         }
         if(role==='teacher') html+='<h3>Teaching notes</h3><form id="notes-upload"><label>Upload PDF, JPG, PNG or TXT (max 2 MB)<input type="file" name="note" class="form-control" accept=".pdf,.jpg,.jpeg,.png,.txt" required></label><button class="btn btn-success mt-2">Upload</button></form><div id="notes-list"></div>';
         html+='<div id="attendance-list"></div>';content.innerHTML=html;
+        if(window.renderManualPayments) await window.renderManualPayments(content,session,role,api,load,notify);
         if(role==='teacher') {
             const notes=await api('teacherNotes.php');
             document.getElementById('notes-list').innerHTML=notes.files.map(file=>'<p><a href="api/teacherNotes.php?file='+encodeURIComponent(file.file)+'">Download note</a> · '+escape(file.date)+'</p>').join('');

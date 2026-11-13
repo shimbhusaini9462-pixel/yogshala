@@ -1,31 +1,64 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Photo Gallery &amp; Studio Album | Yogshala Jaipur</title><meta name="description" content="Explore 96 photographs of yoga practice, guided studio sessions and community moments at Yogshala Jaipur."><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="STYLE.CSS"><link rel="stylesheet" href="gallery-album.css"><script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script><script defer src="gallery-data.js"></script><script defer src="gallery-album.js"></script></head>
-<body class="homepage album-page"><nav class="navbar main-nav navbar-expand-xl navbar-light" aria-label="Main navigation">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="assets/images/whatsapp-image-2025-12-09-at-11-02-31-5b46d880-a01e7f90.webp" alt="Yogshala Logo" width="200" height="66" decoding="async" loading="eager">
-    </a>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Photo Gallery & Studio Album | Yogshala Jaipur</title><meta name="description" content="Explore 96 photographs of yoga practice, guided studio sessions and community moments at Yogshala Jaipur."><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="STYLE.CSS"><link rel="stylesheet" href="gallery-album.css"><script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script><script defer src="gallery-data.js"></script><script defer src="gallery-album.js"></script><link rel="stylesheet" href="mobile-nav.css?v=20261022-4">
+<link href="site-theme.css?v=20261104-fixed-contact-1" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"></head>
+<body class="homepage album-page site-brand brand-public page-gallery"><div class="site-announcement"><span>C-Scheme, Jaipur</span><span>Vaishali Nagar <strong>Opening soon</strong></span><a href="online-classes.html">Live online yoga ?</a></div><nav class="public-site-header" aria-label="Main navigation"><div class="public-nav-inner"><a class="public-nav-brand" href="index.html"><img src="assets/images/whatsapp-image-2025-12-09-at-11-02-31-5b46d880-a01e7f90.webp" alt="Yogshala Jaipur" width="160" height="53"></a><div class="public-nav-content"><div class="public-nav-links"><a href="index.html">Home</a><a href="index.html#about-yogshala">About</a><a href="classes.html" class="class-nav-link">Offline Yoga</a><a href="online-classes.html" class="class-nav-link">Online Yoga</a><a href="gallery.html" aria-current="page">Gallery</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></div><div class="public-nav-actions" aria-label="Classes and account"><a class="nav-button nav-class-button" href="online-classes.html">Online</a><a class="nav-button nav-class-button" href="classes.html">Offline</a><a class="nav-button nav-auth-login" href="student-dashboard.html">Log In</a><a class="nav-button nav-auth-signup" href="student-dashboard.html?signup=1">Sign Up</a><a class="nav-button nav-auth-dashboard" href="student-dashboard.html" hidden>Dashboard</a><button type="button" class="nav-button nav-auth-logout" hidden>Log Out</button><a class="nav-button nav-main-join" href="index.html#join-form">Join Now <span aria-hidden="true">→</span></a></div></div></div></nav><main><h1 id="page-title" class="site-content-title">A Practice. A Place. Our People.</h1><section class="album-section" aria-label="Photo album"><div class="album-toolbar"><div class="album-filters" role="group" aria-label="Filter photographs"><button type="button" data-category="All photos" aria-pressed="true">All photos</button><button type="button" data-category="Yoga practice" aria-pressed="false">Yoga practice</button><button type="button" data-category="Guided sessions" aria-pressed="false">Guided sessions</button><button type="button" data-category="Community & events" aria-pressed="false">Community &amp; events</button><button type="button" data-category="Studio moments" aria-pressed="false">Studio moments</button></div><p id="album-count" role="status" aria-live="polite"></p></div><div id="album-grid" class="album-grid"></div><div class="album-more"><button id="album-load-more" type="button">Show more photographs <span aria-hidden="true">↓</span></button></div><noscript><p>Please enable JavaScript to browse the photo album. <a href="index.html#our-centres">Explore our centres</a>.</p></noscript></section><section class="album-end"><p>There is a place for you here, too.</p><a href="contact.html">Visit Yogshala →</a></section></main><footer class="yogshala-footer">
+  <div class="footer-container">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav home-nav-links"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="index.html#about-yogshala">About</a></li><li class="nav-item"><a class="nav-link" href="classes.html">Classes</a></li><li class="nav-item"><a class="nav-link" href="gallery.html" aria-current="page">Gallery</a></li><li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li></ul>
-      <div class="home-nav-actions" aria-label="Account and enrolment">
-      <a href="student-dashboard.html" id="login-btn" class="btn nav-action nav-login">Log In</a>
-      <a href="student-dashboard.html?signup=1" id="signup-btn" class="btn nav-action nav-signup">Sign Up</a>
-      <div class="dropdown" style="display: none;" id="user-menu-dropdown">
-        <button class="btn nav-account dropdown-toggle" type="button" id="user-menu-button" data-bs-toggle="dropdown" aria-expanded="false">
-          My Account
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="user-menu-button">
-          <li><a class="dropdown-item" href="student-dashboard.html" id="client-dashboard-link">Client Dashboard</a></li>
-          <li><a class="dropdown-item" href="teacher-dashboard.html" id="teacher-dashboard-link">Teacher Dashboard</a></li>
-          <li><a class="dropdown-item" href="admin-dashboard.html" id="admin-dashboard-link">Admin Dashboard</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#" id="logout-menu-btn">Logout</a></li>
-        </ul>
-      </div>
-      <a href="#join-form" class="btn nav-action nav-join">Join Now <span aria-hidden="true">&rarr;</span></a>
+    <!-- About Section -->
+    <div class="footer-box">
+      <h3>YOGSHALA</h3>
+      <p>
+        Yogshala is a peaceful space for therapy yoga, wellness,
+        healing, and balanced living through traditional yogic practices.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="training.html">Yoga Teacher Training</a></li>
+        <li><a href="instructor.html">Therapy Yoga</a></li>
+        <li><a href="contact.html">Contact</a></li><li><a href="faq.html">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-box">
+      <h3>Contact</h3>
+      <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C-Scheme, Jaipur<br><span>Vaishali Nagar, Jaipur — opening soon</span></p>
+      <p><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+917689941299">+91 7689941299</a></p>
+      <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:yogshala.jaipur@gmail.com">yogshala.jaipur@gmail.com</a></p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a aria-label="Facebook" href="https://www.facebook.com/share/18HMVuKacf/"><i class="fa-brands fa-facebook-f"></i></a>
+        <a aria-label="Instagram" href="https://www.instagram.com/yogshala_jaipur?igsh=emx1MG9mMm94Yzh"><i class="fa-brands fa-instagram"></i></a>
+        <a aria-label="YouTube" href="https://youtube.com/@yogshala-jaipur"><i class="fa-brands fa-youtube"></i></a>
+        <a aria-label="WhatsApp" href="https://wa.me/917689941298"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
     </div>
+    <div class="footer-box footer-map">
+      <h3>Find Us</h3>
+
+      <a href="https://www.google.com/maps/dir/?api=1&destination=Yogshala+Jaipur" target="_blank" class="map-link">
+        <iframe src="https://www.google.com/maps?q=Yogshala+Jaipur&output=embed" width="100%" height="250" style="border:0; border-radius:10px;" loading="lazy">
+
+        </iframe>
+
+        <div class="map-overlay">
+        </div>
+      </a>
+    </div>
   </div>
-</nav><main><section class="album-intro"><p class="album-eyebrow">THE YOGSHALA ALBUM</p><h1>A Practice. A Place. Our People.</h1><p>From quiet moments on the mat to celebrations together.<br>Step inside our world, one photograph at a time.</p><span class="album-total">96 photographs &middot; Jaipur, India</span></section><section class="album-section" aria-label="Photo album"><div class="album-toolbar"><div class="album-filters" role="group" aria-label="Filter photographs"><button type="button" data-category="All photos" aria-pressed="true">All photos</button><button type="button" data-category="Yoga practice" aria-pressed="false">Yoga practice</button><button type="button" data-category="Guided sessions" aria-pressed="false">Guided sessions</button><button type="button" data-category="Community &amp; events" aria-pressed="false">Community &amp; events</button><button type="button" data-category="Studio moments" aria-pressed="false">Studio moments</button></div><p id="album-count" role="status" aria-live="polite"></p></div><div id="album-grid" class="album-grid"></div><div class="album-more"><button id="album-load-more" type="button">Show more photographs <span aria-hidden="true">&darr;</span></button></div><noscript><p>Please enable JavaScript to browse the photo album. <a href="index.html#gallery-section">View our homepage gallery</a>.</p></noscript></section><section class="album-end"><p>There is a place for you here, too.</p><a href="contact.html">Visit Yogshala &rarr;</a></section></main><footer class="album-footer">&copy; 2026 Yogshala Jaipur <a href="index.html">Back to home &rarr;</a></footer><dialog id="album-viewer" aria-label="Photo viewer"><div class="viewer-top"><p id="viewer-count" aria-live="polite"></p><button id="viewer-close" type="button" aria-label="Close photo viewer">&times;</button></div><div class="viewer-stage"><button id="viewer-prev" type="button" aria-label="Previous photograph">&#8249;</button><img id="viewer-image" alt=""><button id="viewer-next" type="button" aria-label="Next photograph">&#8250;</button></div><p id="viewer-caption"></p></dialog></body></html>
+  <div class="footer-bottom">
+    <p>© 2026 Yogshala. All Rights Reserved.</p>
+    <p class="developer"><i class="fa-solid fa-code"></i> Developed by <a href="https://www.linkedin.com/in/shimbhu-saini-262469431/" target="_blank" rel="noopener noreferrer">Shimbhu Saini</a></p>
+  </div>
+</footer><dialog id="album-viewer" aria-label="Photo viewer"><div class="viewer-top"><p id="viewer-count" aria-live="polite"></p><button id="viewer-close" type="button" aria-label="Close photo viewer">×</button></div><div class="viewer-stage"><button id="viewer-prev" type="button" aria-label="Previous photograph">‹</button><img id="viewer-image" alt=""><button id="viewer-next" type="button" aria-label="Next photograph">›</button></div><p id="viewer-caption"></p></dialog><script defer src="public-nav.js?v=20261022-1"></script>
+<nav class="site-fixed-contact" aria-label="Quick contact"><a class="site-fixed-call" href="tel:+917689941299" aria-label="Call Yogshala on 7689941299" title="Call Yogshala"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Call</span></a><a class="site-fixed-whatsapp" href="https://wa.me/917689941298" target="_blank" rel="noopener noreferrer" aria-label="Chat with Yogshala on WhatsApp" title="Chat on WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a></nav></body></html>

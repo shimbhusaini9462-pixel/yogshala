@@ -37,11 +37,11 @@ $sql=$role==='student'?'SELECT id,email,password FROM students WHERE email=?':'S
 $q=$pdo->prepare($sql);$q->execute([$account]);$user=$q->fetch();
 $generic='If the account has a recovery email, a reset link will be sent. Check your inbox and spam folder.';
 if (!$user || !$user['email']) recoveryReply($generic);
-$q=$pdo->prepare('SELECT id FROM password_resets WHERE role=? AND user_id=? AND created_at>DATE_SUB(NOW(),INTERVAL 1 MINUTE)');$q->execute([$role,$user['id']]);
+$q=$pdo->prepare('SELECT id FROM password_resets WHERE role=? AND user_id=? AND created_at>?');$q->execute([$role,$user['id'],date('Y-m-d H:i:s',time()-60)]);
 if ($q->fetch()) recoveryReply($generic);
 $token=bin2hex(random_bytes(32));$hash=hash('sha256',$token);
 $pdo->prepare('DELETE FROM password_resets WHERE expires_at<NOW()')->execute();
-$pdo->prepare('INSERT INTO password_resets(role,user_id,token_hash,password_stamp,expires_at) VALUES(?,?,?,?,DATE_ADD(NOW(),INTERVAL 30 MINUTE))')->execute([$role,$user['id'],$hash,hash('sha256',$user['password'])]);
+$pdo->prepare('INSERT INTO password_resets(role,user_id,token_hash,password_stamp,expires_at) VALUES(?,?,?,?,?)')->execute([$role,$user['id'],$hash,hash('sha256',$user['password']),date('Y-m-d H:i:s',time()+1800)]);
 $link=$site.'/'.$role.'-dashboard.html?reset_token='.$token;
 if ($gmail) {
     $node=getenv('NODE_BINARY') ?: (PHP_OS_FAMILY==='Windows' ? 'C:/Program Files/nodejs/node.exe' : 'node');

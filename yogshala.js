@@ -64,91 +64,27 @@ function updateFees(){
     }
 }
 
-function updatePaymentOptions() {
-    let clientType = document.getElementById("clientType") ? document.getElementById("clientType").value : "Indian";
-    let paymentMethod = document.getElementById("paymentMethod");
-    
-    if (paymentMethod) {
-        paymentMethod.innerHTML = '<option value="">-- Select Payment Method --</option>';
-        if (clientType === "International") {
-            paymentMethod.innerHTML += '<option value="PayPal">PayPal</option>';
-            paymentMethod.innerHTML += '<option value="International Bank Transfer">International Bank Transfer</option>';
-        } else {
-            paymentMethod.innerHTML += '<option value="UPI">UPI</option>';
-            paymentMethod.innerHTML += '<option value="Bank Transfer">Bank Transfer</option>';
-            paymentMethod.innerHTML += '<option value="Cash">Cash</option>';
-        }
-    }
-    if(paymentMethod)paymentMethod.innerHTML += '<option value="Offline">Offline Payment (Pay at Centre)</option>';
-    togglePaymentDetails();
-}
-
-function togglePaymentDetails() {
-    let paymentMethod = document.getElementById("paymentMethod") ? document.getElementById("paymentMethod").value : "";
-    let clientType = document.getElementById("clientType") ? document.getElementById("clientType").value : "Indian";
-    let bankDetails = document.getElementById("bankDetails");
-    let indianBankDetails = document.getElementById("indianBankDetails");
-    let internationalBankDetails = document.getElementById("internationalBankDetails");
-    const proofField=document.getElementById('payment-proof-field');
-    const proofInput=document.getElementById('payment-proof');
-    if(proofField && proofInput){const needed=paymentMethod!=='' && !['Cash','Offline'].includes(paymentMethod);proofField.hidden=!needed;proofInput.required=needed;if(!needed)proofInput.value='';}
-
-    if (bankDetails) {
-        if (paymentMethod === "UPI" || paymentMethod === "Bank Transfer" || paymentMethod === "International Bank Transfer" || paymentMethod === "PayPal") {
-            bankDetails.style.display = "block";
-            
-            if (clientType === "International") {
-                if (indianBankDetails) indianBankDetails.style.display = "none";
-                if (internationalBankDetails) internationalBankDetails.style.display = "block";
-            } else {
-                if (indianBankDetails) indianBankDetails.style.display = "block";
-                if (internationalBankDetails) internationalBankDetails.style.display = "none";
-            }
-        } else {
-            bankDetails.style.display = "none";
-        }
-    }
-}
 async function submitForm(){
-    if (submitForm.pending) return;
-    const enquiryForm=document.getElementById('join-enquiry-form');
-    if(enquiryForm && !enquiryForm.reportValidity())return;
-    const fields = ['name','phone','state','city','course','email','mode','fees','paymentMethod','clientType'];
-    const data = Object.fromEntries(fields.map(key => [key, document.getElementById(key)?.value.trim() || '']));
-    if(document.getElementById('packageType')) {data.packageType=document.getElementById('packageType').value;data.packageAudience=document.getElementById('packageType').value==='shared'?'group':'not applicable';data.packageDetails=document.getElementById('packageDetails').textContent;}
-    data.participants=document.getElementById('participants-field')?.hidden?'1':document.getElementById('participants').value;
-    if (Object.values(data).some(value => !value)) { alert('Please fill all the details.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) || !/^[+\d ()-]{7,25}$/.test(data.phone)) { alert('Please enter a valid email and phone number.'); return; }
-    const proof=document.getElementById('payment-proof')?.files[0];
-    if(!['Cash','Offline'].includes(data.paymentMethod) && !proof){alert('Attach your payment screenshot before submitting.');return;}
-    if(proof && (proof.size>2*1024*1024 || !['image/jpeg','image/png','image/webp'].includes(proof.type))){alert('Use a JPG, PNG or WebP screenshot up to 2 MB.');return;}
-    const loader = document.getElementById('loader');
-    submitForm.pending = true;
-    if (loader) loader.style.display = 'block';
+    if(submitForm.pending)return;
+    const form=document.getElementById('join-enquiry-form');
+    if(!form || !form.reportValidity())return;
+    const output=document.getElementById('enquiry-message');
+    const fields=['name','phone','state','city','course','email','mode','clientType'];
+    const data=Object.fromEntries(fields.map(key=>[key,document.getElementById(key)?.value.trim() || '']));
+    data.packageType=document.getElementById('packageType')?.value || 'membership';
+    data.participants=document.getElementById('participants-field')?.hidden?'1':document.getElementById('participants')?.value || '1';
+    if(Object.values(data).some(value=>!value)){if(output)output.textContent='Please complete all fields.';return;}
+    submitForm.pending=true;
+    const button=form.querySelector('button[type="submit"]');
+    if(button)button.disabled=true;
+    if(output)output.textContent='Sending your enquiry...';
     try {
-        const body=new FormData();Object.entries(data).forEach(([key,value])=>body.set(key,value));
-        if(!['Cash','Offline'].includes(data.paymentMethod))body.set('paymentProof',proof);
-        const response = await fetch('api/enquiry.php', { method:'POST', body });
-        const result = await response.json();
-        if (!response.ok || !result.success) throw new Error(result.message || 'Unable to save enquiry.');
-        if (loader) loader.style.display = 'none';
-        data.paymentStatus=['Cash','Offline'].includes(data.paymentMethod)?data.paymentMethod+' selected - payment pending':'Screenshot submitted - verification pending';
-        const labels={name:'Name',phone:'WhatsApp',email:'Email',state:'State / Region',city:'City',clientType:'Client type',course:'Course / Plan',mode:'Class mode',participants:'Members',fees:'Total fee',paymentMethod:'Payment method',paymentStatus:'Payment status'};
-        const message='NEW YOGA ENQUIRY #'+result.id+'\n\n'+Object.entries(labels).map(([key,label])=>label+': '+data[key]).join('\n');
-        const whatsappUrl='https://wa.me/917689941298?text='+encodeURIComponent(message);
-        const handoff=document.getElementById('enquiry-whatsapp-handoff');
-        if(handoff){
-            handoff.hidden=false;
-            const link=document.getElementById('enquiry-whatsapp-link');link.href=whatsappUrl;
-            handoff.scrollIntoView({block:'center'});
-        }
-        window.location.assign(whatsappUrl);
-    } catch (error) {
-        alert(error instanceof SyntaxError ? 'Open the website at http://127.0.0.1:8085 to submit your enquiry.' : error.message);
-    } finally {
-        submitForm.pending = false;
-        if (loader) loader.style.display = 'none';
-    }
+        const response=await fetch('api/enquiry.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+        const result=await response.json();
+        if(!response.ok || !result.success)throw new Error(result.message || 'Unable to send your enquiry. Please try again.');
+        if(output)output.textContent=result.message+' Reference #'+result.id+'.';
+    }catch(error){if(output)output.textContent=error instanceof SyntaxError?'Unable to send your enquiry. Please try again.':error.message;}
+    finally {submitForm.pending=false;if(button)button.disabled=false;}
 }
 function helpWhatsApp(){
   window.open("https://wa.me/917689941298", "_blank");

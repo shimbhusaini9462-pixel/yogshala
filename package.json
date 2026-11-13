@@ -6,14 +6,19 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "test": "node tests/fees.test.js && node tests/portal.test.js"
+    "test": "node tests/fees.test.js && node tests/portal.test.js",
+    "test:supabase": "node tests/supabase-schema.test.cjs",
+    "check:supabase": "node scripts/check-supabase.js"
   },
   "author": "Gemini Code Assist",
   "license": "ISC",
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.15",
     "sharp": "^0.35.5"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "nodemailer": "^10.1.1"
   }
 }

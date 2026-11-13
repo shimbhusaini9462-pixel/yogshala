@@ -50,10 +50,11 @@ try {
 
     if ($stmt->rowCount() > 0) {
         // Also update leave_time for all students who are still in the class
+        $minutes=databaseSql($pdo,'TIMESTAMPDIFF(MINUTE, join_time, CURRENT_TIMESTAMP)','TRUNC(EXTRACT(EPOCH FROM (CURRENT_TIMESTAMP-join_time))/60)::integer');
         $stmt_update_attendance = $pdo->prepare("
             UPDATE attendance
             SET leave_time = CURRENT_TIMESTAMP,
-                duration = TIMESTAMPDIFF(MINUTE, join_time, CURRENT_TIMESTAMP)
+                duration = {$minutes}
             WHERE live_class_id = :live_class_id AND leave_time IS NULL
         ");
         $stmt_update_attendance->bindParam(':live_class_id', $live_class_id, PDO::PARAM_INT);

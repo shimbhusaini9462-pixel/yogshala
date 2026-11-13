@@ -1,0 +1,319 @@
+﻿/* Yogshala brand: white, yellow and green. Scoped to the homepage. */
+.homepage { --home-paper:#fff; --home-ink:#185c2e; --home-green:#19743b; --home-yellow:#ffe600; --home-muted:#647069; --home-line:#e0e9df; color:#21412b; background:#fff!important; font-family:system-ui,-apple-system,'Segoe UI',sans-serif; }
+.homepage .top-bar { background:var(--home-yellow); color:#194527; padding:7px 0; font-size:14px; letter-spacing:.02em; }
+.homepage .top-bar .social-icons a { color:#185c2e; }
+.homepage .public-site-header { background:#fff; box-shadow:none; border-bottom:1px solid var(--home-line); }
+.homepage .public-nav-inner { max-width:1400px; padding-block:16px; }
+.homepage .public-nav-brand img { width:140px; }
+.homepage .public-nav-links a { color:#385941; font-weight:550; }
+.homepage .public-nav-links a[aria-current=page] { background:#f0f8ed; color:#185c2e; }
+.homepage .public-site-header .nav-button { border-radius:7px; }
+.homepage .public-site-header .nav-main-join { background:var(--home-green); border-color:var(--home-green); color:#fff; }
+.home-brand-hero { padding:0 32px; background:linear-gradient(115deg,#fff 65%,#f7fcf3); overflow:hidden; }
+.brand-location-line { display:flex; align-items:center; justify-content:center; gap:28px; padding:18px 0; max-width:1240px; margin:auto; color:#63816a; font-size:13px; border-bottom:1px solid #e6eee1; }
+.brand-location-line i { color:var(--home-green); margin-right:5px; }
+.brand-location-line b { background:#fff8b0; border-radius:4px; font-size:11px; color:#4f5b20; padding:3px 6px; margin-left:5px; font-weight:650; }
+.brand-location-line>a { display:flex; align-items:center; gap:6px; color:#267440; text-decoration:none; }
+.brand-live-dot { width:6px; height:6px; border-radius:50%; background:#2e983f; display:inline-block; }
+.homepage #carouselExampleInterval { max-width:1240px; margin:auto; }
+.homepage #carouselExampleInterval .carousel-inner { border-radius:0; overflow:visible; }
+.homepage #carouselExampleInterval .carousel-item { height:auto; aspect-ratio:auto; }
+.brand-slide { display:grid; grid-template-columns:1fr 1.08fr; align-items:center; gap:58px; min-height:535px; padding:34px 0 28px; }
+.brand-slide-copy { min-width:0; }
+.home-eyebrow { display:flex; align-items:center; gap:8px; color:#43864b; font-size:13px; font-weight:700; letter-spacing:.14em; line-height:1.6; margin:0 0 20px; }
+.home-eyebrow>span { display:inline-block; width:23px; height:3px; background:var(--home-yellow); }
+.homepage .brand-headline { color:#185c2e; font:650 clamp(38px,4.4vw,60px)/1.13 system-ui,-apple-system,'Segoe UI',sans-serif; font-size:clamp(38px,4.4vw,60px)!important; letter-spacing:-.055em; margin:0 0 24px; }
+.brand-headline>span { background:linear-gradient(transparent 67%,#ffe600 67%,#ffe600 92%,transparent 92%); padding-right:5px; }
+.brand-description { color:#63736a; font-size:17px; line-height:1.9; max-width:425px; margin:0 0 29px; }
+.home-hero-actions { display:flex; flex-wrap:wrap; gap:11px; }
+.homepage .home-button { display:inline-flex; align-items:center; justify-content:center; gap:18px; min-height:48px; padding:13px 18px; border-radius:7px; border:1px solid transparent; font-size:15px; font-weight:650; text-decoration:none; transition:background .2s; }
+.home-button-primary { background:#ffe600; color:#245c2e; }
+.home-button-primary:hover { background:#f2d900; color:#245c2e; }
+.homepage .home-button-outline { border-color:#c5dbc4; color:#1d6b34; background:#fff; }
+.home-button-outline:hover { background:#eef8e9; color:#185c2e; }
+.brand-welcome { display:flex; align-items:center; flex-wrap:wrap; gap:8px; font-size:13px; color:#7a897e; margin:24px 0 0; }
+.brand-welcome i { color:#2a8947; }
+.brand-slide-visual { position:relative; min-width:0; padding:14px 14px 22px 0; }
+.brand-photo-corner { position:absolute; inset:0 0 8px 35%; background:#ffe600; border-radius:20px 65px 20px 20px; transform:rotate(3deg); }
+.brand-photo-frame { position:relative; background:#eff7e9; height:414px; overflow:hidden; border-radius:14px 55px 14px 14px; border:5px solid #fff; box-shadow:0 12px 35px #27692710; }
+.homepage #carouselExampleInterval .brand-photo-frame img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+.homepage #carouselExampleInterval .brand-slide-therapy img { object-fit:contain; background:linear-gradient(105deg,#eaf6df,#fffde5); }
+.homepage #carouselExampleInterval .brand-slide-practice img { object-fit:contain; background:#f0f8ea; }
+.brand-photo-note { position:absolute; left:-18px; bottom:3px; z-index:2; display:flex; align-items:center; gap:10px; padding:13px 20px 13px 13px; border:1px solid #e4eddf; border-radius:9px; background:#fff; box-shadow:0 8px 25px #1b5e2010; font-size:14px; font-weight:600; color:#2a653a; }
+.brand-photo-note>span { display:grid; place-items:center; width:34px; height:34px; background:#fff9b8; border-radius:50%; color:#267b3d; font-size:17px; }
+.brand-photo-count { position:absolute; right:30px; top:29px; z-index:2; background:#fff; color:#276738; border-radius:4px; font-size:12px; font-weight:700; padding:6px 9px; }
+.home-carousel-toolbar { display:flex; align-items:center; justify-content:space-between; gap:20px; border-top:1px solid #e1ebdc; padding:0 0 20px; }
+.homepage #carouselExampleInterval .carousel-indicators { position:static; display:flex; gap:24px; margin:0; padding:0; justify-content:flex-start; }
+.homepage #carouselExampleInterval .carousel-indicators button { display:flex; align-items:center; gap:10px; box-sizing:border-box; width:auto; height:auto; min-height:56px; padding:12px 3px; margin:0; border:0; border-top:3px solid transparent; background:transparent; color:#8b968b; font-size:14px; font-weight:650; text-indent:0; opacity:1; white-space:nowrap; }
+.homepage #carouselExampleInterval .carousel-indicators button>span { color:#9cac98; font-size:12px; }
+.homepage #carouselExampleInterval .carousel-indicators button.active { border-top-color:#ffe600; color:#185c2e; }
+.homepage #carouselExampleInterval .carousel-indicators button.active>span { color:#2c8647; }
+.home-carousel-buttons { display:flex; gap:8px; }
+.home-carousel-buttons button { display:grid; place-items:center; width:36px; height:36px; padding:0; border:1px solid #d5e4cf; border-radius:50%; color:#1e6934; background:#fff; font-size:17px; cursor:pointer; }
+.home-carousel-buttons button:last-child { background:#19743b; color:#fff; border-color:#19743b; }
+.home-carousel-buttons button:hover { background:#e9f5e4; color:#185c2e; }
+.home-carousel-buttons .home-carousel-pause { font-size:13px; }
+.home-carousel-buttons [hidden] { display:none!important; }
+.home-centres { background:#f2faed; border-block:1px solid #e2eddc; padding:30px 32px; }
+.home-centres-inner { max-width:1240px; margin:auto; display:grid; grid-template-columns:1fr repeat(3,1.1fr); gap:16px; }
+.home-centres-heading { padding:15px 18px 10px 0; }
+.home-centres-heading .home-eyebrow { font-size:12px; margin-bottom:14px; }
+.homepage .home-centres-heading h2 { font:600 23px/1.4 system-ui,sans-serif; font-size:23px!important; letter-spacing:-.04em; color:#185c2e; margin:0; }
+.home-centre { display:block; min-width:0; padding:20px; border:1px solid #dfebd8; border-radius:10px; background:#fff; text-decoration:none; color:#245e32; transition:border-color .2s,transform .2s; }
+.home-centre-top { display:flex; align-items:center; gap:8px; justify-content:space-between; }
+.home-centre-top i { display:grid; place-items:center; width:30px; height:30px; border-radius:7px; background:#f2fae9; color:#2b8548; font-size:17px; }
+.home-centre-status { font-size:11px; letter-spacing:.06em; font-weight:650; color:#41834c; }
+.home-centre-soon { color:#537125; background:#fff9a9; padding:4px 6px; border-radius:4px; }
+.homepage .home-centre h3 { font:650 19px/1.3 system-ui,sans-serif; font-size:19px!important; letter-spacing:-.03em; color:#185c2e; margin:14px 0 8px; }
+.home-centre p { font-size:14px; line-height:1.8; color:#74826e; margin:0 0 13px; }
+.home-centre-link { display:flex; justify-content:space-between; gap:10px; font-size:13px; font-weight:650; color:#24713b; }
+.home-centre:hover { border-color:#7cbb69; color:#185c2e; transform:translateY(-2px); }
+.homepage .home-page-content { background:#fff; padding:0 24px 50px; }
+.home-section-intro { display:flex; justify-content:space-between; align-items:flex-end; gap:30px; max-width:1240px; margin:65px auto 28px; }
+.homepage .home-section-intro h2 { font:600 38px/1.2 system-ui,sans-serif; font-size:38px!important; letter-spacing:-.04em; color:#185c2e; margin:0; }
+.home-section-intro .home-eyebrow { margin-bottom:13px; }
+.home-section-intro>p { max-width:340px; font-size:15px; line-height:1.9; color:#71806e; margin:0; }
+.homepage .yoga-overview { max-width:1288px; margin-inline:auto; background:#fff!important; }
+.homepage .yoga-overview .yoga-services { background:transparent; padding:0 12px 0 0; border-radius:0; }
+.homepage .yoga-overview .yoga-services :is(#a1,#a2,#a3,#a4) { display:flex; flex-direction:column; align-items:flex-start; padding:25px; border:1px solid #deead8; border-top:3px solid #ffe600; border-radius:10px; background:#fff; box-shadow:0 5px 20px #22632e05; }
+.homepage .yoga-overview .service-icon { background:#f0f9e9; border-radius:50%; margin-bottom:16px; }
+.homepage .yoga-overview .service-label { font-size:12px; color:#5f9053; margin-bottom:9px; }
+.homepage .yoga-overview .service-card h2 { font:600 22px/1.3 system-ui,sans-serif; font-size:22px!important; color:#185c2e; margin-bottom:12px; letter-spacing:-.025em; }
+.homepage .yoga-overview .service-description { font-size:15px; line-height:1.85; color:#6a7d69; margin:0 0 18px; }
+.homepage .yoga-overview .service-link { color:#23733d; font-size:14px; }
+.homepage .yoga-overview .therapy { background:#f3faed; padding:27px; border:1px solid #e0ebd7; border-radius:10px; }
+.homepage .yoga-overview .therapy h2 { font:600 27px/1.3 system-ui,sans-serif; font-size:27px!important; color:#185c2e; letter-spacing:-.035em; }
+.homepage .yoga-overview .therapy h3 { font-size:15px!important; color:#548943; }
+.homepage .yoga-overview .therapy-img { float:none; display:block; height:220px; width:100%; object-fit:contain; margin:15px 0; }
+.homepage .yoga-overview .therapy p,.homepage .yoga-overview .therapy li { font-size:15px; line-height:1.85; color:#64795d; }
+.homepage .yoga-overview .therapy-btn { background:#ffe600; color:#215e2e; border-radius:6px; font-size:15px; }
+.homepage .tutorial { padding-block:50px; }
+.homepage .tute-title { font:600 38px/1.2 system-ui,sans-serif; font-size:38px!important; letter-spacing:-.035em; color:#185c2e; }
+.homepage .tute-2>p { font-size:16px; line-height:1.9; color:#64775e; }
+.homepage .why-yogshala { background:#f2faed; }
+.homepage .why-benefit { border-radius:10px; border-color:#e0ebd7; background:#fff; }
+.homepage .why-icon { background:#fffac0; color:#287b40; }
+.homepage .why-intro h2 { color:#185c2e; }
+.homepage .why-next-step { background:#e8f6df; }
+.homepage .home-faq { background:#fff; }
+.homepage .yoga-gallery { background:#f2faed; border-color:#e1edd8; }
+.homepage .home-blog { background:#fff; }
+.homepage .blog-card { border-color:#dfebd8; }
+.homepage .blog-all a,.homepage .faq-page-link { color:#1c763a; border-color:#b9d7ad; }
+/* Restore the original blue enrolment panel and charcoal footer, with less space. */
+.homepage .home-join-section { padding:26px 12px!important; }
+.homepage #join-form { margin-top:0!important; }
+.homepage #join-form .fees { max-width:900px; padding:22px 26px; background:linear-gradient(180deg,#1e4fa3,#0b2f6b); border:1px solid #183b70; border-radius:15px; }
+.homepage #join-form .fees>h3 { font-size:23px!important; margin-bottom:8px!important; }
+.homepage #join-form .fees>p { font-size:15px; line-height:1.6; margin-bottom:18px; }
+.homepage #join-enquiry-form { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px 16px; }
+.homepage #join-enquiry-form>.join-location-fields { display:contents; }
+.homepage #join-enquiry-form>.mb-3,.homepage #join-enquiry-form>.join-location-fields>.mb-3 { min-width:0; width:100%; padding:0; margin-bottom:0!important; }
+.homepage #join-enquiry-form .form-label { margin-bottom:5px; font-size:15px; line-height:1.5; }
+.homepage #join-enquiry-form :is(.form-control,.form-select) { min-height:42px; }
+.homepage #join-enquiry-form>.text-center { grid-column:1/-1; margin-top:6px!important; }
+.homepage #join-enquiry-form>#bankDetails,.homepage #join-enquiry-form>#payment-proof-field { grid-column:1/-1; }
+.homepage .yogshala-footer { background:#212529; padding:26px 0 0; }
+.homepage .footer-container { max-width:1280px; width:94%; grid-template-columns:1.1fr .8fr 1.2fr .7fr 1.2fr; gap:22px; }
+.homepage .footer-box { min-width:0; }
+.homepage .yogshala-footer .footer-box h3 { color:#a8e6cf; font-size:17px!important; margin-bottom:11px; }
+.homepage .footer-box p,.homepage .footer-box ul li a { font-size:15px; line-height:1.65; overflow-wrap:anywhere; }
+.homepage .footer-box p { margin-bottom:9px; }
+.homepage .footer-box ul { margin-bottom:0; }
+.homepage .footer-box ul li { margin-bottom:5px; }
+.homepage .footer-box .social-icons { display:flex; flex-wrap:wrap; gap:10px; }
+.homepage .footer-box .social-icons a { margin:0; font-size:17px; }
+.homepage .footer-box .social-icons i { margin:0; }
+.homepage .footer-map iframe { display:block; width:100%; height:155px; }
+.homepage .footer-bottom { background:#111; margin-top:22px; padding:12px; display:flex; justify-content:space-between; gap:8px 20px; flex-wrap:wrap; }
+.homepage .footer-bottom p { margin:0; font-size:14px; }
+@media(max-width:1099px) and (min-width:768px) { .homepage .footer-container { grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; } .homepage .footer-map { grid-column:2/4; } }
+@media(max-width:991px) { .homepage #join-enquiry-form { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:767px) { .homepage #join-form .fees { padding:20px 16px; } .homepage #join-enquiry-form :is(.form-control,.form-select) { min-height:44px; font-size:16px; } .homepage .footer-container { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; width:90%; } .homepage .footer-box { text-align:left; } .homepage .footer-box:first-child,.homepage .footer-box:nth-child(4),.homepage .footer-map { grid-column:1/-1; } .homepage .footer-map iframe { height:150px; } .homepage .footer-bottom { justify-content:center; padding:12px 16px; gap:5px; } .homepage .footer-bottom p { width:100%; } }
+@media(max-width:575px) { .homepage #join-enquiry-form { grid-template-columns:minmax(0,1fr); gap:12px; } .homepage .home-join-section { padding:20px 0!important; } }
+.homepage :is(.home-button,.home-centre,.home-carousel-buttons button,.brand-slide-tabs button):focus-visible { outline:3px solid #168139; outline-offset:4px; }
+@media(max-width:1199px) { .brand-slide { gap:35px; min-height:500px; } .brand-photo-frame { height:380px; } .homepage .home-button { padding-inline:14px; font-size:14px; gap:12px; } .home-centres-inner { grid-template-columns:repeat(3,minmax(0,1fr)); } .home-centres-heading { grid-column:1/-1; padding:0; } .home-centres-heading h2 br { display:none; } }
+@media(max-width:991px) { .brand-slide { gap:24px; min-height:490px; } .brand-photo-frame { height:355px; } .homepage .brand-headline { font-size:40px!important; } .brand-description { font-size:15px; } .home-hero-actions { gap:9px; } .brand-photo-note { left:-10px; padding:10px; font-size:12px; } .brand-photo-note>span { width:28px; height:28px; } .brand-welcome { font-size:12px; } .home-section-intro { margin-top:45px; } }
+@media(max-width:767px) {
+ .homepage .top-bar>.container>.d-flex>div:first-child,.homepage .top-bar .social-icons { display:none; }
+ .home-brand-hero { padding-inline:20px; }
+ .brand-location-line { justify-content:flex-start; gap:7px 16px; flex-wrap:wrap; padding:13px 0; font-size:12px; }
+ .brand-location-line b { font-size:11px; }
+ .brand-slide { grid-template-columns:1fr; gap:22px; min-height:0; padding:28px 0 20px; }
+ .brand-slide-copy { order:1; }
+ .brand-slide-visual { order:2; padding:10px 10px 20px 4px; }
+ .homepage .brand-headline { font-size:clamp(35px,8.8vw,52px)!important; margin-bottom:18px; }
+ .home-eyebrow { font-size:12px; margin-bottom:15px; }
+ .brand-description { max-width:100%; font-size:15px; margin-bottom:20px; }
+ .homepage .home-button { min-height:45px; padding:12px 13px; font-size:13px; gap:10px; }
+ .brand-welcome { margin-top:17px; }
+ .brand-photo-frame { height:auto; aspect-ratio:4/3; border-radius:12px 35px 12px 12px; }
+ .brand-photo-corner { border-top-right-radius:45px; }
+ .brand-photo-note { left:0; bottom:0; padding:8px 12px; font-size:13px; }
+ .brand-photo-count { top:24px; right:24px; }
+ .home-carousel-toolbar { gap:10px; padding-bottom:12px; align-items:flex-start; flex-wrap:wrap; }
+ .homepage #carouselExampleInterval .carousel-indicators { justify-content:space-between; width:100%; gap:6px; }
+ .homepage #carouselExampleInterval .carousel-indicators button { gap:5px; font-size:13px; min-height:48px; }
+ .homepage #carouselExampleInterval .carousel-indicators button>span { font-size:11px; }
+ .home-carousel-buttons { margin-left:auto; }
+ .home-carousel-buttons button { width:32px; height:32px; }
+ .home-centres { padding:26px 20px; }
+ .home-centres-inner { grid-template-columns:1fr; gap:12px; }
+ .home-centres-heading { margin-bottom:6px; }
+ .homepage .home-centres-heading h2 { font-size:25px!important; }
+ .home-centre { padding:20px; }
+ .home-centre p { font-size:15px; }
+ .home-centre-link { font-size:14px; }
+ .homepage .home-page-content { padding-inline:8px; }
+ .home-section-intro { display:block; margin:38px auto 20px; padding-inline:12px; }
+ .home-section-intro>p { margin-top:16px; max-width:100%; }
+ .homepage .home-section-intro h2,.homepage .tute-title { font-size:29px!important; }
+ .homepage .yoga-overview .yoga-services { padding-right:0; }
+ .homepage .tutorial { padding:35px 16px; }
+}
+@media(prefers-reduced-motion:reduce) { .homepage #carouselExampleInterval .carousel-item,.homepage .home-button,.homepage .home-centre { transition:none; } }
+
+/* Larger type and gentle movement: the photographs remain the focus. */
+.homepage { font-size:16px; }
+.homepage .public-nav-links a { font-size:15px; }
+.homepage .public-site-header .nav-button { font-size:14px; }
+.homepage .home-eyebrow { letter-spacing:.09em; }
+.homepage .brand-description { max-width:470px; line-height:1.8; }
+.brand-slide { gap:46px; padding-block:42px; min-height:590px; }
+.brand-slide-visual { padding:18px 18px 26px 0; }
+.brand-photo-frame { height:440px; border-radius:20px 65px 20px 20px; box-shadow:0 18px 45px #226b231a; }
+.brand-photo-corner { inset:0 0 7px 22%; border-radius:26px 78px 26px 26px; transform:rotate(4deg); }
+.brand-slide-visual:before { content:''; position:absolute; width:95px; height:95px; left:-28px; top:-12px; border:2px dashed #8fbd80; border-radius:50%; }
+.brand-slide-visual:after { content:''; position:absolute; width:14px; height:14px; right:-4px; bottom:72px; background:#19743b; border-radius:50%; }
+.homepage #carouselExampleInterval.carousel-fade .carousel-item { transition:opacity .85s ease-in-out; }
+.homepage #carouselExampleInterval .active .brand-slide-copy>.home-eyebrow { animation:home-rise .6s both; }
+.homepage #carouselExampleInterval .active .brand-headline { animation:home-rise .7s .08s both; }
+.homepage #carouselExampleInterval .active .brand-description { animation:home-rise .7s .16s both; }
+.homepage #carouselExampleInterval .active .home-hero-actions { animation:home-rise .7s .24s both; }
+.homepage #carouselExampleInterval .active .brand-photo-note { animation:home-rise .8s .25s both; }
+.homepage #carouselExampleInterval.is-playing .active .brand-photo-corner { animation:home-float 5s ease-in-out infinite; }
+.homepage #carouselExampleInterval.is-playing .active .brand-slide-group img { animation:home-photo-drift 5.9s ease-out both; }
+.homepage #carouselExampleInterval .brand-slide-tabs button { position:relative; border-top-color:transparent; }
+.homepage #carouselExampleInterval .brand-slide-tabs button.active { border-top-color:transparent; }
+.brand-slide-tabs button:before { content:''; position:absolute; top:-3px; left:0; right:0; height:3px; background:#e5eddf; }
+.brand-slide-tabs button.active:after { content:''; position:absolute; top:-3px; left:0; width:100%; height:3px; background:#ffe600; transform-origin:left; }
+.is-playing .brand-slide-tabs button.active:after { animation:home-slide-progress 5s linear both; }
+.homepage .home-section-intro>p { max-width:400px; }
+.homepage .why-benefit p,.homepage .blog-card p,.homepage .gallery-heading>span,.homepage .home-faq-header p { font-size:16px; line-height:1.8; }
+.homepage .yoga-overview .therapy h3 { font-size:16px!important; }
+@keyframes home-rise { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes home-float { 0%,100% { transform:rotate(4deg) translateY(0); } 50% { transform:rotate(2deg) translateY(-7px); } }
+@keyframes home-photo-drift { from { transform:scale(1); } to { transform:scale(1.035); } }
+@keyframes home-slide-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+@media(max-width:991px) { .brand-slide { gap:28px; min-height:550px; } .brand-photo-frame { height:390px; } .homepage .public-nav-links a { font-size:14px; } }
+@media(max-width:767px) {
+ .brand-slide { min-height:0; gap:26px; padding-block:28px 22px; }
+ .homepage .brand-headline { font-size:clamp(38px,9.3vw,54px)!important; }
+ .brand-photo-frame { height:auto; aspect-ratio:4/3; border-radius:16px 45px 16px 16px; }
+ .brand-slide-visual { padding:12px 12px 24px 0; }
+ .brand-slide-visual:before { width:65px; height:65px; left:-12px; top:-7px; }
+ .brand-slide-visual:after { right:0; }
+ .homepage .home-button { font-size:14px; min-height:48px; }
+ .homepage .public-site-header .nav-button { font-size:11px; }
+ .homepage .brand-location-line { font-size:12px; }
+ .homepage #carouselExampleInterval .carousel-indicators { gap:5px; }
+ .homepage #carouselExampleInterval .carousel-indicators button { gap:4px; font-size:12px; }
+ .homepage #carouselExampleInterval .carousel-indicators button>span { font-size:11px; }
+ .homepage .brand-photo-note { font-size:13px; }
+}
+@media(max-width:360px) { .homepage #carouselExampleInterval .carousel-indicators button { font-size:11px; } .homepage #carouselExampleInterval .carousel-indicators button>span { display:none; } }
+@media(prefers-reduced-motion:reduce) {
+ .homepage #carouselExampleInterval .carousel-item,.homepage #carouselExampleInterval .brand-slide-copy>*,.homepage #carouselExampleInterval .brand-photo-note,.homepage #carouselExampleInterval .brand-photo-corner,.homepage #carouselExampleInterval img,.homepage .brand-slide-tabs button:after { animation:none!important; transition:none!important; }
+}
+/* The full studio album moves horizontally while the introduction stays fixed. */
+.brand-album-layout { max-width:1240px; margin:auto; }
+.homepage #carouselExampleInterval.home-album-carousel { width:100%; }
+.homepage #carouselExampleInterval.home-album-carousel .carousel-inner { overflow:hidden; border-radius:20px 65px 20px 20px; background:#eef7e8; }
+.homepage #carouselExampleInterval.home-album-carousel .carousel-item { transition:transform .8s cubic-bezier(.25,.7,.25,1); }
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame { border-radius:0; border:0; box-shadow:none; }
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame img { object-fit:contain; background:#eef7e8; }
+.home-album-carousel .home-carousel-toolbar { border-top:0; padding:15px 0 0; }
+.home-album-counter { display:flex; align-items:center; gap:6px; margin:0; font-size:14px; font-weight:600; color:#1d6c36; }
+.home-album-counter-label { font-size:12px; color:#70836b; font-weight:400; margin-left:5px; }
+.brand-album-layout .brand-photo-note { bottom:65px; }
+@media(max-width:767px) { .homepage #carouselExampleInterval.home-album-carousel .carousel-inner { border-radius:16px 45px 16px 16px; } .home-album-carousel .home-carousel-toolbar { flex-wrap:nowrap; align-items:center; padding-top:12px; } .home-album-counter { font-size:12px; } .home-album-counter-label { font-size:11px; } .brand-album-layout .brand-photo-note { bottom:70px; font-size:12px; } }
+@media(max-width:360px) { .home-album-counter-label { display:none; } }
+@media(prefers-reduced-motion:reduce) { .homepage #carouselExampleInterval.home-album-carousel .carousel-item { transition:none; } }
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame { position:relative; isolation:isolate; width:100%; height:clamp(320px,34vw,440px); aspect-ratio:auto; overflow:hidden; }
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame .home-photo-main { position:absolute; inset:0; display:block; width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; object-position:center; z-index:2; background:transparent; transform:none; }
+.homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame .home-photo-backdrop { position:absolute; inset:-8%; width:116%; height:116%; max-width:none; max-height:none; object-fit:cover; filter:blur(22px) saturate(.65); opacity:.4; transform:scale(1.08); z-index:0; pointer-events:none; }
+.home-album-carousel .brand-photo-frame.is-portrait:after { content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,#e9f4df99,transparent 35%,transparent 65%,#fff9bc66); pointer-events:none; }
+.brand-album-layout .brand-slide-copy { min-height:340px; }
+@media(max-width:767px) { .brand-album-layout .brand-slide-copy { min-height:315px; } }
+@media(max-width:767px) { .homepage #carouselExampleInterval.home-album-carousel .brand-photo-frame { height:clamp(260px,72vw,420px); aspect-ratio:auto; } }
+/* Portraits become a photo-and-caption composition instead of empty sidebars. */
+.homepage #carouselExampleInterval.home-album-carousel .is-portrait .home-photo-main { right:auto; width:64%; }
+.homepage #carouselExampleInterval.home-album-carousel .is-portrait .home-photo-backdrop { right:auto; width:80%; }
+.home-album-carousel .brand-photo-frame.is-portrait:after { display:none; }
+.home-portrait-panel { position:absolute; inset:0 0 0 64%; z-index:3; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:13px; padding:22px; background:#19743b; color:#fff; border-left:5px solid #ffe600; overflow:hidden; }
+.home-portrait-panel:after { content:''; position:absolute; width:155px; height:155px; bottom:-90px; right:-55px; border:1px solid #ffffff30; border-radius:50%; box-shadow:0 0 0 17px #ffffff08,0 0 0 35px #ffffff05; pointer-events:none; }
+.home-portrait-panel>i { color:#ffe600; font-size:29px; margin-bottom:3px; }
+.home-portrait-brand { font-size:10px; letter-spacing:.17em; color:#e9f5df; }
+.home-portrait-caption { font-size:20px; line-height:1.4; letter-spacing:-.025em; font-weight:600; margin:0; overflow-wrap:anywhere; }
+.home-portrait-category { font-size:12px; line-height:1.6; color:#d7edcf; padding-top:12px; border-top:2px solid #ffe600; }
+.home-portrait-number { position:absolute; bottom:18px; left:22px; font-size:9px; letter-spacing:.08em; color:#bbd8b8; }
+@media(max-width:991px) { .home-portrait-panel { padding:16px; gap:10px; } .home-portrait-caption { font-size:17px; } .home-portrait-number { left:16px; } }
+@media(max-width:420px) { .homepage #carouselExampleInterval.home-album-carousel .is-portrait .home-photo-main { width:60%; } .home-portrait-panel { left:60%; padding:13px; gap:9px; border-left-width:3px; } .home-portrait-caption { font-size:15px; } .home-portrait-category { font-size:11px; padding-top:8px; } .home-portrait-panel>i { font-size:23px; } .home-portrait-brand { font-size:8px; } .home-portrait-number { left:13px; bottom:13px; font-size:8px; } }
+/* Enrolment and the class showcase share one desktop row equally. */
+.home-enrolment-layout { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:24px; width:100%; max-width:1440px; margin:28px auto; padding:0 16px; }
+.homepage .home-enrolment-layout .home-join-section { min-width:0; padding:0!important; background:transparent!important; }
+.homepage .home-enrolment-layout #join-form { width:100%; max-width:none; padding:0; margin:0!important; }
+.home-level-section { min-width:0; padding:22px; border:1px solid #dfead9; border-radius:15px; background:#f2faed; }
+.homepage #home-level-title { color:#185c2e; font-size:25px!important; line-height:1.3; text-align:center; margin:0 0 22px; }
+.home-level-section>.row { display:block; }
+.home-level-section>.row>.col-12 { width:100%; max-width:none; padding:0!important; }
+.homepage .home-level-section #carouselExampleCaptions .carousel-item { height:auto; aspect-ratio:16/10; }
+.homepage .home-level-section #carouselExampleCaptions img { display:block; width:100%; height:100%; object-fit:contain; background:#edf5e8; }
+@media(min-width:992px) {
+ .home-enrolment-layout { align-items:stretch; }
+ .homepage .home-enrolment-layout .home-join-section { display:flex; }
+ .homepage .home-enrolment-layout #join-form { display:flex; }
+ .homepage .home-enrolment-layout #join-form .fees { width:100%; height:100%; }
+ .home-enrolment-layout .home-level-section { display:flex; flex-direction:column; height:100%; }
+ .home-level-section>.row { display:flex; flex:1; min-height:0; }
+ .home-level-section>.row>.col-12 { display:flex; flex-direction:column; }
+ .home-level-section #carouselExampleCaptions { display:flex; flex-direction:column; flex:1; min-height:380px; }
+ .home-level-section #carouselExampleCaptions .carousel-inner { position:relative; flex:1; min-height:380px; }
+ .homepage .home-level-section #carouselExampleCaptions .carousel-item { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; }
+ .homepage #join-form .fees { max-width:none; }
+ .homepage #join-enquiry-form { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:991px) { .home-enrolment-layout { grid-template-columns:minmax(0,1fr); max-width:780px; gap:20px; } .home-level-section { padding:20px 16px; } }
+.homepage #home-level-title { margin-bottom:10px; }
+.home-level-intro { color:#61765c; font-size:15px; line-height:1.75; text-align:center; margin:0 0 18px; }
+.home-level-copy { display:flex; flex-direction:column; flex:1; padding-top:20px; }
+.home-level-benefits { display:grid; gap:15px; }
+.home-level-benefits article { display:flex; gap:12px; align-items:flex-start; }
+.home-level-benefits article>i { display:grid; place-items:center; flex:0 0 35px; height:35px; background:#fff8af; border-radius:8px; color:#28743e; font-size:16px; }
+.homepage .home-level-benefits h3 { font-size:16px!important; line-height:1.4; color:#215f32; margin:0 0 5px; }
+.home-level-benefits p { font-size:14px; line-height:1.75; color:#677b61; margin:0; }
+.home-level-link { display:flex; justify-content:space-between; gap:15px; color:#1c6d36; font-size:14px; font-weight:650; text-decoration:none; border-top:1px solid #dbe8d2; padding-top:15px; margin-top:20px; }
+.home-level-link:hover { color:#125026; text-decoration:underline; text-underline-offset:3px; }
+@media(min-width:992px) { .home-level-section>.row { flex:0 0 auto; } .home-level-section #carouselExampleCaptions { flex:none; height:clamp(240px,24vw,340px); min-height:0; } .home-level-section #carouselExampleCaptions .carousel-inner { min-height:0; height:100%; } }
+.mobile-swipe-hint { display:none; }
+@media(max-width:767px) {
+ .homepage .mobile-swipe-hint { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 12px; color:#54824b; font-size:12px; }
+ .homepage .mobile-swipe-hint>span { color:#19743b; font-size:17px; letter-spacing:5px; }
+ .homepage .yoga-overview .yoga-services .service-grid,
+ .homepage #why-yogshala .why-benefits,
+ .homepage #home-blog .blog-grid {
+  display:grid; grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:88%; gap:14px;
+  width:100%; max-width:100%; height:auto; min-width:0; overflow-x:auto; overflow-y:hidden;
+  padding:3px 1px 14px; scroll-snap-type:x mandatory; scroll-padding-inline:1px;
+  overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:#81ae69 #edf5e7;
+ }
+ .homepage .yoga-overview .yoga-services .service-grid>*,
+ .homepage #why-yogshala .why-benefits>*,
+ .homepage #home-blog .blog-grid>* { grid-column:auto; min-width:0; width:100%; height:auto; margin:0; scroll-snap-align:start; }
+ .homepage .yoga-overview .yoga-services .service-grid:focus-visible,
+ .homepage #why-yogshala .why-benefits:focus-visible,
+ .homepage #home-blog .blog-grid:focus-visible { outline:2px solid #19743b; outline-offset:3px; }
+ .homepage :is(.service-grid,.why-benefits,.blog-grid)::-webkit-scrollbar { height:5px; }
+ .homepage :is(.service-grid,.why-benefits,.blog-grid)::-webkit-scrollbar-thumb { background:#81ae69; border-radius:8px; }
+ .homepage :is(.service-grid,.why-benefits,.blog-grid)::-webkit-scrollbar-track { background:#edf5e7; }
+}

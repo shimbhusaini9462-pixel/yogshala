@@ -1,0 +1,7 @@
+.manual-payment-section{padding:24px;border:1px solid #dce7dd;border-radius:12px;background:#fff;}
+.manual-payment-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:28px;align-items:start;}
+.manual-payment-qr{display:block;width:240px;max-width:100%;height:auto;border:1px solid #eee;padding:8px;}
+.manual-payment-section label{display:block;margin-bottom:14px;}
+.manual-payment-request{border-top:1px solid #e2e8df;padding:18px 0;overflow-wrap:anywhere;}
+.manual-review-form{margin-top:14px;}
+@media(max-width:650px){.manual-payment-layout{grid-template-columns:1fr;}.manual-payment-section{padding:16px;}}

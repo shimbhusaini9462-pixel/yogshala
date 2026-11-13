@@ -47,7 +47,7 @@ $table_name = $table_map[$role];
 $column_name = ($role === 'admin') ? 'username' : 'email';
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM `$table_name` WHERE `$column_name` = :email");
+    $stmt = $pdo->prepare("SELECT * FROM $table_name WHERE $column_name = :email");
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
     $stmt->execute();
 

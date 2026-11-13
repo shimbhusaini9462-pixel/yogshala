@@ -1,0 +1,56 @@
+﻿/* Fine Jaipur pencil-line artwork in the original lotus positions. */
+.homepage .home-brand-hero,
+.homepage .home-centres,
+.homepage .why-yogshala,
+.homepage .home-level-section,
+.homepage .home-faq { position:relative; isolation:isolate; }
+.homepage .home-brand-hero::before {
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ width:min(430px,55vw);height:330px;left:-100px;bottom:-10px;
+ background:url('assets/images/jaipur-palace-sketch.svg') center/contain no-repeat;
+ opacity:.22;
+}
+.homepage .home-brand-hero::after {
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ inset:0;background:radial-gradient(ellipse at 90% 12%,#e9d5a533,transparent 43%),radial-gradient(ellipse at 15% 75%,#dcebd640,transparent 42%);
+}
+.homepage .brand-photo-frame {border-radius:22px 22px 80px 22px;}
+.homepage .brand-photo-corner {border-color:#b89655;}
+.homepage .home-centre {border-top:3px solid #bd9b60;}
+.homepage .home-centres::after {
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ inset:0;background-image:radial-gradient(#78916b26 .8px,transparent .8px);background-size:18px 18px;
+}
+.homepage .why-yogshala::before {
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ right:0;top:0;width:250px;height:230px;opacity:.25;
+ background:url('assets/images/jaipur-palace-sketch.svg') center/contain no-repeat;
+}
+.homepage .home-level-section::before {
+ content:"";display:block;width:100px;height:70px;margin:0 auto 12px;
+ background:url('assets/images/jaipur-floral-sketch.svg') center/contain no-repeat;
+}
+.homepage .home-faq::after {
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ right:10px;bottom:0;width:220px;height:160px;opacity:.22;
+ background:url('assets/images/jaipur-palace-sketch.svg') center/contain no-repeat;
+}
+@media(max-width:600px) {
+ .homepage .home-brand-hero::before {left:-65px;width:210px;height:180px;opacity:.16;}
+ .homepage .brand-photo-frame {border-radius:16px 16px 44px 16px;}
+ .homepage .why-yogshala::before {width:150px;height:120px;opacity:.18;}
+ .homepage .home-faq::after {width:130px;height:100px;opacity:.16;}
+}
+/* Fill the photograph's side panel with pink pencil-line Jaipur art. */
+.homepage .home-portrait-panel {isolation:isolate;}
+.homepage .home-portrait-panel::before {
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:url('assets/images/jaipur-palace-sketch.svg') center bottom/auto 60% repeat-y;
+ opacity:.48;
+}
+.homepage .home-portrait-panel::after {
+ content:"";position:absolute;inset:0;width:auto;height:auto;border:0;border-radius:0;box-shadow:none;pointer-events:none;
+ background:url('assets/images/jaipur-floral-sketch.svg') right top/85px 110px repeat-y;
+ opacity:.22;z-index:-1;
+}
+

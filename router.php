@@ -1,5 +1,7 @@
 <?php
 $path=rawurldecode(parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH));
+// Python source belongs to the standalone example, not the public PHP site.
+if (preg_match('~\.(?:py|pyc)$~i',$path)) { http_response_code(404); exit('Not found'); }
 if ($path === '/robots.txt') {
     header('Content-Type: text/plain; charset=UTF-8');
     readfile(__DIR__.'/robots.txt');

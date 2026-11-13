@@ -31,7 +31,7 @@ try {
         JOIN schedules s ON lc.schedule_id = s.id
         JOIN batches b ON s.batch_id = b.id
         JOIN teachers t ON b.teacher_id = t.id
-        WHERE s.class_date = CURDATE() AND lc.status IN ('upcoming','live') AND s.batch_id IN (SELECT batch_id FROM students_batches WHERE student_id = :student_id)
+        WHERE s.class_date = CURRENT_DATE AND lc.status IN ('upcoming','live') AND s.batch_id IN (SELECT batch_id FROM students_batches WHERE student_id = :student_id)
         ORDER BY (lc.status='live') DESC, s.class_time
         LIMIT 1
     ");

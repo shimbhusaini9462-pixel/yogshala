@@ -20,9 +20,9 @@ function accountEmailAvailable($email,$role=null,$id=0) {
     $q->execute([strtolower(trim($email))]);$owner=$q->fetch();
     return !$owner || ($owner['account_role']===$role && (int)$owner['user_id']===(int)$id);
 }
+require_once __DIR__.'/database/connection.php';
 try {
-    $pdo = new PDO('mysql:host=' . (getenv('DB_HOST') ?: '127.0.0.1') . ';port=' . (getenv('DB_PORT') ?: '3306') . ';dbname=' . (getenv('DB_NAME') ?: 'yogshala_local') . ';charset=utf8mb4', getenv('DB_USER') ?: 'root', getenv('DB_PASSWORD') ?: '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, PDO::ATTR_EMULATE_PREPARES => false]);
-    $pdo->exec("SET time_zone = '+05:30'");
+    $pdo = connectDatabase();
     // Password changes invalidate older authenticated sessions on every account API.
     if (isset($_SESSION['user_id'], $_SESSION['role'])) {
         $sessionTables=['student'=>'students','teacher'=>'teachers','admin'=>'admins'];
@@ -36,10 +36,10 @@ try {
             echo json_encode(['success'=>false,'message'=>'Your password changed. Please log in again.']);exit;
         }
     }
-} catch (PDOException $e) {
+} catch (PDOException | RuntimeException $e) {
     error_log($e->getMessage());
     http_response_code(503);
     header('Content-Type: application/json');
-    echo json_encode(['success' => false, 'message' => 'Database unavailable. Start the website with start-local.ps1.']);
+    echo json_encode(['success' => false, 'message' => 'Database unavailable. Check the server database configuration.']);
     exit;
 }

@@ -25,7 +25,7 @@ try {
         FROM schedules s
         JOIN batches b ON s.batch_id = b.id
         LEFT JOIN live_classes lc ON s.id = lc.schedule_id
-        WHERE b.teacher_id = :teacher_id AND (s.class_date >= CURDATE() OR lc.status = 'live')
+        WHERE b.teacher_id = :teacher_id AND (s.class_date >= CURRENT_DATE OR lc.status = 'live')
         ORDER BY s.class_date, s.class_time
     ");
     $stmt->bindParam(':teacher_id', $teacher_id, PDO::PARAM_INT);
@@ -45,7 +45,7 @@ try {
             $insert_stmt->bindParam(':room_name', $room_name, PDO::PARAM_STR);
             $insert_stmt->execute();
 
-            $class['live_class_id'] = $pdo->lastInsertId();
+            $class['live_class_id'] = databaseInsertId($pdo,'live_classes');
             $class['status'] = 'upcoming';
             $class['room_name'] = $room_name;
         }

@@ -49,7 +49,7 @@ try {
         if ($action === 'waiting_video') {
             $url=$data['url'] ?? null;
             if (!is_string($url) || strlen($url)>2000 || ($url!=='' && (!filter_var($url,FILTER_VALIDATE_URL) || parse_url($url,PHP_URL_SCHEME)!=='https' || !preg_match('/\.(mp4|webm)$/i',parse_url($url,PHP_URL_PATH) ?? '')))) reply(['success'=>false,'message'=>'Enter a direct HTTPS MP4/WebM video URL, or leave it empty to remove the video.'],400);
-            $pdo->prepare('INSERT INTO portal_settings(setting_key,setting_value) VALUES(?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)')->execute(['waiting_video',trim($url)]);
+            $pdo->prepare(databaseSql($pdo,'INSERT INTO portal_settings(setting_key,setting_value) VALUES(?,?) ON DUPLICATE KEY UPDATE setting_value=VALUES(setting_value)','INSERT INTO portal_settings(setting_key,setting_value) VALUES(?,?) ON CONFLICT(setting_key) DO UPDATE SET setting_value=EXCLUDED.setting_value'))->execute(['waiting_video',trim($url)]);
             reply(['success'=>true,'message'=>'Waiting video updated.']);
         }
         if ($action === 'admin_recovery_email') {
@@ -111,14 +111,14 @@ try {
         } elseif ($action === 'enroll') {
             $student = (int)($data['student_id'] ?? 0); $batch = (int)($data['batch_id'] ?? 0);
             if (!$student || !$batch) reply(['success' => false, 'message' => 'Choose a student and batch.'], 400);
-            $pdo->prepare('INSERT IGNORE INTO students_batches(student_id,batch_id) VALUES(?,?)')->execute([$student, $batch]);
+            $pdo->prepare(databaseSql($pdo,'INSERT IGNORE INTO students_batches(student_id,batch_id) VALUES(?,?)','INSERT INTO students_batches(student_id,batch_id) VALUES(?,?) ON CONFLICT(student_id,batch_id) DO NOTHING'))->execute([$student, $batch]);
         } elseif ($action === 'schedule') {
             $batch = (int)($data['batch_id'] ?? 0); $date = $data['date'] ?? ''; $time = $data['time'] ?? ''; $duration = (int)($data['duration'] ?? 0);
             $parsed = DateTime::createFromFormat('!Y-m-d H:i', "$date $time");
             if (!$batch || !$parsed || $parsed->format('Y-m-d H:i') !== "$date $time" || $parsed < new DateTime() || $duration < 10 || $duration > 240) reply(['success' => false, 'message' => 'Choose a future class time and duration of 10–240 minutes.'], 400);
             $pdo->beginTransaction();
             $pdo->prepare('INSERT INTO schedules(batch_id,class_date,class_time,duration) VALUES(?,?,?,?)')->execute([$batch, $date, $time, $duration]);
-            $schedule = $pdo->lastInsertId();
+            $schedule = databaseInsertId($pdo,'schedules');
             $pdo->prepare('INSERT INTO live_classes(schedule_id,room_name) VALUES(?,?)')->execute([$schedule, 'yogshala-' . bin2hex(random_bytes(16))]);
             $pdo->commit();
         } elseif ($action === 'payment') {
@@ -138,7 +138,7 @@ try {
     }
     $result = ['success' => true, 'profile'=>['name'=>$user['name'] ?? $user['username'],'email'=>$user['email'] ?? '']];
     if ($role === 'admin') {
-        foreach (['teachers' => 'SELECT id,name,email FROM teachers', 'students' => "SELECT s.id,s.name,s.email,CASE WHEN s.subscription_status='active' AND (SELECT MAX(p.expiry_date) FROM payments p WHERE p.student_id=s.id)>=CURDATE() THEN 'active' ELSE 'expired' END AS subscription_status,(SELECT MAX(p.expiry_date) FROM payments p WHERE p.student_id=s.id) AS expiry FROM students s", 'batches' => 'SELECT b.id,b.name,b.teacher_id,t.name AS teacher FROM batches b LEFT JOIN teachers t ON t.id=b.teacher_id', 'enquiries' => 'SELECT * FROM enquiries ORDER BY id DESC LIMIT 100', 'payments' => 'SELECT s.name AS student_name,s.email,p.amount,p.payment_date,p.expiry_date FROM payments p JOIN students s ON s.id=p.student_id ORDER BY p.payment_date DESC,p.id DESC', 'enrollments' => 'SELECT s.id AS student_id,s.name AS student_name,b.id AS batch_id,b.name AS batch_name FROM students_batches sb JOIN students s ON s.id=sb.student_id JOIN batches b ON b.id=sb.batch_id ORDER BY b.name,s.name'] as $key => $sql) $result[$key] = $pdo->query($sql)->fetchAll();
+        foreach (['teachers' => 'SELECT id,name,email FROM teachers', 'students' => "SELECT s.id,s.name,s.email,CASE WHEN s.subscription_status='active' AND (SELECT MAX(p.expiry_date) FROM payments p WHERE p.student_id=s.id)>=CURRENT_DATE THEN 'active' ELSE 'expired' END AS subscription_status,(SELECT MAX(p.expiry_date) FROM payments p WHERE p.student_id=s.id) AS expiry FROM students s", 'batches' => 'SELECT b.id,b.name,b.teacher_id,t.name AS teacher FROM batches b LEFT JOIN teachers t ON t.id=b.teacher_id', 'enquiries' => 'SELECT * FROM enquiries ORDER BY id DESC LIMIT 100', 'payments' => 'SELECT s.name AS student_name,s.email,p.amount,p.payment_date,p.expiry_date FROM payments p JOIN students s ON s.id=p.student_id ORDER BY p.payment_date DESC,p.id DESC', 'enrollments' => 'SELECT s.id AS student_id,s.name AS student_name,b.id AS batch_id,b.name AS batch_name FROM students_batches sb JOIN students s ON s.id=sb.student_id JOIN batches b ON b.id=sb.batch_id ORDER BY b.name,s.name'] as $key => $sql) $result[$key] = $pdo->query($sql)->fetchAll();
     } elseif ($role === 'teacher') {
         $q=$pdo->prepare('SELECT id,name FROM batches WHERE teacher_id=?'); $q->execute([$id]); $result['batches']=$q->fetchAll();
         $q=$pdo->prepare('SELECT DISTINCT s.name,s.email,b.name AS batch_name FROM students s JOIN students_batches sb ON sb.student_id=s.id JOIN batches b ON b.id=sb.batch_id WHERE b.teacher_id=?'); $q->execute([$id]); $result['students']=$q->fetchAll();
@@ -150,10 +150,10 @@ try {
         $result['membership'] = $user['subscription_status'] === 'active' && $expiry && $expiry >= date('Y-m-d') ? 'active' : 'expired';
         $result['expiry'] = $expiry ?: null;
     }
-    $sql='SELECT lc.id AS live_class_id,lc.status,lc.room_name,b.name AS batch_name,s.class_date,s.class_time,s.duration FROM live_classes lc JOIN schedules s ON s.id=lc.schedule_id JOIN batches b ON b.id=s.batch_id WHERE (s.class_date>=DATE_SUB(CURDATE(),INTERVAL 90 DAY) OR lc.status=\'live\')';
-    $args=[];
-    if ($role === 'teacher') { $sql.=' AND b.teacher_id=?'; $args=[$id]; }
-    if ($role === 'student') { $sql.=' AND EXISTS(SELECT 1 FROM students_batches sb WHERE sb.batch_id=b.id AND sb.student_id=?)'; $args=[$id]; }
+    $sql='SELECT lc.id AS live_class_id,lc.status,lc.room_name,b.name AS batch_name,s.class_date,s.class_time,s.duration FROM live_classes lc JOIN schedules s ON s.id=lc.schedule_id JOIN batches b ON b.id=s.batch_id WHERE (s.class_date>=? OR lc.status=\'live\')';
+    $args=[date('Y-m-d',strtotime('-90 days'))];
+    if ($role === 'teacher') { $sql.=' AND b.teacher_id=?'; $args[]=$id; }
+    if ($role === 'student') { $sql.=' AND EXISTS(SELECT 1 FROM students_batches sb WHERE sb.batch_id=b.id AND sb.student_id=?)'; $args[]=$id; }
     $q=$pdo->prepare($sql.' ORDER BY s.class_date,s.class_time'); $q->execute($args); $result['classes']=$q->fetchAll();
     foreach ($result['classes'] as &$class) {
         if ($role==='student') unset($class['room_name']);

@@ -6,10 +6,9 @@ const base=process.env.TEST_URL || 'http://127.0.0.1:8085/';
 const tag='test-'+Date.now();
 const ids={students:[],teachers:[],batches:[],enquiries:[]};
 const noteFiles=[];
-const paymentProofFiles=[];
 function client(){let cookie='',token='';return async(path,data,ok=true)=>{const response=await fetch(base+'api/'+path,{headers:{...(cookie?{Cookie:cookie}:{}),...(data && !(data instanceof FormData)?{'Content-Type':'application/json'}:{})},...(data?{method:'POST',body:data instanceof FormData ? data : JSON.stringify({...data,token})}:{})});const set=response.headers.get('set-cookie');if(set)cookie=set.split(';')[0];if(path.startsWith('paymentProof.php'))return {status:response.status,type:response.headers.get('content-type')};const result=await response.json();if(path==='portal.php?action=session' && result.token)token=result.token;if(ok)assert.equal(result.success,true,JSON.stringify(result));else assert.equal(result.success,false);return result;};}
 const php=process.env.PHP_BINARY || 'C:/xampp/php/php.exe';
-function sql(code){return execFileSync(php,['-r',"require 'config.php'; "+code],{cwd:require('node:path').join(__dirname,'..'),encoding:'utf8'});}
+const sql=require('./php-cli.cjs');
 (async()=>{
     const admin=client(),student=client(),teacher=client(),guest=client();
     const password=fs.readFileSync(require('node:path').join(__dirname,'../database/local-admin.txt'),'utf8').match(/Password: (.+)/)[1].trim();
@@ -125,20 +124,12 @@ function sql(code){return execFileSync(php,['-r',"require 'config.php'; "+code],
     await student('joinClass.php',{live_class_id:cancellable.live_class_id},false);
     data=await admin('portal.php?action=dashboard');assert.equal(data.classes.find(x=>x.live_class_id===cancellable.live_class_id).status,'cancelled');
     data=await guest('publicSchedule.php');assert.ok(!data.classes.some(x=>x.class_name===tag));
-    const enquiryData={name:tag,phone:'9999999999',email:studentEmail,state:'Test',city:'Test',course:'General Yoga',mode:'Online',fees:'899',paymentMethod:'UPI',clientType:'Indian'};
-    await guest('enquiry.php',enquiryData,false);
-    const cash=await guest('enquiry.php',{...enquiryData,paymentMethod:'Cash'});ids.enquiries.push(cash.id);
-    const offline=await guest('enquiry.php',{...enquiryData,paymentMethod:'Offline'});ids.enquiries.push(offline.id);
-    const receipt=new FormData();for(const [key,value] of Object.entries(enquiryData))receipt.set(key,value);
-    const image=await require('sharp')({create:{width:2,height:2,channels:3,background:'#ffffff'}}).png().toBuffer();
-    receipt.set('paymentProof',new Blob([image],{type:'image/png'}),'receipt.png');
-    const enquiry=await guest('enquiry.php',receipt);ids.enquiries.push(enquiry.id);
-    const proofDashboard=await admin('portal.php?action=dashboard');
-    const proof=JSON.parse(proofDashboard.enquiries.find(row=>row.id===enquiry.id).details).paymentProof;
-    paymentProofFiles.push(require('node:path').join(__dirname,'../uploads/payment-proofs',proof));
-    assert.equal((await guest('paymentProof.php?file='+proof)).status,403);
-    assert.equal((await student('paymentProof.php?file='+proof)).status,403);
-    const proofView=await admin('paymentProof.php?file='+proof);assert.equal(proofView.status,200);assert.equal(proofView.type,'image/png');
+    const enquiryData={name:tag,phone:'9999999999',email:studentEmail,state:'Test',city:'Test',course:'General Yoga',mode:'Online',clientType:'Indian'};
+    const classEnquiry=await guest('enquiry.php',enquiryData);ids.enquiries.push(classEnquiry.id);
+    await guest('enquiry.php',{...enquiryData,course:'Unknown course'},false);
+    await guest('enquiry.php?action=verify',{razorpay_order_id:'order_nonexistent',razorpay_payment_id:'pay_invalid',razorpay_signature:'0'.repeat(64)},false);
+    assert.equal((await guest('paymentProof.php?file='+'a'.repeat(32)+'.png')).status,403);
+    assert.equal((await student('paymentProof.php?file='+'a'.repeat(32)+'.png')).status,403);
     const contact=await guest('enquiry.php',{kind:'contact',name:tag,phone:'9999999999',email:studentEmail,subject:'Test contact',message:'Local integration test'});ids.enquiries.push(contact.id);
     data=await admin('portal.php?action=dashboard');assert.ok(data.enquiries.some(x=>x.id===contact.id));
     await guest('enquiry.php',{name:tag},false);
@@ -146,7 +137,6 @@ function sql(code){return execFileSync(php,['-r',"require 'config.php'; "+code],
     for(const file of ['database/local-admin.txt','config.php','hash.php','database/database.sql','tests/portal.test.js']) {const response=await fetch(base+file);assert.equal(response.status,404,file);}
     console.log('PASS: login, signup, admin controls, membership, batch permissions, recordings, attendance, notes, enquiry and protected files.');
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(()=>{
-    for(const file of paymentProofFiles)if(fs.existsSync(file))fs.unlinkSync(file);
     for(const file of noteFiles) {fs.unlinkSync(file);fs.rmdirSync(require('node:path').dirname(file));}
     const code=Object.entries(ids).map(([table,values])=>values.length?"$pdo->exec('DELETE FROM "+table+" WHERE id IN ("+values.map(Number).join(',')+")');":'').join('');
     if(code)sql(code);

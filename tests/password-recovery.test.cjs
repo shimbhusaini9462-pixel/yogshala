@@ -5,9 +5,9 @@ const {execFileSync}=require('node:child_process');
 const base='http://127.0.0.1:8085/api/';
 const tag='recovery-test-'+Date.now();
 const php=process.env.PHP_BINARY || 'C:/xampp/php/php.exe';
-function sql(code){return execFileSync(php,['-r',"require 'config.php'; "+code],{encoding:'utf8'});}
+const sql=require('./php-cli.cjs');
 function client(){let cookie='',token='';return async(path,data)=>{const r=await fetch(base+path,{headers:{...(cookie?{Cookie:cookie}:{}),...(data?{'Content-Type':'application/json'}:{})},...(data?{method:'POST',body:JSON.stringify({...data,token})}:{})});if(r.headers.get('set-cookie'))cookie=r.headers.get('set-cookie').split(';')[0];const value=await r.json();if(value.token)token=value.token;return {status:r.status,...value};};}
-function resetToken(role,id,expired=false){const token=crypto.randomBytes(32).toString('hex'),hash=crypto.createHash('sha256').update(token).digest('hex');const table=role==='student'?'students':'admins';sql(`$q=$pdo->query('SELECT password FROM ${table} WHERE id=${Number(id)}');$stamp=hash('sha256',$q->fetchColumn());$pdo->prepare('INSERT INTO password_resets(role,user_id,token_hash,password_stamp,expires_at) VALUES(?,?,?,?,DATE_ADD(NOW(),INTERVAL ${expired?'-1':'30'} MINUTE))')->execute(['${role}',${Number(id)},'${hash}',$stamp]);`);return token;}
+function resetToken(role,id,expired=false){const token=crypto.randomBytes(32).toString('hex'),hash=crypto.createHash('sha256').update(token).digest('hex');const table=role==='student'?'students':'admins';sql(`$q=$pdo->query('SELECT password FROM ${table} WHERE id=${Number(id)}');$stamp=hash('sha256',$q->fetchColumn());$pdo->prepare('INSERT INTO password_resets(role,user_id,token_hash,password_stamp,expires_at) VALUES(?,?,?,?,?)')->execute(['${role}',${Number(id)},'${hash}',$stamp,date('Y-m-d H:i:s',time()+${expired?'-60':'1800'})]);`);return token;}
 (async()=>{
  const admin=client(),student=client(),teacher=client(),guest=client();
  const password=fs.readFileSync('database/local-admin.txt','utf8').match(/Password: (.+)/)[1].trim();
